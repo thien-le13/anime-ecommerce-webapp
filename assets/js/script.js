@@ -11,10 +11,3 @@ fetch('https://amazon24.p.rapidapi.com/api/product?categoryID=aps&keyword=Fullme
 	.then(response => console.log(response))
 	.catch(err => console.error(err));
 
-
-  module.exports = {
-  darkMode: 'class',
-  // ...
-}
-
-
