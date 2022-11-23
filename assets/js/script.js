@@ -1,20 +1,10 @@
-const options = {
-	method: 'GET',
-	headers: {
-		'X-RapidAPI-Key': '1b9acf44bamshbe2aae19de3526fp183346jsndc43cfaa106c',
-		'X-RapidAPI-Host': 'amazon24.p.rapidapi.com'
-	}
-};
+url = "https://api.jikan.moe/v4/anime/1/full"
+test = "https://api.jikan.moe/v4/anime?q=cowboy bebop&sfw"
+genre = "https://api.jikan.moe/v4/genres/anime"
 
-fetch('https://amazon24.p.rapidapi.com/api/product?categoryID=aps&keyword=Fullmetal%20Alchemist%20brother&country=US&page=1', options)
-	.then(response => response.json())
-	.then(response => console.log(response))
-	.catch(err => console.error(err));
-
-
-  module.exports = {
-  darkMode: 'class',
-  // ...
-}
-
-
+fetch(genre).then(function(response){
+    return response.json();
+}).then(function(data){
+    //data
+    console.log(data);
+});
