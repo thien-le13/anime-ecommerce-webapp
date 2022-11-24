@@ -66,16 +66,25 @@ function StoreSearchData(data){    // Note: Parameter data should be an array th
         }
         searchResults.push(anime);
     }
+    // TestImageLink(searchResults[0].image, searchResults[0].synopsis);
     console.log(searchResults);
 }
 
-function TestImageLink(url)
+// DEBUG: Function
+function TestImageLink(url, _text)  
 {
     var image = document.createElement('img');
     image.setAttribute('src', url);
     image.setAttribute('alt', 'Test Anime Image');
+    document.querySelector('main').appendChild(image);
+
+    var text = document.createElement('p');
+    text.textContent = _text;
+    document.querySelector('main').appendChild(text);
 }
 
 // BELOW: Functions that must be run on page load
 
 GetGenres();
+// console.log(GetAnimeMerch('naruto'));
+
