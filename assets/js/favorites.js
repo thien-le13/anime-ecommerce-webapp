@@ -1,4 +1,4 @@
-let child = document.getElementById("child");
+// let child = document.getElementById("child");
 
 
 // Search Page
@@ -88,6 +88,6 @@ function getLocalStorage() {
 //   </button>
 
 
-child.addEventListener('click',function(){
-  child.remove();
-})
+// child.addEventListener('click',function(){
+//   child.remove();
+// })
