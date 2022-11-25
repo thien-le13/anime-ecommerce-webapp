@@ -35,6 +35,9 @@
 // .
 // ]
 
+
+
+
 // Initialize
 
 function getLocalStorage() {
@@ -81,7 +84,7 @@ favoritedResults.appendChild(animeCard);
     //   </div>
     // </div>
     
-}
+
 
 
 // Create div for Title, create variable, inner text, classlist.add , appendChild 
@@ -108,26 +111,43 @@ target.innerText = [string value]
 
 var clearBtn = document.createElement("button");
 
-
-
 var closeImage = document.createElement("img");
 
 clearBtn.classList.add("anime-remove");
 
-closeImage.setAttribute('src', './x-icon');
+
+closeImage.setAttribute('src', './img/clear-favorite-icon.svg');
 closeImage.setAttribute('alt', 'Clear favorite anime X button');
 
 animeCard.appendChild(clearBtn);
 clearBtn.appendChild(closeImage);
 
+}
 
-// <button class="anime-remove">
+// // Create an object for anime
+var favoritedAnime = {
+  animeTitle: ,
+  animeImg: ,
+};
 
-  <img src="./x-icon" alt="Clear favorite anime X button" />
-  </button>
+// Store the object in localStorage as a string by using JSON.stringify
+localStorage.setItem('favoritedAnime', JSON.stringify(fruits));
+and then when you want to retrieve them, you can do this:
+
+// Retrieve the string and turn it back into an object by using JSON.parse
+var savedFruits = JSON.parse(localStorage.getItem('fruits'));
+
+// Loop through the object and print the count for each fruit
+for (var key in savedFruits) {
+  alert('Fruit: ' + key + '\nCount: ' + savedFruits[key]);
+}
 
 
 
+// let child = document.getElementById("child")
+// child.addEventListener('click', function(){
+//   child.remove();
+// });
 
 // Javascript steps
 
