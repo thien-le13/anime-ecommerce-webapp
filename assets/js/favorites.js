@@ -36,11 +36,13 @@
 // ]
 
 // Initialize
+
 function getLocalStorage() {
 
   // identify favorited-results
+
   var favoriteResults = document.getElementById("favorited-results");
-}
+
 
 // loop through local storage
 
@@ -50,38 +52,134 @@ function getLocalStorage() {
 
 // create anime card div
 
+var animeCard = document.createElement("div");
+
 // add class name to anime card div
+// element.classList.add("class name");
+
+animeCard.classList.add("anime-card");
 
 // create var for animeImage, create element, set attribute for href, append.
 
+favoritedResults.appendChild(animeCard);
 
-// Create img
-  var newImage = document.createElement('img');
+
+
+
+//  Anime image
+  var animeImage = document.createElement('a');
   // <img src="" alt=""/>
   // <img src="www.anime1.com/image1" alt="X anime name title"/>
+    animeImage.href = "# www.placeholder-anime1.com";
+    animeImage.classList.add('anime-image');
+    animeCard.appendChild(anime-image);
+
+
+    // <div id="favorited-results">
+    //   <div class="anime-card">
+    //     <a class="anime-image" href="www.placeholder-anime1.com"></a>
+    //   </div>
+    // </div>
+    
+}
 
 
 // Create div for Title, create variable, inner text, classlist.add , appendChild 
 
+var title = document.createElement('div');
 
+target.innerText = [string value]
 
+  title.innerText = 'blah blah blah'
+
+  title.classList.add('anime-title');
+  
+  animeCard.appendChild(title);
+
+  //  // <div id="favorited-results">
+  //   //   <div class="anime-card">
+  //   //     <a class="anime-image" href="www.placeholder-anime1.com"></a>
+  //           <div class="anime-title">blah blah</div>
+  //   //   </div>
+  //   // </div>
+    
 
 // // Clear button
 
-// var clearBtn = document.createElement("button");
-// var closeImage = document.createElement("img");
-
-// clearBtn.classList.add("anime-remove");
-
-// closeImage.setAttribute('src', './x-icon');
-// closeImage.setAttribute('alt', 'Clear favorite anime X button');
-
-// animeCard.appendChild(clearBtn);
-// clearBtn.appendChild(closeImage);
+var clearBtn = document.createElement("button");
 
 
-// // <button class="anime-remove">
-//   <img src="./x-icon" alt="Clear favorite anime X button" />
-//   </button>
+
+var closeImage = document.createElement("img");
+
+clearBtn.classList.add("anime-remove");
+
+closeImage.setAttribute('src', './x-icon');
+closeImage.setAttribute('alt', 'Clear favorite anime X button');
+
+animeCard.appendChild(clearBtn);
+clearBtn.appendChild(closeImage);
 
 
+// <button class="anime-remove">
+
+  <img src="./x-icon" alt="Clear favorite anime X button" />
+  </button>
+
+
+
+
+// Javascript steps
+
+// 1. Create variable 
+
+// var image = document.createElement('img');
+
+// <img> </img>
+
+
+// 2. Does this element have any attributes we need to consider?
+
+// src, alt Text
+
+// image.setAttribute("src", [image path]);
+// image.setAttribute('alt', [alt text]);
+
+// <img src=[image path] alt= [alt text];
+
+
+// 3. Does this element, does it need a class?
+
+// image.classList.add("example-image");
+
+// <img class= "example-image" src=[image path] alt=[alt text]/>
+
+
+// 4. Does this element need text inside?
+//     Image does not require text inside
+
+//   Something that does: paragraph <p>
+
+//   var paragraph = document.createElement("p");
+
+//   paragraph.innerText = "Hello, world!";
+
+
+// 5. wHERE DO WE WANT TO APPEND THIS NEW ELEMENT TO?
+//   - find the parent container and appendChild to your newly created element
+
+
+//   var animeSection = document.getElementById('animesection');
+//   parent container = animeSection
+//   new element = image
+
+
+//   parent.appendChild(new element);
+
+//   animeSection.appendChild(image);
+
+//   6. Expected Result
+
+//   <section id="animesection">
+//     <img "example-image" src=[image path] alt=[alt text]/>
+//     </section>
