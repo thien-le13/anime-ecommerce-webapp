@@ -1,3 +1,6 @@
+let child = document.getElementById("child");
+
+
 // Search Page
 // search => Title
 // returns => Anime obj
@@ -85,3 +88,6 @@ function getLocalStorage() {
 //   </button>
 
 
+child.addEventListener('click',function(){
+  child.remove();
+})
