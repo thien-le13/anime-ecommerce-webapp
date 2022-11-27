@@ -23,3 +23,5 @@ searchButton.addEventListener("click", function (event) {
   var anime = handleTitleSearch();
   getAnime(anime);
 });
+
+
