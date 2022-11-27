@@ -86,5 +86,8 @@ function TestImageLink(url, _text)
 // BELOW: Functions that must be run on page load
 
 GetGenres();
-// console.log(GetAnimeMerch('naruto'));
+
+GetAnimeMerch('naruto').then(function(result){
+    console.log(result);
+});
 

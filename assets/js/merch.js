@@ -10,15 +10,14 @@ var amazURL = 'https://amazon24.p.rapidapi.com/api/product?categoryID=aps&keywor
 
 const merchLength = 5;
 
-function GetAnimeMerch(animeTitle)
+function GetAnimeMerch(animeTitle)  // This function returns a promise, use .this to accept the promised array of merch
 {
     var itemLength = merchLength;
     var merchList = [];
 
-    fetch(amazURL.replace('ANIME', animeTitle), options)
+    return fetch(amazURL.replace('ANIME', animeTitle), options)
 	.then(response => response.json())
 	.then(function(data){
-        // console.log(data);
 
         for (var i = 0; i < itemLength; i++)
         {
@@ -35,12 +34,10 @@ function GetAnimeMerch(animeTitle)
                 price: data.docs[i].app_sale_price,
                 prodURL: data.docs[i].product_detail_url
             };
-            console.log(item);
             merchList.push(item);
-            console.log(merchList);
         }
+        return merchList;
     })
 	.catch(err => console.error(err));
 
-    return merchList;
 }
