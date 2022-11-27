@@ -9,7 +9,7 @@ function getAnime(animeCriteria) {
       return response.json();
     })
     .then(function (data) {
-      console.log(data);
+      getSearchData(data.data);
     });
 }
 
@@ -24,4 +24,17 @@ searchButton.addEventListener("click", function (event) {
   getAnime(anime);
 });
 
+function getSearchData(data) {
+  var searchResults = [];
 
+  for (var i = 0; i < animeReturnCount; i++) {
+    var anime = {
+      title: data[i].title,
+      image: data[i].images.jpg.image_url,
+      synopsis: data[i].synopsis,
+    };
+    searchResults.push(anime);
+  }
+  console.log(searchResults);
+  return searchResults;
+}
