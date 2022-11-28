@@ -2,7 +2,7 @@ var searchInputText = document.querySelector("#anime-title");
 var searchButton = document.querySelector("#search-title-btn");
 
 function getAnime(animeCriteria) {
-  var animeTitleAPI = "https://api.jikan.moe/v4/top/anime?filter=airing";
+  var animeTitleAPI = "https://api.jikan.moe/v4/anime?q=TITLE&sfw";
   var animeTitle = animeCriteria;
   fetch(animeTitleAPI.replace("TITLE", animeTitle))
     .then(function (response) {
