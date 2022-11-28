@@ -3,11 +3,13 @@ var test = "https://api.jikan.moe/v4/anime?q=TITLE&sfw"  // gives anime by title
 var genreURL = "https://api.jikan.moe/v4/genres/anime" // gives genre list
 var genreAnimeURL = "https://api.jikan.moe/v4/anime?genres="  // correct link
 
+// "https://api.jikan.moe/v4/anime?q=TITLE&sfw";
+
 const animeReturnCount = 5;
 
 var genreDB = [];
 
-var genreDropDown = document.querySelector('#anime-genre');
+var genreDropDown = document.querySelector('#anime-genre');  // change to search-genre when you pull
 var genreSearch = document.querySelector('#search-genre-btn');
 
 genreSearch.addEventListener('click', function(event){
@@ -17,12 +19,14 @@ genreSearch.addEventListener('click', function(event){
         return;
     }
 
+    console.log(genreAnimeURL + genreDropDown.options[genreDropDown.selectedIndex].getAttribute("value"));
     fetch(genreAnimeURL + genreDropDown.options[genreDropDown.selectedIndex].getAttribute("value")) // fetch based on genreURL and id of genre
     .then(function(response){
+        console.log(response.status);
         return response.json();
     }).then(function(data){
         console.log(data);
-        StoreSearchData(data.data);
+        // StoreSearchData(data.data);
         
     })
     
@@ -36,7 +40,7 @@ function GetGenres()  // Fetches array of genre data
         return response.json();
     }).then(function(data){
         genreDB = data;
-        
+        console.log(data);
         GenerateGenreDropdown();
     });
 }
@@ -56,6 +60,7 @@ function GenerateGenreDropdown()  // Generate genre drop down options
 // store search results in an array to be accessed later, 
 function StoreSearchData(data){    // Note: Parameter data should be an array that stores objects with info on individual anime
     var searchResults = [];         
+    console.log(data);
 
     for (var i = 0; i < animeReturnCount; i++)
     {
@@ -66,8 +71,8 @@ function StoreSearchData(data){    // Note: Parameter data should be an array th
         }
         searchResults.push(anime);
     }
-    // TestImageLink(searchResults[0].image, searchResults[0].synopsis);
     console.log(searchResults);
+    // return searchResults;
 }
 
 // DEBUG: Function
@@ -83,11 +88,25 @@ function TestImageLink(url, _text)
     document.querySelector('main').appendChild(text);
 }
 
+
 // BELOW: Functions that must be run on page load
 
-GetGenres();
+// GetGenres();
 
-GetAnimeMerch('naruto').then(function(result){
-    console.log(result);
-});
+// GetAnimeMerch('naruto').then(function(result){
+//     console.log(result);
+// });
+// var link = "https://api.jikan.moe/v4/anime?producers=1"
+// TestLink(link);
+
+// function TestLink(link)
+// {
+//     fetch(link).then(function(response){
+//         console.log(response);
+//         return response.json();
+//     }).then(function(data){
+//         console.log(data);
+//         console.log(data.report_url);
+//     });
+// }
 
