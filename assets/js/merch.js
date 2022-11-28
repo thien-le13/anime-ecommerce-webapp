@@ -6,7 +6,8 @@ const options = {
 	}
 };
 
-var amazURL = 'https://amazon24.p.rapidapi.com/api/product?categoryID=aps&keyword=ANIME&country=US&page=1'
+var amazURL =
+  "https://amazon24.p.rapidapi.com/api/product?categoryID=aps&keyword=ANIME&country=US&page=1";
 
 const merchLength = 5;
 
@@ -19,13 +20,12 @@ function GetAnimeMerch(animeTitle)  // This function returns a promise, use .thi
 	.then(response => response.json())
 	.then(function(data){
 
-        for (var i = 0; i < itemLength; i++)
-        {
-            if (!(data.docs[i].app_sale_price != null)) // should skip if price is null
-            {
-                itemLength++;
-                continue;
-            }
+      for (var i = 0; i < itemLength; i++) {
+        if (!(data.docs[i].app_sale_price != null)) {
+          // should skip if price is null
+          itemLength++;
+          continue;
+        }
 
 
             var item = {
@@ -38,6 +38,6 @@ function GetAnimeMerch(animeTitle)  // This function returns a promise, use .thi
         }
         return merchList;
     })
-	.catch(err => console.error(err));
+    .catch((err) => console.error(err));
 
 }

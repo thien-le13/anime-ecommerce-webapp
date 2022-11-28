@@ -1,7 +1,7 @@
-var url = "https://api.jikan.moe/v4/anime/1" // gives anime by id
-var test = "https://api.jikan.moe/v4/anime?q=TITLE&sfw"  // gives anime by title
-var genreURL = "https://api.jikan.moe/v4/genres/anime" // gives genre list
-var genreAnimeURL = "https://api.jikan.moe/v4/anime?genres="  // correct link
+var url = "https://api.jikan.moe/v4/anime/1"; // gives anime by id
+var test = "https://api.jikan.moe/v4/anime?q=TITLE&sfw";  // gives anime by title
+var genreURL = "https://api.jikan.moe/v4/genres/anime"; // gives genre list
+var genreAnimeURL = "https://api.jikan.moe/v4/anime?genres=";  // correct link
 
 
 const animeReturnCount = 5;
@@ -33,7 +33,10 @@ genreSearch.addEventListener('click', function(event){
         // StoreSearchData(data.data);
         
     })
-    
+    .then(function (data) {
+      console.log(data);
+      StoreSearchData(data.data);
+    });
 });
 
 
@@ -48,16 +51,15 @@ function GetGenres()  // Fetches array of genre data
     });
 }
 
-function GenerateGenreDropdown()  // Generate genre drop down options
-{
-    for (var i =0; i < genreDB.data.length; i++)
-    {
-        var opt = document.createElement('option');
-        opt.setAttribute('value', genreDB.data[i].mal_id);
-        opt.textContent = genreDB.data[i].name;
+function GenerateGenreDropdown() {
+  // Generate genre drop down options
+  for (var i = 0; i < genreDB.data.length; i++) {
+    var opt = document.createElement("option");
+    opt.setAttribute("value", genreDB.data[i].mal_id);
+    opt.textContent = genreDB.data[i].name;
 
-        genreDropDown.appendChild(opt);
-    }
+    genreDropDown.appendChild(opt);
+  }
 }
 
 // store search results in an array to be accessed later, 
@@ -123,9 +125,9 @@ function TestImageLink(url, _text)
     image.setAttribute('alt', 'Test Anime Image');
     document.querySelector('main').appendChild(image);
 
-    var text = document.createElement('p');
-    text.textContent = _text;
-    document.querySelector('main').appendChild(text);
+  var text = document.createElement("p");
+  text.textContent = _text;
+  document.querySelector("main").appendChild(text);
 }
 function TestLink(link)
 {
@@ -150,5 +152,4 @@ GetGenres();
 // });
 
 var link = "https://api.jikan.moe/v4/anime?producers=1"
-
 
