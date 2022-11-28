@@ -34,12 +34,11 @@ function getSearchData(data) {
   return searchResults;
 }
 
-function DisplayResults(searchResults){
+function DisplayResults(searchResults) {
   console.log("im here");
   console.log(searchResults);
   console.log(searchResults.length);
-  for (var i =0; i < searchResults.length; i++)
-  {
+  for (var i = 0; i < searchResults.length; i++) {
     var animeNode = searchContainer.cloneNode(true);
     animeNode.id = animeNode.id + "-" + i;
     var animeTitle = animeNode.querySelector("#anime-title");
@@ -50,19 +49,29 @@ function DisplayResults(searchResults){
     animeCollapse.setAttribute("aria-controls", "id" + i);
     animeCollapse.setAttribute("href", "#id" + i);
     var collapseContent = animeCollapse.nextElementSibling;
-    collapseContent.id = "id"+i;
+    collapseContent.id = "id" + i;
 
     animeTitle.innerHTML = searchResults[i].title;
     animeSynopsis.innerHTML = searchResults[i].synopsis;
     animeImg.src = searchResults[i].image;
-    
-    /////////////
-    // Add changes to amazon items
 
-    ////////////
+    var productName = animeNode.querySelector("#gift-ideas");
+    var listOfCards = productName.querySelectorAll(".product-card");
+    console.log(listOfCards);
+    for (var j = 0; j < listOfCards.length; j++) {
+      console.log(listOfCards[j]);
+      listOfCards[j]
+        .querySelector("img")
+        .setAttribute(
+          "src",
+          "https://cdn.myanimelist.net/images/anime/3/40451.jpg"
+        );
+      listOfCards[j].querySelector("h4").textContent = "poo";
+      listOfCards[j].querySelector("p").textContent = "poo";
+    }
+
     searchSection.append(animeNode);
   }
-  
 }
 
 function handleTitleSearch() {
@@ -76,11 +85,10 @@ searchButton.addEventListener("click", function (event) {
   getAnime(anime);
 });
 
-function CleanSearchResults()
-{
+function CleanSearchResults() {
   var count = searchSection.children.length;
 
-  for (var i =0 ; i < count; i++){
+  for (var i = 0; i < count; i++) {
     searchSection.removeChild(searchSection.children[0]);
   }
 }
