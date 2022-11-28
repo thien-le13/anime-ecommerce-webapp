@@ -17,11 +17,23 @@ genreSearch.addEventListener('click', function(event){
     if (genreDropDown.options[genreDropDown.selectedIndex].getAttribute("data-id") === '0')
     {
         event.target.blur();
+
         GetRandomAnime().then(function(data){
+            CleanSearchResults();
             console.log(data);
+            // DisplayResults(data);
+            return data;
+        }).then((data) => {
+            console.log("line 26:" + data.length);
+            DisplayResults(data);
         });
+
+
         return;
     }
+
+    ///////////////////
+
 
     console.log(genreAnimeURL + genreDropDown.options[genreDropDown.selectedIndex].getAttribute("value"));
     fetch(genreAnimeURL + genreDropDown.options[genreDropDown.selectedIndex].getAttribute("value")) // fetch based on genreURL and id of genre
@@ -75,6 +87,7 @@ function StoreSearchData(data){    // Note: Parameter data should be an array th
             synopsis: data[i].synopsis
         }
         searchResults.push(anime);
+        DisplayResults(i,anime);
     }
     console.log(searchResults);
     // return searchResults;
@@ -92,7 +105,7 @@ function GetRandomAnime(count = 1)
     var searchResults = [];
 
     for (var i = 0 ; i < count; i++)
-    {
+    {   console.log(i);
         fetch(ranAnimeLink).then(function(response){
             return response.json();
         }).then(function(data){
@@ -105,15 +118,11 @@ function GetRandomAnime(count = 1)
             searchResults.push(anime);
         })
     }
-    return Promise.resolve(searchResults)
+
+    // console.log(Promise.resolve(searchResults));
+    return Promise.resolve(searchResults);
 }
 
-
-///////////////////////
-function PrintSearchResults()
-{
-    
-}
 
 
 
