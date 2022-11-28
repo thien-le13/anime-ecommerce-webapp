@@ -29,7 +29,20 @@
 //       }
 //     }
 //   }
+
+// If you have any JavaScript files that manipulate your HTML to add classes, make sure you include those as well:
+
+
+// module.exports = {
+//   content: [
+//     // ...
+//     './src/**/*.js',
+//   ],
+//   // ...
 // }
+
+//       content: ['./assets/js/favorites.js',],
+// // }
 
 
 // module.exports = {
