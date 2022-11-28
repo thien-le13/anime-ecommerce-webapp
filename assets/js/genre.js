@@ -17,11 +17,23 @@ genreSearch.addEventListener('click', function(event){
     if (genreDropDown.options[genreDropDown.selectedIndex].getAttribute("data-id") === '0')
     {
         event.target.blur();
-        GetRandomAnime().then(function(data){
+
+        GetRandomAnime(5).then(function(data){
+            CleanSearchResults();
             console.log(data);
+            // DisplayResults(data);
+            return data;
+        }).then((data) => {
+            console.log("line 26:" + data.length);
+            DisplayResults(data);
         });
+
+
         return;
     }
+
+    ///////////////////
+
 
     console.log(genreAnimeURL + genreDropDown.options[genreDropDown.selectedIndex].getAttribute("value"));
     fetch(genreAnimeURL + genreDropDown.options[genreDropDown.selectedIndex].getAttribute("value")) // fetch based on genreURL and id of genre
@@ -75,6 +87,7 @@ function StoreSearchData(data){    // Note: Parameter data should be an array th
             synopsis: data[i].synopsis
         }
         searchResults.push(anime);
+        DisplayResults(i,anime);
     }
     console.log(searchResults);
     // return searchResults;
@@ -87,33 +100,29 @@ var ranAnimeLink = "https://api.jikan.moe/v4/random/anime?sfw"
 
 // Fetches data from random anime and returns a promise that an array storing their data will be returned
 // Function can be called without a parameter to return one random anime
-function GetRandomAnime(count = 1) 
+async function GetRandomAnime(count = 1) 
 {
     var searchResults = [];
 
     for (var i = 0 ; i < count; i++)
-    {
-        fetch(ranAnimeLink).then(function(response){
+    {   console.log(i);
+        const resp = await fetch(ranAnimeLink).then(function(response){
             return response.json();
         }).then(function(data){
 
             var anime = {
-                title: data.data.title_english,
+                title: data.data.title_english ? data.data.title_english : data.data.title ,
                 image: data.data.images.jpg.image_url,
                 synopsis: data.data.synopsis
             };
-            searchResults.push(anime);
-        })
+            return anime;
+        });
+        searchResults.push(resp);
     }
-    return Promise.resolve(searchResults)
+
+    return Promise.resolve(searchResults);
 }
 
-
-///////////////////////
-function PrintSearchResults()
-{
-    
-}
 
 
 

@@ -19,6 +19,7 @@ function getAnime(animeCriteria) {
 // Takes retrieved information and selects specific data.
 function getSearchData(data) {
   var searchResults = [];
+  CleanSearchResults();
 
   for (var i = 0; i < animeReturnCount; i++) {
     var anime = {
@@ -27,6 +28,18 @@ function getSearchData(data) {
       synopsis: data[i].synopsis,
     };
 
+    searchResults.push(anime);
+  }
+  DisplayResults(searchResults);
+  return searchResults;
+}
+
+function DisplayResults(searchResults){
+  console.log("im here");
+  console.log(searchResults);
+  console.log(searchResults.length);
+  for (var i =0; i < searchResults.length; i++)
+  {
     var animeNode = searchContainer.cloneNode(true);
     animeNode.id = animeNode.id + "-" + i;
     var animeTitle = animeNode.querySelector("#anime-title");
@@ -37,17 +50,19 @@ function getSearchData(data) {
     animeCollapse.setAttribute("aria-controls", "id" + i);
     animeCollapse.setAttribute("href", "#id" + i);
     var collapseContent = animeCollapse.nextElementSibling;
-    collapseContent.id = "id" + i;
+    collapseContent.id = "id"+i;
 
-    animeTitle.innerHTML = anime.title;
-    animeSynopsis.innerHTML = anime.synopsis;
-    animeImg.src = anime.image;
+    animeTitle.innerHTML = searchResults[i].title;
+    animeSynopsis.innerHTML = searchResults[i].synopsis;
+    animeImg.src = searchResults[i].image;
+    
+    /////////////
+    // Add changes to amazon items
 
+    ////////////
     searchSection.append(animeNode);
-    searchResults.push(anime);
   }
-
-  return searchResults;
+  
 }
 
 function handleTitleSearch() {
@@ -60,3 +75,14 @@ searchButton.addEventListener("click", function (event) {
   var anime = handleTitleSearch();
   getAnime(anime);
 });
+
+function CleanSearchResults()
+{
+  var count = searchSection.children.length;
+
+  for (var i =0 ; i < count; i++){
+    searchSection.removeChild(searchSection.children[0]);
+  }
+}
+
+CleanSearchResults();
