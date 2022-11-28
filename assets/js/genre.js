@@ -7,7 +7,7 @@ const animeReturnCount = 5;
 
 var genreDB = [];
 
-var genreDropDown = document.querySelector("#anime-genre");
+var genreDropDown = document.querySelector("#search-genre");
 var genreSearch = document.querySelector("#search-genre-btn");
 
 genreSearch.addEventListener("click", function (event) {
