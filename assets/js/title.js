@@ -21,7 +21,7 @@ function getSearchData(data) {
   var searchResults = [];
   CleanSearchResults();
 
-  for (var i = 0; i < animeReturnCount; i++) {
+  for (var i = 0; i < animeReturnCount && i < data.length; i++) {
     var anime = {
       title: data[i].title,
       image: data[i].images.jpg.image_url,
