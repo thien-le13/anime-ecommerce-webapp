@@ -93,10 +93,11 @@ clearBtn.appendChild(closeImage);
 }
 
 // // Create an object for anime
-      // var favoritedAnime = {
-      //   animeTitle: ,
-      //   animeImg: ,
-        // };
+      var favoritedAnime = {
+        animeTitle: ,
+        animeImg: ,
+        
+        };
 
 // Store the object in localStorage as a string by using JSON.stringify
     // localStorage.setItem('favoritedAnime', JSON.stringify(fruits));
