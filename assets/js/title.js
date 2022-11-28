@@ -42,3 +42,18 @@ searchButton.addEventListener("click", function (event) {
   getAnime(anime);
 });
 
+<<<<<<< HEAD
+=======
+// Transition dropdown caret 
+var resultHeader = document.getElementById('result-header');
+resultHeader.addEventListener('click', function(){
+  let caret = resultHeader.querySelector('.fa-caret-down');
+  if (caret.classList.contains('rotate-180')) {
+    caret.classList.remove('rotate-180');
+  } else {
+    caret.classList.add('rotate-180');
+  }
+})
+
+
+>>>>>>> 7837fc625a38054d6c9045bf60479df34270e802

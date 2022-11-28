@@ -1,3 +1,6 @@
+/* FAVORITE PAGE CSS */
+/* watch out for class name duplicates, consider seperate these two files */
+
 .card-container{
     display: flex;
     justify-content: space-between;
@@ -15,4 +18,42 @@
     border:10px black solid;
 
 }
+
+/* MAIN PAGE CSS */
+
+/* Fix tailwind js not working */
+.collapse {
+    visibility: visible !important;
+}
+
+/* ANIME INFORMATION */
+
+.fa-caret-down {
+    transition: all 0.5s ease;
+    margin-left: auto;
+}
+
+.anime-title {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.anime-img {
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+/* ANIME PRODUCT */
+
+.product-container {
+    width:20%;
+    padding: 5px;
+}
+
+.product-card {
+    flex-shrink: 0;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
 
