@@ -19,23 +19,33 @@ function getAnime(animeCriteria) {
 // Takes retrieved information and selects specific data.
 function getSearchData(data) {
   var searchResults = [];
+
   for (var i = 0; i < animeReturnCount; i++) {
     var anime = {
       title: data[i].title,
       image: data[i].images.jpg.image_url,
       synopsis: data[i].synopsis,
     };
+
     var animeNode = searchContainer.cloneNode(true);
     animeNode.id = animeNode.id + "-" + i;
     var animeTitle = animeNode.querySelector("#anime-title");
     var animeSynopsis = animeNode.querySelector("#anime-synopsis");
     var animeImg = animeNode.querySelector("#sauce");
+
+    var animeCollapse = animeNode.querySelector("#result-header");
+    animeCollapse.setAttribute("aria-controls", "id"+i);
+    animeCollapse.setAttribute("href","#id" + i);
+    var collapseContent = animeCollapse.nextElementSibling;
+    collapseContent.id = "id"+i;
+
     animeTitle.innerHTML = anime.title;
     animeSynopsis.innerHTML = anime.synopsis;
     animeImg.src = anime.image;
     searchSection.append(animeNode);
     searchResults.push(anime);
   }
+
   console.log(searchResults);
   return searchResults;
 }
