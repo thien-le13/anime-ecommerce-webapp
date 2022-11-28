@@ -55,6 +55,11 @@ function DisplayResults(searchResults){
     animeTitle.innerHTML = searchResults[i].title;
     animeSynopsis.innerHTML = searchResults[i].synopsis;
     animeImg.src = searchResults[i].image;
+    
+    /////////////
+    // Add changes to amazon items
+
+    ////////////
     searchSection.append(animeNode);
   }
   

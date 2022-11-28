@@ -18,7 +18,7 @@ genreSearch.addEventListener('click', function(event){
     {
         event.target.blur();
 
-        GetRandomAnime().then(function(data){
+        GetRandomAnime(5).then(function(data){
             CleanSearchResults();
             console.log(data);
             // DisplayResults(data);
@@ -100,26 +100,26 @@ var ranAnimeLink = "https://api.jikan.moe/v4/random/anime?sfw"
 
 // Fetches data from random anime and returns a promise that an array storing their data will be returned
 // Function can be called without a parameter to return one random anime
-function GetRandomAnime(count = 1) 
+async function GetRandomAnime(count = 1) 
 {
     var searchResults = [];
 
     for (var i = 0 ; i < count; i++)
     {   console.log(i);
-        fetch(ranAnimeLink).then(function(response){
+        const resp = await fetch(ranAnimeLink).then(function(response){
             return response.json();
         }).then(function(data){
 
             var anime = {
-                title: data.data.title_english,
+                title: data.data.title_english ? data.data.title_english : data.data.title ,
                 image: data.data.images.jpg.image_url,
                 synopsis: data.data.synopsis
             };
-            searchResults.push(anime);
-        })
+            return anime;
+        });
+        searchResults.push(resp);
     }
 
-    // console.log(Promise.resolve(searchResults));
     return Promise.resolve(searchResults);
 }
 
