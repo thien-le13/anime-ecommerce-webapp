@@ -34,24 +34,23 @@ function getSearchData(data) {
     var animeImg = animeNode.querySelector("#sauce");
 
     var animeCollapse = animeNode.querySelector("#result-header");
-    animeCollapse.setAttribute("aria-controls", "id"+i);
-    animeCollapse.setAttribute("href","#id" + i);
+    animeCollapse.setAttribute("aria-controls", "id" + i);
+    animeCollapse.setAttribute("href", "#id" + i);
     var collapseContent = animeCollapse.nextElementSibling;
-    collapseContent.id = "id"+i;
+    collapseContent.id = "id" + i;
 
     animeTitle.innerHTML = anime.title;
     animeSynopsis.innerHTML = anime.synopsis;
     animeImg.src = anime.image;
+
     searchSection.append(animeNode);
     searchResults.push(anime);
   }
 
-  console.log(searchResults);
   return searchResults;
 }
 
 function handleTitleSearch() {
-  console.log(searchInputText.value);
   var searchValue = searchInputText.value;
   return searchValue;
 }
