@@ -113,15 +113,15 @@
           </li>
           <li class="nav-item text-center" role="presentation">
             <a
-              href="#tabs-searchGenre"
+              href="#tabs-randomizer"
               class="nav-link w-full block font-medium text-xs leading-tight uppercase border-x-0 border-t-0 border-b-2 border-transparent px-6 py-3 my-2 hover:border-transparent hover:bg-gray-100 focus:border-transparent"
-              id="tabs-searchGenreTab"
+              id="tabs-randomizerTab"
               data-bs-toggle="pill"
-              data-bs-target="#tabs-searchGenre"
+              data-bs-target="#tabs-randomizer"
               role="tab"
-              aria-controls="tabs-searchGenre"
+              aria-controls="tabs-randomizer"
               aria-selected="false"
-              >Search by Genre</a
+              >Search Random</a
             >
           </li>
         </ul>
@@ -154,11 +154,15 @@
           </div>
           <div
             class="tab-pane fade"
-            id="tabs-searchGenre"
+            id="tabs-randomizer"
             role="tabpanel"
-            aria-labelledby="tabs-searchGenreTab"
+            aria-labelledby="tabs-randomizerTab"
           >
             <div class="flex justify-center">
+              <!-- Search Genre not working -->
+              <!-- <select
+                id="search-genre"
+                name="search-genre"
               <select
                 id="anime-genre"
                 name="anime-genre"
@@ -166,20 +170,71 @@
                 class="anime-genre form-select appearance-none w-1/3 rounded-lg border border-gray-300 bg-white py-2 px-3 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm bg-no-repeat"
               >
                 <!-- PLACEHOLDERS, NEED JS CODE TO PLUG IN OPTIONS -->
-                <option selected>Choose a genre</option>
+                <!-- <option selected>Choose a genre</option>
                 <option value="genre1">genre 1</option>
                 <option value="genre2">genre 2</option>
                 <option value="genre3">genre 3</option>
-              </select>
+              </select> --> 
               <button
-                id="search-genre-btn"
+                id="radomize-button"
                 type="button"
                 data-mdb-ripple="true"
                 data-mdb-ripple-color="light"
                 class="search-genre-btn px-6 py-2 ml-2 bg-blue-600 text-white font-medium uppercase rounded-lg shadow-md active:shadow-lg"
               >
-                Search
+                Get Random Animes
               </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="search-results" class="search-results my-6">
+        <div id="result-container" class="flex justify-center" >
+          <div class="block p-6 w-3/4 rounded-lg shadow-lg bg-white">
+            <a class="flex bg-white rounded" 
+              id="result-header"
+              data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+              <h3 id="anime-title" class="anime-title">Anime Title</h3>
+              <i class="fa-solid fa-caret-down"></i>
+              
+            </a>
+            <div class="collapse collapse-content mt-5" id="collapseExample"> 
+              <div class="flex anime-info">
+                <div class="w-1/5 flex-shrink-0 anime-img" id="anime-img">
+                  <img src="assets/img/spyfamily-placeholder.jpg" alt="" />
+                </div>
+                <div class="anime-synopsis px-3" id="anime-synopsis">
+                  <p>Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger.
+                    Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger.
+                    Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger.
+                    Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger.
+                  </p>
+                </div>
+              </div>
+              <div class="product-display flex justify-center py-5"> 
+                <div class="product-container">
+                  <div class="product-card">
+                    <img class="aspect-square object-cover" src="assets/img/spyfamily-placeholder.jpg"/>
+                    <h4>product name</h4>
+                    <p>$99.99</p>
+                  </div>
+                </div>
+                <div class="product-container">
+                  <div class="product-card">
+                    <img class="aspect-square object-cover" src="assets/img/spyfamily-placeholder.jpg"/>
+                    <h4>product name</h4>
+                    <p>$99.99</p>
+                  </div>
+                </div>
+                <div class="product-container">
+                  <div class="product-card">
+                    <img class="aspect-square object-cover" src="assets/img/spyfamily-placeholder.jpg"/>
+                    <h4>product name</h4>
+                    <p>$99.99</p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>

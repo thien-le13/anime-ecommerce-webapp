@@ -22,6 +22,10 @@
 
 /* MAIN PAGE CSS */
 
+.result-section {
+    margin: 1em .5em;
+}
+
 /* Fix tailwind js not working */
 .collapse {
     visibility: visible !important;
