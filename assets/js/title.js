@@ -40,7 +40,7 @@ function DisplayResults(searchResults) {
     animeNode.id = animeNode.id + "-" + i;
     var animeTitle = animeNode.querySelector("#anime-title");
     var animeSynopsis = animeNode.querySelector("#anime-synopsis");
-    var animeImg = animeNode.querySelector("#sauce");
+    var animeImg = animeNode.querySelector("#anime-img");
 
     var animeCollapse = animeNode.querySelector("#result-header");
     animeCollapse.setAttribute("aria-controls", "id" + i);
@@ -49,11 +49,11 @@ function DisplayResults(searchResults) {
     collapseContent.id = "id" + i;
 
     animeTitle.innerHTML = searchResults[i].title;
-    animeSynopsis.innerHTML = searchResults[i].synopsis;
-    animeImg.src = searchResults[i].image;
+    animeSynopsis.firstElementChild.innerHTML = searchResults[i].synopsis;
+    animeImg.firstElementChild.src = searchResults[i].image;
 
-    var merchList = GetAnimeMerch(searchResults[i].title);
-    console.log(merchList);
+    // var merchList = GetAnimeMerch(searchResults[i].title);
+    // console.log(merchList);
 
     var productName = animeNode.querySelector("#gift-ideas");
     var listOfCards = productName.querySelectorAll(".product-card");
@@ -84,35 +84,43 @@ searchButton.addEventListener("click", function (event) {
 });
 
 // Toggle favorite button
-var favoriteBtn = document.getElementById('favorite-button');
+var favoriteBtn = document.getElementById("favorite-button");
 
 function toggleFavoriteAnime() {
-  let favoriteIcon = document.querySelector('.fa-solid.fa-star');
-  let notFavoriteIcon = document.querySelector('.fa-regular.fa-star');
+  let favoriteIcon = document.querySelector(".fa-solid.fa-star");
+  let notFavoriteIcon = document.querySelector(".fa-regular.fa-star");
 
-  if (favoriteIcon.classList.contains('collapse')) {
-    // is favorited 
-    favoriteIcon.classList.remove('collapse');
-    notFavoriteIcon.classList.add('collapse');
-    favoriteBtn.getElementsByTagName('p')[0].innerHTML = 'Favorited';
+  if (favoriteIcon.classList.contains("collapse")) {
+    // is favorited
+    favoriteIcon.classList.remove("collapse");
+    notFavoriteIcon.classList.add("collapse");
+    favoriteBtn.getElementsByTagName("p")[0].innerHTML = "Favorited";
   } else {
     // unfavorite
-    favoriteIcon.classList.add('collapse');
-    notFavoriteIcon.classList.remove('collapse');
-    favoriteBtn.getElementsByTagName('p')[0].innerHTML = 'Favorite';
+    favoriteIcon.classList.add("collapse");
+    notFavoriteIcon.classList.remove("collapse");
+    favoriteBtn.getElementsByTagName("p")[0].innerHTML = "Favorite";
   }
 }
 
-favoriteBtn.addEventListener('click', toggleFavoriteAnime);
+favoriteBtn.addEventListener("click", toggleFavoriteAnime);
 
-// Transition dropdown caret 
-var resultHeader = document.getElementById('result-header');
-resultHeader.addEventListener('click', function(){
-  let caret = resultHeader.querySelector('.fa-caret-down');
-  if (caret.classList.contains('rotate-180')) {
-    caret.classList.remove('rotate-180');
+// Transition dropdown caret
+var resultHeader = document.getElementById("result-header");
+resultHeader.addEventListener("click", function () {
+  let caret = resultHeader.querySelector(".fa-caret-down");
+  if (caret.classList.contains("rotate-180")) {
+    caret.classList.remove("rotate-180");
   } else {
-    caret.classList.add('rotate-180');
+    caret.classList.add("rotate-180");
+  }
+});
+
+function CleanSearchResults() {
+  var count = searchSection.children.length;
+
+  for (var i = 0; i < count; i++) {
+    searchSection.removeChild(searchSection.children[0]);
   }
 }
 

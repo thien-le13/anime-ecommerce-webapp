@@ -7,56 +7,56 @@ const animeReturnCount = 5;
 
 var genreDB = [];
 
-var genreDropDown = document.querySelector("#search-genre"); // change to search-genre when you pull
-var genreSearch = document.querySelector("#search-genre-btn");
+// var genreDropDown = document.querySelector("#search-genre"); // change to search-genre when you pull
+// var genreSearch = document.querySelector("#search-genre-btn");
 var searchResults = document.querySelector("#search-results");
 
-genreSearch.addEventListener("click", function (event) {
-  if (
-    genreDropDown.options[genreDropDown.selectedIndex].getAttribute(
-      "data-id"
-    ) === "0"
-  ) {
-    event.target.blur();
+// genreSearch.addEventListener("click", function (event) {
+//   if (
+//     genreDropDown.options[genreDropDown.selectedIndex].getAttribute(
+//       "data-id"
+//     ) === "0"
+//   ) {
+//     event.target.blur();
 
-    GetRandomAnime(5)
-      .then(function (data) {
-        CleanSearchResults();
-        console.log(data);
-        // DisplayResults(data);
-        return data;
-      })
-      .then((data) => {
-        console.log("line 26:" + data.length);
-        DisplayResults(data);
-      });
+//     GetRandomAnime(5)
+//       .then(function (data) {
+//         CleanSearchResults();
+//         console.log(data);
+//         // DisplayResults(data);
+//         return data;
+//       })
+//       .then((data) => {
+//         console.log("line 26:" + data.length);
+//         DisplayResults(data);
+//       });
 
-    return;
-  }
+//     return;
+//   }
 
-  ///////////////////
+//   ///////////////////
 
-  console.log(
-    genreAnimeURL +
-      genreDropDown.options[genreDropDown.selectedIndex].getAttribute("value")
-  );
-  fetch(
-    genreAnimeURL +
-      genreDropDown.options[genreDropDown.selectedIndex].getAttribute("value")
-  ) // fetch based on genreURL and id of genre
-    .then(function (response) {
-      console.log(response.status);
-      return response.json();
-    })
-    .then(function (data) {
-      console.log(data);
-      // StoreSearchData(data.data);
-    })
-    .then(function (data) {
-      console.log(data);
-      StoreSearchData(data.data);
-    });
-});
+//   console.log(
+//     genreAnimeURL +
+//       genreDropDown.options[genreDropDown.selectedIndex].getAttribute("value")
+//   );
+//   fetch(
+//     genreAnimeURL +
+//       genreDropDown.options[genreDropDown.selectedIndex].getAttribute("value")
+//   ) // fetch based on genreURL and id of genre
+//     .then(function (response) {
+//       console.log(response.status);
+//       return response.json();
+//     })
+//     .then(function (data) {
+//       console.log(data);
+//       // StoreSearchData(data.data);
+//     })
+//     .then(function (data) {
+//       console.log(data);
+//       StoreSearchData(data.data);
+//     });
+// });
 
 function GetGenres() {
   // Fetches array of genre data
@@ -157,7 +157,7 @@ function TestLink(link) {
 
 // BELOW: Functions that must be run on page load
 
-GetGenres();
+// GetGenres();
 
 // GetAnimeMerch('naruto').then(function(result){
 //     console.log(result);
