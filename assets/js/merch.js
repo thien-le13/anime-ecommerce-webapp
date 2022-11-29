@@ -17,7 +17,7 @@ async function getAnimeMerch(animeTitle)  // This function returns a promise, us
     var itemLength = merchLength;
     var merchList = [];
 
-    var encodedTitle = encodeURIComponent(animeTitle);
+    var encodedTitle = encodeURIComponent(animeTitle + " anime");
 
   const merch = await fetch(amazURL.replace('ANIME', encodedTitle), options)
 	.then(response => response.json())
@@ -47,8 +47,30 @@ async function getAnimeMerch(animeTitle)  // This function returns a promise, us
 
     return Promise.resolve(merch);
 
-});
+}
 
-// GetAnimeMerch("Bleach Movie: Memories of Nobody").then(response => response).then(function(data){
-//   console.log(data);
-// })
+var searchResults = [];
+
+function ReceiveSearchResults(results){
+  searchResults = results;
+}
+
+function LoadExpandedMerch(id){
+  id.setAttribute('onclick','CloseExpandedMerch(this)')
+
+  var productName = id.nextElementSibling.querySelector("#gift-ideas");
+  var listOfCards = productName.querySelectorAll(".product-card");
+
+
+  GetAnimeMerch(id.querySelector('h3').textContent).then(response => response).then(function(data){
+    for (var j = 0; j < listOfCards.length; j++) {
+      listOfCards[j].querySelector("img").setAttribute("src", data[j].image);
+      listOfCards[j].querySelector("a").setAttribute("href",data[j].prodURL);
+      listOfCards[j].querySelector("h4").textContent = data[j].name;
+      listOfCards[j].querySelector("p").textContent = "$"+data[j].price;
+    }
+  });
+}
+function CloseExpandedMerch(){
+  return;
+}

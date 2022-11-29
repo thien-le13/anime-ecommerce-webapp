@@ -35,8 +35,10 @@ function getSearchData(data) {
   return searchResults;
 }
 
-function DisplayResults(searchResults) {
-  for (var i = 0; i < searchResults.length; i++) {
+function DisplayResults(searchResults){
+  ReceiveSearchResults(searchResults);
+  for (var i =0; i < searchResults.length; i++)
+  {
     var animeNode = searchContainer.cloneNode(true);
     animeNode.id = animeNode.id + "-" + i;
     var animeTitle = animeNode.querySelector("#anime-title");
@@ -57,23 +59,17 @@ function DisplayResults(searchResults) {
     // Add changes to amazon items
     // var productName = animeNode.querySelector("#gift-ideas");
     // var listOfCards = productName.querySelectorAll(".product-card");
-
-    // getAnimeMerch(searchResults[i].title)
-    //   .then((response) => response)
-    //   .then(function (data) {
-    //     for (var j = 0; j < listOfCards.length; j++) {
-    //       listOfCards[j]
-    //         .querySelector("img")
-    //         .setAttribute("src", data[j].image);
-    //       listOfCards[j].querySelector("h4").textContent = data[j].name;
-    //       listOfCards[j].querySelector("p").textContent = data[j].price;
-    //     }
-    //   });
+    // for (var j = 0; j < listOfCards.length; j++) {
+    //   listOfCards[j].querySelector("img").setAttribute("src", data[j].image);
+    //   listOfCards[j].querySelector("h4").textContent = data[j].name;
+    //   listOfCards[j].querySelector("p").textContent = data[j].price;
+    // }
 
     ////////////
     searchSection.append(animeNode);
   }
 }
+
 
 function handleTitleSearch() {
   var searchValue = searchInputText.value;
