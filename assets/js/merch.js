@@ -16,7 +16,9 @@ function GetAnimeMerch(animeTitle) {
   var itemLength = merchLength;
   var merchList = [];
 
-  fetch(amazURL.replace("ANIME", animeTitle), options)
+  var encodedTitle = encodeURIComponent(animeTitle);
+
+  fetch(amazURL.replace("ANIME", encodedTitle), options)
     .then((response) => response.json())
     .then(function (data) {
       for (var i = 0; i < itemLength; i++) {
