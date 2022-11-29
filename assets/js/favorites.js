@@ -124,11 +124,34 @@ clearBtn.appendChild(closeImage);
 
 }
 
+// Toggle favorite button
+var favoriteBtn = document.getElementById('favorite-button');
+
+function toggleFavoriteAnime() {
+  let favoriteIcon = document.querySelector('.fa-solid.fa-star');
+  let notFavoriteIcon = document.querySelector('.fa-regular.fa-star');
+
+  if (favoriteIcon.classList.contains('collapse')) {
+    // is favorited 
+    favoriteIcon.classList.remove('collapse');
+    notFavoriteIcon.classList.add('collapse');
+    favoriteBtn.getElementsByTagName('p')[0].innerHTML = 'Favorited';
+  } else {
+    // unfavorite
+    favoriteIcon.classList.add('collapse');
+    notFavoriteIcon.classList.remove('collapse');
+    favoriteBtn.getElementsByTagName('p')[0].innerHTML = 'Favorite';
+  }
+}
+
+favoriteBtn.addEventListener('click', toggleFavoriteAnime);
+
 // // Create an object for anime
 var favoritedAnime = {
   animeTitle: ,
   animeImg: ,
 };
+
 
 // Store the object in localStorage as a string by using JSON.stringify
 localStorage.setItem('favoritedAnime', JSON.stringify(fruits));
