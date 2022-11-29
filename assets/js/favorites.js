@@ -12,12 +12,13 @@
 
 // create card element, create card div, add image, create that image, 
 
-// Create title div
+// Create title div,
 
 // X icon that clears the favorite anime
 
-// Favorites Page
 
+
+// Favorites Page
 // Initialize function to load Anime objs onto page.
 
 // 
@@ -34,13 +35,7 @@
 // .
 // ]
 
-// loop through local storage
 
-// get current looped obj
-
-// creating card elements
-
-// create anime card div
 
 
 // Initialize
@@ -61,8 +56,7 @@ function getLocalStorage() {
   // create anime card div
 
   var animeCard = document.createElement("div");
-
-  // add class name to anime card div
+// add class name to anime card div
   // element.classList.add("class name");
 
   animeCard.classList.add("anime-card");
@@ -98,7 +92,7 @@ function getLocalStorage() {
 
   // target.innerText = [string value]
 
-  title.innerText = 'blah blah blah'
+  // title.innerText = 'blah blah blah'
 
   // title.classList.add('anime-title');
 
@@ -110,109 +104,213 @@ function getLocalStorage() {
   //           <div class="anime-title">blah blah</div>
   //   //   </div>
   //   // </div>
+// // Clear button
+
+  var clearBtn = document.createElement("button");
+
+  var closeImage = document.createElement("img");
+
+  clearBtn.classList.add("anime-remove");
 
 
-  // // Clear button
+  closeImage.setAttribute('src', './img/clear-favorite-icon.svg');
+  closeImage.setAttribute('alt', 'Clear favorite anime X button');
 
-var clearBtn = document.createElement("button");
-
-var closeImage = document.createElement("img");
-
-clearBtn.classList.add("anime-remove");
-
-
-closeImage.setAttribute('src', './img/clear-favorite-icon.svg');
-closeImage.setAttribute('alt', 'Clear favorite anime X button');
-
-animeCard.appendChild(clearBtn);
-clearBtn.appendChild(closeImage);
+  animeCard.appendChild(clearBtn);
+  clearBtn.appendChild(closeImage);
 
 }
 
-// // Create an object for anime
-var favoritedAnime = {
-  animeTitle: ,
-  animeImg: ,
-};
+// // // Create an object for anime
+// var favoritedAnime = {
+//   animeTitle: ,
+//   animeImg: ,
+// };
 
-// Store the object in localStorage as a string by using JSON.stringify
-localStorage.setItem('favoritedAnime', JSON.stringify(fruits));
-and then when you want to retrieve them, you can do this:
+// // Store the object in localStorage as a string by using JSON.stringify
+// localStorage.setItem('favoritedAnime', JSON.stringify(fruits));
+// and then when you want to retrieve them, you can do this:
 
-// Retrieve the string and turn it back into an object by using JSON.parse
-var savedFruits = JSON.parse(localStorage.getItem('fruits'));
+// // Retrieve the string and turn it back into an object by using JSON.parse
+// var savedFruits = JSON.parse(localStorage.getItem('fruits'));
 
-// Loop through the object and print the count for each fruit
-for (var key in savedFruits) {
-  alert('Fruit: ' + key + '\nCount: ' + savedFruits[key]);
-}
-
-
-// From jikan data, "data" parent > "images" child + "titles" child > "title" inner child to "titles" FROM LOCAL STORAGE
-// We need to pull title, image, and possibly url. 
-
-
-const obj = { title: "animeTitle", image: "animeImage", url: placeholder.com};
-
-console.log(Object.values(obj)); 
-
-
-
-
-
-
-
-
-
-const favoritedAnim = ["title", "url", "images"];
-
-
-localStorage.setItem('favorites', JSON.stringify(favoritedAnim));
-
-
-const storedAnim = JSON.parse(localStorage.getItem('favorites'));
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// Modal popup
-
-// Get the modal
-//  var modal = document.getElementById("myModal");
-
-// Get the button that opens the modal
-//   var btn = document.getElementById("myBtn");
-
-// Get the <span> element that closes the modal
-//   var span = document.getElementsByClassName("close")[0];
-
-// When the user clicks the button, open the modal 
-//    btn.onclick = function() {
-//     modal.style.display = "block";
+// // Loop through the object and print the count for each fruit
+// for (var key in savedFruits) {
+//   alert('Fruit: ' + key + '\nCount: ' + savedFruits[key]);
 // }
 
-// When the user clicks on <span> (x), close the modal
-//   span.onclick = function() {
-//       modal.style.display = "none";
-}
 
-// When the user clicks anywhere outside of the modal, close it
-//      window.onclick = function(event) {
-//        if (event.target == modal) {
-//           modal.style.display = "none";
-//             }
-//        }
+
+// let child = document.getElementById("child")
+// child.addEventListener('click', function(){
+//   child.remove();
+// });
+
+// Javascript steps
+
+// 1. Create variable 
+
+// var image = document.createElement('img');
+
+// <img> </img>
+
+
+// 2. Does this element have any attributes we need to consider?
+
+// src, alt Text
+
+// image.setAttribute("src", [image path]);
+// image.setAttribute('alt', [alt text]);
+
+// <img src=[image path] alt= [alt text];
+// 3. Does this element, does it need a class?
+
+// image.classList.add("example-image");
+
+// <img class= "example-image" src=[image path] alt=[alt text]/>
+
+
+// 4. Does this element need text inside?
+//     Image does not require text inside
+
+//   Something that does: paragraph <p>
+
+//   var paragraph = document.createElement("p");
+
+//   paragraph.innerText = "Hello, world!";
+
+
+// 5. wHERE DO WE WANT TO APPEND THIS NEW ELEMENT TO?
+//   - find the parent container and appendChild to your newly created element
+
+
+//   var animeSection = document.getElementById('animesection');
+//   parent container = animeSection
+//   new element = image
+
+
+//   parent.appendChild(new element);
+
+//   animeSection.appendChild(image);
+
+//   6. Expected Result
 
 //   <section id="animesection">
 //     <img "example-image" src=[image path] alt=[alt text]/>
 //     </section>
+
+
+// let favoritedAnime = {
+//   animeTitle,
+//   animeImg,
+//   url,
+// };
+ 
+//  let favoritesArr = JSON.parse(localStorage.getItem('favoritesArr')) ||[];
+//  favoritesArr.push(favoritedAnime);
+//  localStorage.setItem('favorites', JSON.stringify(favoritesArr));
+
+//  const loadAnime = () => {
+//   if (localStorage['favouritedAnime']) 
+//       // If a saved anime exists
+//       savedAnime = JSON.parse(localStorage['favouritedAnime'])
+//   else 
+//       // No saved animes
+//       savedAnime = {}
+// }
+
+// const saveAnime = () => {
+//   localStorage['favouritedAnime'] = JSON.stringify(favouritedAnime)
+// }
+// let cardContainer = document.querySelector("card-container")
+
+
+// for (i = 0; i < favoritesArr.length; i++) {
+//   let childDiv = document.createElement("div")
+//     childDiv.setAttribute("id", "child")
+//     childDiv.setAttribute("class", "child")
+//     childDiv.setAttribute("img", "")
+//     childDiv.setAttribute("alt", "")
+//   let svg = document.createElement("svg")
+//     svg.setAttribute("fill", "#000000")
+//     svg.setAttribute("xmlns", "http://www.w3.org/2000/svg%22)
+//     svg.setAttribute("viewBox", "0 0 50 50")
+//     svg.setAttribute("width", "50px")
+//     svg.setAttribute("height", "50px")
+//     svg.setAttribute("d", "M 9.15625 6.3125 L 6.3125 9.15625 L 22.15625 25 L 6.21875 40.96875 L 9.03125 43.78125 L 25 27.84375 L 40.9375 43.78125 L 43.78125 40.9375 L 27.84375 25 L 43.6875 9.15625 L 40.84375 6.3125 L 25 22.15625 Z")
+//   cardContainer.appendChild(childDiv)
+//   cardContainer.appendChild(svg)
+// }
+
+let modelSection = document.querySelector("modelSection ")
+
+let modalDiv1 = document.createElement("div")
+  modalDiv1.setAttribute("class", "flex")
+let modelImg = document.createElement("img")
+  modelImg.setAttribute("src" , "")
+  modelImg.setAttribute("alt" , "")
+let modelClearBtn = document.createElement("button")
+  modelClearBtn.setAttribute("class", "btn-close")
+let modalDiv2 = document.createElement("div")
+  modelDi
+const modal = document.querySelector(".modal");
+const overlay = document.querySelector(".overlay");
+const openModalBtn = document.querySelector("#child");
+const closeModalBtn = document.querySelector(".btn-close");
+
+// close modal function
+const closeModal = function () {
+  modal.classList.add("hidden");
+  overlay.classList.add("hidden");
+};
+
+// close the modal when the close button and overlay is clicked
+closeModalBtn.addEventListener("click", closeModal);
+overlay.addEventListener("click", closeModal);
+
+// close modal when the Esc key is pressed
+document.addEventListener("keydown", function (e) {
+  if (e.key === "Escape" && !modal.classList.contains("hidden")) {
+    closeModal();
+  }
+});
+// open modal function
+// // document.getElementById( "Img" ).onclick = function() {
+// //   modal.classList.remove("hidden");
+// //   overlay.classList.remove("hidden");
+// };
+
+// function myFuction(){
+//   document.getElementById( "Img" ).onclick = function() {
+//   modal.classList.remove("hidden");
+//   overlay.classList.remove("hidden");
+// };
+
+// open modal event
+// openModalBtn.addEventListener("click", openModal);
+const openModal = function () {
+  modal.classList.remove("hidden");
+  overlay.classList.remove("hidden");
+};
+// open modal event
+openModalBtn.addEventListener("click", openModal);
+
+// var modal = document.getElementById("myModal");
+
+// // Get the image and insert it inside the modal - use its "alt" text as a caption
+// var img = document.getElementById("myImg");
+// var modalImg = document.getElementById("img01");
+// var captionText = document.getElementById("caption");
+// img.onclick = function(){
+//   modal.style.display = "block";
+//   modalImg.src = this.src;
+//   captionText.innerHTML = this.alt;
+// }
+
+// // Get the <span> element that closes the modal
+// var span = document.getElementsByClassName("close")[0];
+
+// // When the user clicks on <span> (x), close the modal
+// span.onclick = function() { 
+//   modal.style.display = "none";
+// }
