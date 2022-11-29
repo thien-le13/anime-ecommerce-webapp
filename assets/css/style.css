@@ -10,34 +10,19 @@
 }
 
 .child{
-    display: grid;
-    grid-template-columns: auto 1fr;
-    justify-items: end;
+    display: flex;
+    justify-content: flex-end;
     flex: 1 0 20%; margin: 5px;
     font-size: 25px;
     width: 200px;
     height: 200px;
     border:10px black solid;
-
 }
 
-.anime-logo {
-    height: 300px;
-    width: 400px;
+h1 {
+    display: block;
+    font-size: 75px !important;
 }
-
-
-.back-to-home {
- margin-left: 200px;
-}
-
-/* #button-wrapper {
-    flex-direction: row;
-    
-} */
-
-
-
 /* MAIN PAGE CSS */
 
 /* Fix tailwind js not working */
@@ -62,6 +47,11 @@
     border-radius: 5px;
 }
 
+.main-title > h1 {
+    display: flex;
+    justify-content: center;
+}
+
 /* ANIME PRODUCT */
 
 .product-container {
@@ -75,4 +65,12 @@
     border-radius: 5px;
 }
 
+.anime-logo {
+    height: 300px;
+    width: 400px;
+}
 
+
+.back-to-home {
+ margin-left: 200px;
+}
