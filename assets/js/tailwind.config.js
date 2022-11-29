@@ -41,9 +41,6 @@
 //   // ...
 // }
 
-//       content: ['./assets/js/favorites.js',],
-// // }
-
 
 // module.exports = {
 //   darkMode: 'class',

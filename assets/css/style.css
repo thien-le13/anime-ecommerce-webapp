@@ -17,12 +17,9 @@
     width: 200px;
     height: 200px;
     border:10px black solid;
+
 }
 
-h1 {
-    display: block;
-    font-size: 75px !important;
-}
 /* MAIN PAGE CSS */
 
 /* Fix tailwind js not working */
@@ -47,11 +44,6 @@ h1 {
     border-radius: 5px;
 }
 
-.main-title > h1 {
-    display: flex;
-    justify-content: center;
-}
-
 /* ANIME PRODUCT */
 
 .product-container {
@@ -65,12 +57,4 @@ h1 {
     border-radius: 5px;
 }
 
-.anime-logo {
-    height: 300px;
-    width: 400px;
-}
 
-
-.back-to-home {
- margin-left: 200px;
-}

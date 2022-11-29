@@ -52,57 +52,57 @@ function getLocalStorage() {
   var favoriteResults = document.getElementById("favorited-results");
 
 
-// loop through local storage
+  // loop through local storage
 
-// get current looped obj
+  // get current looped obj
 
-// creating card elements
+  // creating card elements
 
-// create anime card div
+  // create anime card div
 
-var animeCard = document.createElement("div");
+  var animeCard = document.createElement("div");
 
-// add class name to anime card div
-// element.classList.add("class name");
+  // add class name to anime card div
+  // element.classList.add("class name");
 
-animeCard.classList.add("anime-card");
+  animeCard.classList.add("anime-card");
 
-// create var for animeImage, create element, set attribute for href, append.
+  // create var for animeImage, create element, set attribute for href, append.
 
-favoritedResults.appendChild(animeCard);
-
-
+  favoritedResults.appendChild(animeCard);
 
 
-//  Anime image
+
+
+  //  Anime image
   var animeImage = document.createElement('a');
   // <img src="" alt=""/>
   // <img src="www.anime1.com/image1" alt="X anime name title"/>
-    animeImage.href = "# www.placeholder-anime1.com";
-    animeImage.classList.add('anime-image');
-    animeCard.appendChild(anime-image);
+  animeImage.href = "# www.placeholder-anime1.com";
+  animeImage.classList.add('anime-image');
+  animeCard.appendChild(anime - image);
 
 
-    // <div id="favorited-results">
-    //   <div class="anime-card">
-    //     <a class="anime-image" href="www.placeholder-anime1.com"></a>
-    //   </div>
-    // </div>
-    
+  // <div id="favorited-results">
+  //   <div class="anime-card">
+  //     <a class="anime-image" href="www.placeholder-anime1.com"></a>
+  //   </div>
+  // </div>
 
 
 
-// Create div for Title, create variable, inner text, classlist.add , appendChild 
 
-var title = document.createElement('div');
+  // Create div for Title, create variable, inner text, classlist.add , appendChild 
 
-target.innerText = [string value]
+  // var title = document.createElement('div');
 
-//   title.innerText = "";
+  // target.innerText = [string value]
 
-  title.classList.add('anime-title');
-  
-  animeCard.appendChild(title);
+  title.innerText = 'blah blah blah'
+
+  // title.classList.add('anime-title');
+
+  // animeCard.appendChild(title);
 
   //  // <div id="favorited-results">
   //   //   <div class="anime-card">
@@ -110,82 +110,41 @@ target.innerText = [string value]
   //           <div class="anime-title">blah blah</div>
   //   //   </div>
   //   // </div>
-    
-
-// // Clear button
-
-  var clearBtn = document.createElement("button");
-
-  var closeImage = document.createElement("img");
-
-  clearBtn.classList.add("anime-remove");
 
 
-  closeImage.setAttribute('src', './img/clear-favorite-icon.svg');
-  closeImage.setAttribute('alt', 'Clear favorite anime X button');
+  // // Clear button
 
-  animeCard.appendChild(clearBtn);
-  clearBtn.appendChild(closeImage);
+var clearBtn = document.createElement("button");
+
+var closeImage = document.createElement("img");
+
+clearBtn.classList.add("anime-remove");
+
+
+closeImage.setAttribute('src', './img/clear-favorite-icon.svg');
+closeImage.setAttribute('alt', 'Clear favorite anime X button');
+
+animeCard.appendChild(clearBtn);
+clearBtn.appendChild(closeImage);
 
 }
 
 // // Create an object for anime
-      var favoritedAnime = {
-        animeTitle: ,
-        animeImg: ,
-        
-        };
+var favoritedAnime = {
+  animeTitle: ,
+  animeImg: ,
+};
 
 // Store the object in localStorage as a string by using JSON.stringify
-    // localStorage.setItem('favoritedAnime', JSON.stringify(fruits));
-    // and then when you want to retrieve them, you can do this:
+localStorage.setItem('favoritedAnime', JSON.stringify(fruits));
+and then when you want to retrieve them, you can do this:
 
 // Retrieve the string and turn it back into an object by using JSON.parse
-    // var savedFruits = JSON.parse(localStorage.getItem('fruits'));
+var savedFruits = JSON.parse(localStorage.getItem('fruits'));
 
 // Loop through the object and print the count for each fruit
-      // for (var key in savedFruits) {
-      //   alert('Fruit: ' + key + '\nCount: ' + savedFruits[key]);
-      // }
-
-// remove favorite with X button
-
-let child = document.getElementById("child")
-child.addEventListener('click', function(){
-  child.remove();
-});
-
-// appending svg (clear favorite icon) to cardContainer 
-
-for (i= 0 ; i < favoriteArr.length ; i++){
-
-  let childDiv = document.createElement("div")
-
-    childDiv.setAttribute("id", "child")
-
-    childDiv.setAttribute("class", "child")
-
-    childDiv.setAttribute("img","")
-
-    childDiv.setAttribute("alt", "")
-
-  let svg = document.createElement("svg")
-
-    svg.setAttribute("fill","#000000")
-
-    svg.setAttribute("xmlns","http://www.w3.org/2000/svg" )
-
-    svg.setAttribute("viewBox","0 0 50 50")
-
-    svg.setAttribute("width","50px")
-
-    svg.setAttribute("height","50px")
-
-    svg.setAttribute("d","M 9.15625 6.3125 L 6.3125 9.15625 L 22.15625 25 L 6.21875 40.96875 L 9.03125 43.78125 L 25 27.84375 L 40.9375 43.78125 L 43.78125 40.9375 L 27.84375 25 L 43.6875 9.15625 L 40.84375 6.3125 L 25 22.15625 Z")
-
-    cardContainer.appendChild(childDiv)
-
-    cardContainer.appendChild(svg)
+for (var key in savedFruits) {
+  alert('Fruit: ' + key + '\nCount: ' + savedFruits[key]);
 }
 
 
@@ -256,23 +215,4 @@ const storedAnim = JSON.parse(localStorage.getItem('favorites'));
 
 //   <section id="animesection">
 //     <img "example-image" src=[image path] alt=[alt text]/>
-//     </section>|
-
-
-
-
-
-
-
-// const loadAnime = () => {
-//     if (localStorage['favouritedAnime']) 
-//         // If a saved anime exists
-//         savedAnime = JSON.parse(localStorage['favouritedAnime'])
-//     else 
-//         // No saved animes
-//         savedAnime = {}
-// }
-
-// const saveAnime = () => {
-//     localStorage['favouritedAnime'] = JSON.stringify(favouritedAnime)
-// }
+//     </section>
