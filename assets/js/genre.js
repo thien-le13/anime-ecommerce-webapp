@@ -30,51 +30,6 @@ topAnimeButton.addEventListener("click", function (event) {
   DisplayTopAnime();
 });
 
-// genreSearch.addEventListener('click', function(event){
-//     if (genreDropDown.options[genreDropDown.selectedIndex].getAttribute("data-id") === '0')
-//     {
-//         event.target.blur();
-//         return;
-//     }
-//     else if (genreDropDown.options[genreDropDown.selectedIndex].getAttribute("value") === '1')
-//     {
-//         DisplayTopAnime();
-//         return;
-//     }
-//     ///////////////////
-//     console.log(genreAnimeURL + genreDropDown.options[genreDropDown.selectedIndex].getAttribute("value"));
-//     fetch(genreAnimeURL + genreDropDown.options[genreDropDown.selectedIndex].getAttribute("value")) // fetch based on genreURL and id of genre
-//     .then(function(response){
-//         console.log(response.status);
-//         return response.json();
-//     }).then(function(data){
-//         console.log(data);
-//         // StoreSearchData(data.data);
-//     })
-//     .then(function (data) {
-//       console.log(data);
-//       StoreSearchData(data.data);
-//     });
-// });
-// function GetGenres()  // Fetches array of genre data
-// {
-//     fetch(genreURL).then(function(response){
-//         return response.json();
-//     }).then(function(data){
-//         genreDB = data;
-//         GenerateGenreDropdown();
-//     });
-// }
-// function GenerateGenreDropdown() {
-//   // Generate genre drop down options
-//   for (var i = 0; i < genreDB.data.length; i++) {
-//     var opt = document.createElement("option");
-//     opt.setAttribute("value", genreDB.data[i].mal_id);
-//     opt.textContent = genreDB.data[i].name;
-//     genreDropDown.appendChild(opt);
-//   }
-// }
-
 // store search results in an array to be accessed later,
 function StoreSearchData(data) {
   // Note: Parameter data should be an array that stores objects with info on individual anime
@@ -120,7 +75,6 @@ async function GetRandomAnime(count = 1) {
   return Promise.resolve(searchResults);
 }
 
-///////////////////////////////////////////
 // Top Rated Anime
 var topAnime = [];
 var topAnimeURL =
@@ -192,7 +146,3 @@ function TestLink(link) {
 // BELOW: Functions that must be run on page load
 
 GetTopAnime();
-
-// GetAnimeMerch('naruto').then(function(result){
-//     console.log(result);
-// });

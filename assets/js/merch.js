@@ -1,29 +1,26 @@
 const options = {
   method: "GET",
   headers: {
-    // 'X-RapidAPI-Key': '7f20f0b961msh4b0b7078f749af8p1531dcjsnc37a375c0024',  // this is my key id change it to your own
+    // "X-RapidAPI-Key": "7f20f0b961msh4b0b7078f749af8p1531dcjsnc37a375c0024", // this is my key id change it to your own
     "X-RapidAPI-Host": "amazon24.p.rapidapi.com",
   },
 };
 
 var amazURL =
   "https://amazon24.p.rapidapi.com/api/product?categoryID=aps&keyword=ANIME&country=US&page=1";
-var amaz = "https://amazon24.p.rapidapi.com/api/product?categoryID=aps&keyword=Bleach%3A%20Sennen%20Kessen-hen&country=US&page=1"
+var amaz =
+  "https://amazon24.p.rapidapi.com/api/product?categoryID=aps&keyword=Bleach%3A%20Sennen%20Kessen-hen&country=US&page=1";
 
 const merchLength = 3;
 
-async function getAnimeMerch(animeTitle)  // This function returns a promise, use .this to accept the promised array of merch
-{
-    var itemLength = merchLength;
-    var merchList = [];
+async function GetAnimeMerch(animeTitle) {
+  // This function returns a promise, use .this to accept the promised array of merch
+  var itemLength = merchLength;
+  var merchList = [];
 
-    var encodedTitle = encodeURIComponent(animeTitle + " anime");
+  var encodedTitle = encodeURIComponent(animeTitle + "anime");
 
-  const merch = await fetch(amazURL.replace('ANIME', encodedTitle), options)
-	.then(response => response.json())
-	.then(function(data){
-
-  fetch(amazURL.replace("ANIME", encodedTitle), options)
+  const merch = await fetch(amazURL.replace("ANIME", encodedTitle), options)
     .then((response) => response.json())
     .then(function (data) {
       for (var i = 0; i < itemLength; i++) {
@@ -45,32 +42,32 @@ async function getAnimeMerch(animeTitle)  // This function returns a promise, us
     })
     .catch((err) => console.error(err));
 
-    return Promise.resolve(merch);
-
+  return Promise.resolve(merch);
 }
 
 var searchResults = [];
 
-function ReceiveSearchResults(results){
+function ReceiveSearchResults(results) {
   searchResults = results;
 }
 
-function LoadExpandedMerch(id){
-  id.setAttribute('onclick','CloseExpandedMerch(this)')
+function LoadExpandedMerch(id) {
+  id.setAttribute("onclick", "CloseExpandedMerch(this)");
 
   var productName = id.nextElementSibling.querySelector("#gift-ideas");
   var listOfCards = productName.querySelectorAll(".product-card");
 
-
-  GetAnimeMerch(id.querySelector('h3').textContent).then(response => response).then(function(data){
-    for (var j = 0; j < listOfCards.length; j++) {
-      listOfCards[j].querySelector("img").setAttribute("src", data[j].image);
-      listOfCards[j].querySelector("a").setAttribute("href",data[j].prodURL);
-      listOfCards[j].querySelector("h4").textContent = data[j].name;
-      listOfCards[j].querySelector("p").textContent = "$"+data[j].price;
-    }
-  });
+  GetAnimeMerch(id.querySelector("h3").textContent)
+    .then((response) => response)
+    .then(function (data) {
+      for (var j = 0; j < listOfCards.length; j++) {
+        listOfCards[j].querySelector("img").setAttribute("src", data[j].image);
+        listOfCards[j].querySelector("a").setAttribute("href", data[j].prodURL);
+        listOfCards[j].querySelector("h4").textContent = data[j].name;
+        listOfCards[j].querySelector("p").textContent = "$" + data[j].price;
+      }
+    });
 }
-function CloseExpandedMerch(){
+function CloseExpandedMerch() {
   return;
 }
