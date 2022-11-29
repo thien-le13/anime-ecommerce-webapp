@@ -177,11 +177,11 @@
                 class="search-genre form-select appearance-none w-1/3 rounded-lg border border-gray-300 bg-white py-2 px-3 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm bg-no-repeat"
               >
                 <!-- PLACEHOLDERS, NEED JS CODE TO PLUG IN OPTIONS -->
-              <!-- <option selected>Choose a genre</option>
+                <!-- <option selected>Choose a genre</option>
                 <option value="genre1">genre 1</option>
                 <option value="genre2">genre 2</option>
                 <option value="genre3">genre 3</option>
-              </select> -->
+              </select> --> 
               <button
                 id="radomize-button"
                 type="button"
@@ -190,6 +190,15 @@
                 class="search-genre-btn px-6 py-2 ml-2 bg-blue-600 text-white font-medium uppercase rounded-lg shadow-md active:shadow-lg"
               >
                 Get Random Animes
+              </button>
+              <button
+                id="top-anime-button"
+                type="button"
+                data-mdb-ripple="true"
+                data-mdb-ripple-color="light"
+                class="search-genre-btn px-6 py-2 ml-2 bg-blue-600 text-white font-medium uppercase rounded-lg shadow-md active:shadow-lg"
+              >
+                Get Top Animes
               </button>
             </div>
           </div>
@@ -211,7 +220,7 @@
               <h3 id="anime-title" class="anime-title">Anime Title</h3>
               <i class="fa-solid fa-caret-down"></i>
             </a>
-            <div class="collapse collapse-content" id="collapseExample">
+            <div class="collapse collapse-content" id="collapseExample"> 
               <div class="flex anime-info result-section">
                 <div class="w-1/5 flex-shrink-0" id="anime-img">
                   <img
@@ -244,11 +253,9 @@
                   </p>
                 </div>
               </div>
-              <div class="product-display result-section py-2">
-                <h2 class="pt-2 text-center font-bold text-base">
-                  Related Products
-                </h2>
-                <div class="flex justify-center" id="gift-ideas">
+              <div class="product-display result-section py-2"> 
+                <h2 class="pt-2 text-center font-bold text-base">Related Products</h2>
+                <div class="flex justify-center" id ="gift-ideas">
                   <div class="product-container">
                     <div class="product-card">
                       <a href="#">

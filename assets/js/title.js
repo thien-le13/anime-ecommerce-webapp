@@ -21,7 +21,7 @@ function getSearchData(data) {
   var searchResults = [];
   CleanSearchResults();
 
-  for (var i = 0; i < animeReturnCount; i++) {
+  for (var i = 0; i < animeReturnCount && i < data.length; i++) {
     var anime = {
       title: data[i].title,
       image: data[i].images.jpg.image_url,
@@ -34,8 +34,10 @@ function getSearchData(data) {
   return searchResults;
 }
 
-function DisplayResults(searchResults) {
-  for (var i = 0; i < searchResults.length; i++) {
+function DisplayResults(searchResults){
+
+  for (var i =0; i < searchResults.length; i++)
+  {
     var animeNode = searchContainer.cloneNode(true);
     animeNode.id = animeNode.id + "-" + i;
     var animeTitle = animeNode.querySelector("#anime-title");
@@ -51,23 +53,22 @@ function DisplayResults(searchResults) {
     animeTitle.innerHTML = searchResults[i].title;
     animeSynopsis.firstElementChild.innerHTML = searchResults[i].synopsis;
     animeImg.firstElementChild.src = searchResults[i].image;
-
-    // var merchList = GetAnimeMerch(searchResults[i].title);
-    // console.log(merchList);
-
+    
+    /////////////
+    // Add changes to amazon items
     var productName = animeNode.querySelector("#gift-ideas");
     var listOfCards = productName.querySelectorAll(".product-card");
-    for (var j = 0; j < listOfCards.length; j++) {
-      listOfCards[j]
-        .querySelector("img")
-        .setAttribute(
-          "src",
-          "https://cdn.myanimelist.net/images/anime/3/40451.jpg"
-        );
-      listOfCards[j].querySelector("h4").textContent = "poo";
-      listOfCards[j].querySelector("p").textContent = "poo";
-    }
 
+    GetAnimeMerch(searchResults[i].title).then(response => response).then(function(data){
+      for (var j = 0; j < listOfCards.length; j++) {
+        listOfCards[j].querySelector("img").setAttribute("src", data[j].image);
+        listOfCards[j].querySelector("h4").textContent = data[j].name;
+        listOfCards[j].querySelector("p").textContent = data[j].price;
+      }
+    });
+    
+
+    ////////////
     searchSection.append(animeNode);
   }
 }
@@ -112,14 +113,15 @@ resultHeader.addEventListener("click", function () {
   if (caret.classList.contains("rotate-180")) {
     caret.classList.remove("rotate-180");
   } else {
-    caret.classList.add("rotate-180");
+    caret.classList.add('rotate-180');
   }
 });
 
-function CleanSearchResults() {
+function CleanSearchResults()
+{
   var count = searchSection.children.length;
 
-  for (var i = 0; i < count; i++) {
+  for (var i =0 ; i < count; i++){
     searchSection.removeChild(searchSection.children[0]);
   }
 }
