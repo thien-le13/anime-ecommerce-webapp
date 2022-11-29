@@ -12,7 +12,7 @@ var amaz = "https://amazon24.p.rapidapi.com/api/product?categoryID=aps&keyword=B
 
 const merchLength = 3;
 
-async function GetAnimeMerch(animeTitle)  // This function returns a promise, use .this to accept the promised array of merch
+async function getAnimeMerch(animeTitle)  // This function returns a promise, use .this to accept the promised array of merch
 {
     var itemLength = merchLength;
     var merchList = [];
@@ -47,7 +47,8 @@ async function GetAnimeMerch(animeTitle)  // This function returns a promise, us
 
     return Promise.resolve(merch);
 
-}
+});
+
 // GetAnimeMerch("Bleach Movie: Memories of Nobody").then(response => response).then(function(data){
 //   console.log(data);
-// });
+// })
