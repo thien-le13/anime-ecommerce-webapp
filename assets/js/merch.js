@@ -1,7 +1,7 @@
 const options = {
 	method: 'GET',
 	headers: {
-		'X-RapidAPI-Key': '',  // this is my key id change it to your own
+		// 'X-RapidAPI-Key': '7f20f0b961msh4b0b7078f749af8p1531dcjsnc37a375c0024',  // this is my key id change it to your own
 		'X-RapidAPI-Host': 'amazon24.p.rapidapi.com'
 	}
 };

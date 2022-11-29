@@ -35,9 +35,6 @@ function getSearchData(data) {
 }
 
 function DisplayResults(searchResults) {
-  console.log("im here");
-  console.log(searchResults);
-  console.log(searchResults.length);
   for (var i = 0; i < searchResults.length; i++) {
     var animeNode = searchContainer.cloneNode(true);
     animeNode.id = animeNode.id + "-" + i;
@@ -55,11 +52,12 @@ function DisplayResults(searchResults) {
     animeSynopsis.innerHTML = searchResults[i].synopsis;
     animeImg.src = searchResults[i].image;
 
+    var merchList = GetAnimeMerch(searchResults[i].title);
+    console.log(merchList);
+
     var productName = animeNode.querySelector("#gift-ideas");
     var listOfCards = productName.querySelectorAll(".product-card");
-    console.log(listOfCards);
     for (var j = 0; j < listOfCards.length; j++) {
-      console.log(listOfCards[j]);
       listOfCards[j]
         .querySelector("img")
         .setAttribute(
