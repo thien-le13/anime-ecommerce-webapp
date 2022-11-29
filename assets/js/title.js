@@ -83,11 +83,36 @@ searchButton.addEventListener("click", function (event) {
   getAnime(anime);
 });
 
-function CleanSearchResults() {
-  var count = searchSection.children.length;
+// Toggle favorite button
+var favoriteBtn = document.getElementById('favorite-button');
 
-  for (var i = 0; i < count; i++) {
-    searchSection.removeChild(searchSection.children[0]);
+function toggleFavoriteAnime() {
+  let favoriteIcon = document.querySelector('.fa-solid.fa-star');
+  let notFavoriteIcon = document.querySelector('.fa-regular.fa-star');
+
+  if (favoriteIcon.classList.contains('collapse')) {
+    // is favorited 
+    favoriteIcon.classList.remove('collapse');
+    notFavoriteIcon.classList.add('collapse');
+    favoriteBtn.getElementsByTagName('p')[0].innerHTML = 'Favorited';
+  } else {
+    // unfavorite
+    favoriteIcon.classList.add('collapse');
+    notFavoriteIcon.classList.remove('collapse');
+    favoriteBtn.getElementsByTagName('p')[0].innerHTML = 'Favorite';
+  }
+}
+
+favoriteBtn.addEventListener('click', toggleFavoriteAnime);
+
+// Transition dropdown caret 
+var resultHeader = document.getElementById('result-header');
+resultHeader.addEventListener('click', function(){
+  let caret = resultHeader.querySelector('.fa-caret-down');
+  if (caret.classList.contains('rotate-180')) {
+    caret.classList.remove('rotate-180');
+  } else {
+    caret.classList.add('rotate-180');
   }
 }
 
