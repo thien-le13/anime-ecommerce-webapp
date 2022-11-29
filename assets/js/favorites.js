@@ -232,36 +232,48 @@ function getLocalStorage() {
 
 
 
-// let cardContainer = document.querySelector("card-container")
+let cardContainer = document.querySelector("card-container")
 
 
-// for (i = 0; i < favoritesArr.length; i++) {
-//   let childDiv = document.createElement("div")
-//     childDiv.setAttribute("id", "child")
-//     childDiv.setAttribute("class", "child")
-//     childDiv.setAttribute("img", "")
-//     childDiv.setAttribute("alt", "")
-//   let svg = document.createElement("svg")
-//     svg.setAttribute("fill", "#000000")
-//     svg.setAttribute("xmlns", "http://www.w3.org/2000/svg")
-//     svg.setAttribute("viewBox", "0 0 50 50")
-//     svg.setAttribute("width", "50px")
-//     svg.setAttribute("height", "50px")
-//     svg.setAttribute("d", "M 9.15625 6.3125 L 6.3125 9.15625 L 22.15625 25 L 6.21875 40.96875 L 9.03125 43.78125 L 25 27.84375 L 40.9375 43.78125 L 43.78125 40.9375 L 27.84375 25 L 43.6875 9.15625 L 40.84375 6.3125 L 25 22.15625 Z")
-//   cardContainer.appendChild(childDiv)
-//   cardContainer.appendChild(svg)
-// }
+for (i = 0; i < favoritesArr.length; i++) {
+  let childDiv = document.createElement("div")
+    childDiv.setAttribute("id", "child")
+    childDiv.setAttribute("class", "child")
+    childDiv.setAttribute("img", "")
+    childDiv.setAttribute("alt", "")
+  let svg = document.createElement("svg")
+    svg.setAttribute("fill", "#000000")
+    svg.setAttribute("xmlns", "http://www.w3.org/2000/svg")
+    svg.setAttribute("viewBox", "0 0 50 50")
+    svg.setAttribute("width", "50px")
+    svg.setAttribute("height", "50px")
+    svg.setAttribute("d", "M 9.15625 6.3125 L 6.3125 9.15625 L 22.15625 25 L 6.21875 40.96875 L 9.03125 43.78125 L 25 27.84375 L 40.9375 43.78125 L 43.78125 40.9375 L 27.84375 25 L 43.6875 9.15625 L 40.84375 6.3125 L 25 22.15625 Z")
+  cardContainer.appendChild(childDiv)
+  cardContainer.appendChild(svg)
+}
 
-// let modelSection = document.querySelector("modelSection ")
+let modelSection = document.querySelector("modelSection ")
    
-// let modalDiv = document.createElement("div")
-//   modalDiv.setAttribute("class", "flex")
-// let modelImg = document.createElement("img")
-//   modelImg.setAttribute("src" , "")
-//   modelImg.setAttribute("alt" , "")
-// let modelClearBtn = document.createElement("button")
-//   modelClearBtn.setAttribute("class", "btn-close")
+let modalDiv1 = document.createElement("div")
+  modalDiv1.setAttribute("class", "flex")
+let modalImg = document.createElement("img")
+  modalImg.setAttribute("src" , "")
+  modalImg.setAttribute("alt" , "")
+let modalClearBtn = document.createElement("button")
+  modalClearBtn.setAttribute("class", "btn-close")
+let modalDiv2 = document.createElement("div")
+let modalTitle = document.createElement("h3")
+  modalTitle.innerText = ""
+let modalP = document.createElement("p")
+  modalP.innerText=""
 
+modelSection.appendChild(modalDiv1);
+modelSection.appendChild(modalDiv2);
+modelSection.appendChild(modalImg);
+modelSection.appendChild(modalClearBtn);
+modelSection.appendChild(modalDiv2);
+modelSection.appendChild(modalTitle);
+modelSection.appendChild(modalP);
 
  
 
