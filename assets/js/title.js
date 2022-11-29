@@ -42,7 +42,7 @@ function DisplayResults(searchResults){
     animeNode.id = animeNode.id + "-" + i;
     var animeTitle = animeNode.querySelector("#anime-title");
     var animeSynopsis = animeNode.querySelector("#anime-synopsis");
-    var animeImg = animeNode.querySelector("#sauce");
+    var animeImg = animeNode.querySelector("#anime-img");
 
     var animeCollapse = animeNode.querySelector("#result-header");
     animeCollapse.setAttribute("aria-controls", "id"+i);
@@ -51,8 +51,8 @@ function DisplayResults(searchResults){
     collapseContent.id = "id"+i;
 
     animeTitle.innerHTML = searchResults[i].title;
-    animeSynopsis.innerHTML = searchResults[i].synopsis;
-    animeImg.src = searchResults[i].image;
+    animeSynopsis.firstElementChild.innerHTML = searchResults[i].synopsis;
+    animeImg.firstElementChild.src = searchResults[i].image;
     
     /////////////
     // Add changes to amazon items

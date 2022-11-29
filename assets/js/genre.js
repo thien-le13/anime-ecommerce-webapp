@@ -11,70 +11,69 @@ var genreDB = [];
 var genreDropDown = document.querySelector('#search-genre');  // change to search-genre when you pull
 var genreSearch = document.querySelector('#search-genre-btn');
 var searchResults = document.querySelector('#search-results');
+var randomButton = document.querySelector('#radomize-button');  // this has a spelling error, if things break check it
+var topAnimeButton = document.querySelector('#top-anime-button');
 
-
-genreSearch.addEventListener('click', function(event){
-    if (genreDropDown.options[genreDropDown.selectedIndex].getAttribute("data-id") === '0')
-    {
-        event.target.blur();
-
-        GetRandomAnime(5).then(function(data){
-            CleanSearchResults();
-            return data;
-        }).then((data) => {
-            DisplayResults(data);
-        });
-
-
-        return;
-    }
-    else if (genreDropDown.options[genreDropDown.selectedIndex].getAttribute("value") === '1')
-    {
-        DisplayTopAnime();
-        return;
-    }
-
-    ///////////////////
-
-
-    console.log(genreAnimeURL + genreDropDown.options[genreDropDown.selectedIndex].getAttribute("value"));
-    fetch(genreAnimeURL + genreDropDown.options[genreDropDown.selectedIndex].getAttribute("value")) // fetch based on genreURL and id of genre
-    .then(function(response){
-        console.log(response.status);
-        return response.json();
-    }).then(function(data){
-        console.log(data);
-        // StoreSearchData(data.data);
-        
-    })
-    .then(function (data) {
-      console.log(data);
-      StoreSearchData(data.data);
+randomButton.addEventListener('click',function(event){
+    event.target.blur();
+    
+    GetRandomAnime(5).then(function(data){
+        CleanSearchResults();
+        return data;
+    }).then((data) => {
+        DisplayResults(data);
     });
 });
+topAnimeButton.addEventListener('click',function(event){
+    event.target.blur();
+    DisplayTopAnime();
+})
 
+// genreSearch.addEventListener('click', function(event){
+//     if (genreDropDown.options[genreDropDown.selectedIndex].getAttribute("data-id") === '0')
+//     {
+//         event.target.blur();
+//         return;
+//     }
+//     else if (genreDropDown.options[genreDropDown.selectedIndex].getAttribute("value") === '1')
+//     {
+//         DisplayTopAnime();
+//         return;
+//     }
+//     ///////////////////
+//     console.log(genreAnimeURL + genreDropDown.options[genreDropDown.selectedIndex].getAttribute("value"));
+//     fetch(genreAnimeURL + genreDropDown.options[genreDropDown.selectedIndex].getAttribute("value")) // fetch based on genreURL and id of genre
+//     .then(function(response){
+//         console.log(response.status);
+//         return response.json();
+//     }).then(function(data){
+//         console.log(data);
+//         // StoreSearchData(data.data);    
+//     })
+//     .then(function (data) {
+//       console.log(data);
+//       StoreSearchData(data.data);
+//     });
+// });
+// function GetGenres()  // Fetches array of genre data
+// {
+//     fetch(genreURL).then(function(response){
+//         return response.json();
+//     }).then(function(data){
+//         genreDB = data;
+//         GenerateGenreDropdown();
+//     });
+// }
+// function GenerateGenreDropdown() {
+//   // Generate genre drop down options
+//   for (var i = 0; i < genreDB.data.length; i++) {
+//     var opt = document.createElement("option");
+//     opt.setAttribute("value", genreDB.data[i].mal_id);
+//     opt.textContent = genreDB.data[i].name;
+//     genreDropDown.appendChild(opt);
+//   }
+// }
 
-
-function GetGenres()  // Fetches array of genre data
-{
-    fetch(genreURL).then(function(response){
-        return response.json();
-    }).then(function(data){
-        genreDB = data;
-        GenerateGenreDropdown();
-    });
-}
-
-function GenerateGenreDropdown() {
-  // Generate genre drop down options
-  for (var i = 0; i < genreDB.data.length; i++) {
-    var opt = document.createElement("option");
-    opt.setAttribute("value", genreDB.data[i].mal_id);
-    opt.textContent = genreDB.data[i].name;
-
-    genreDropDown.appendChild(opt);
-  }
-}
 
 // store search results in an array to be accessed later, 
 function StoreSearchData(data){    // Note: Parameter data should be an array that stores objects with info on individual anime
@@ -93,8 +92,8 @@ function StoreSearchData(data){    // Note: Parameter data should be an array th
 }
 
 
-////////////////////////////////////////////////////////////////////////////////////
-//// Random Anime Generation ////  Use this code if genre does not get patched in time
+
+//// Random Anime Generation 
 var ranAnimeLink = "https://api.jikan.moe/v4/random/anime?sfw"
 
 // Fetches data from random anime and returns a promise that an array storing their data will be returned
@@ -197,7 +196,6 @@ function TestLink(link)
 
 // BELOW: Functions that must be run on page load
 
-GetGenres();
 GetTopAnime();
 
 // GetAnimeMerch('naruto').then(function(result){
