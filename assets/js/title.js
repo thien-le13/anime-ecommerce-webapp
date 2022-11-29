@@ -19,7 +19,7 @@ function getAnime(animeCriteria) {
 // Takes retrieved information and selects specific data.
 function getSearchData(data) {
   var searchResults = [];
-  cleanSearchResults();
+  CleanSearchResults();
 
   for (var i = 0; i < animeReturnCount && i < data.length; i++) {
     var anime = {
@@ -102,7 +102,7 @@ resultHeader.addEventListener("click", function () {
   }
 });
 
-function cleanSearchResults() {
+function CleanSearchResults() {
   var count = searchSection.children.length;
 
   for (var i = 0; i < count; i++) {
@@ -110,4 +110,4 @@ function cleanSearchResults() {
   }
 }
 
-cleanSearchResults();
+CleanSearchResults();
