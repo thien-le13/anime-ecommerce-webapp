@@ -35,16 +35,14 @@ function getSearchData(data) {
 }
 
 function DisplayResults(searchResults){
-  console.log("im here");
-  console.log(searchResults);
-  console.log(searchResults.length);
+
   for (var i =0; i < searchResults.length; i++)
   {
     var animeNode = searchContainer.cloneNode(true);
     animeNode.id = animeNode.id + "-" + i;
     var animeTitle = animeNode.querySelector("#anime-title");
     var animeSynopsis = animeNode.querySelector("#anime-synopsis");
-    var animeImg = animeNode.querySelector("#sauce");
+    var animeImg = animeNode.querySelector("#anime-img");
 
     var animeCollapse = animeNode.querySelector("#result-header");
     animeCollapse.setAttribute("aria-controls", "id"+i);
@@ -53,8 +51,8 @@ function DisplayResults(searchResults){
     collapseContent.id = "id"+i;
 
     animeTitle.innerHTML = searchResults[i].title;
-    animeSynopsis.innerHTML = searchResults[i].synopsis;
-    animeImg.src = searchResults[i].image;
+    animeSynopsis.firstElementChild.innerHTML = searchResults[i].synopsis;
+    animeImg.firstElementChild.src = searchResults[i].image;
     
     /////////////
     // Add changes to amazon items
@@ -107,6 +105,15 @@ resultHeader.addEventListener('click', function(){
     caret.classList.remove('rotate-180');
   } else {
     caret.classList.add('rotate-180');
+  }
+});
+
+function CleanSearchResults()
+{
+  var count = searchSection.children.length;
+
+  for (var i =0 ; i < count; i++){
+    searchSection.removeChild(searchSection.children[0]);
   }
 }
 

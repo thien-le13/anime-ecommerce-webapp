@@ -12,7 +12,7 @@
 
 // create card element, create card div, add image, create that image, 
 
-// Create title div,
+// Create title div,  
 
 // X icon that clears the favorite anime
 
@@ -56,7 +56,8 @@ function getLocalStorage() {
   // create anime card div
 
   var animeCard = document.createElement("div");
-// add class name to anime card div
+
+  // add class name to anime card div
   // element.classList.add("class name");
 
   animeCard.classList.add("anime-card");
@@ -104,13 +105,36 @@ function getLocalStorage() {
   //           <div class="anime-title">blah blah</div>
   //   //   </div>
   //   // </div>
-// // Clear button
+
+
+  // // Clear button
 
   var clearBtn = document.createElement("button");
 
   var closeImage = document.createElement("img");
 
   clearBtn.classList.add("anime-remove");
+
+// we could add svg here
+
+// append process instead of using for loop*****************************************************************************************************************************************************
+// for (i = 0; i < favoritesArr.length; i++) {
+//   let childDiv = document.createElement("div")
+//     childDiv.setAttribute("id", "child")
+//     childDiv.setAttribute("class", "child")
+//     childDiv.setAttribute("img", "")
+//     childDiv.setAttribute("alt", "")
+//   let svg = document.createElement("svg")
+//     svg.setAttribute("fill", "#000000")
+//     svg.setAttribute("xmlns", "http://www.w3.org/2000/svg")
+//     svg.setAttribute("viewBox", "0 0 50 50")
+//     svg.setAttribute("width", "50px")
+//     svg.setAttribute("height", "50px")
+//     svg.setAttribute("d", "M 9.15625 6.3125 L 6.3125 9.15625 L 22.15625 25 L 6.21875 40.96875 L 9.03125 43.78125 L 25 27.84375 L 40.9375 43.78125 L 43.78125 40.9375 L 27.84375 25 L 43.6875 9.15625 L 40.84375 6.3125 L 25 22.15625 Z")
+//   cardContainer.appendChild(childDiv)
+//   cardContainer.appendChild(svg)
+// }
+
 
 
   closeImage.setAttribute('src', './img/clear-favorite-icon.svg');
@@ -120,6 +144,24 @@ function getLocalStorage() {
   clearBtn.appendChild(closeImage);
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // // // Create an object for anime
 // var favoritedAnime = {
@@ -163,6 +205,8 @@ function getLocalStorage() {
 // image.setAttribute('alt', [alt text]);
 
 // <img src=[image path] alt= [alt text];
+
+
 // 3. Does this element, does it need a class?
 
 // image.classList.add("example-image");
@@ -222,37 +266,31 @@ function getLocalStorage() {
 // const saveAnime = () => {
 //   localStorage['favouritedAnime'] = JSON.stringify(favouritedAnime)
 // }
+
+
+
+
+
 // let cardContainer = document.querySelector("card-container")
 
 
-// for (i = 0; i < favoritesArr.length; i++) {
-//   let childDiv = document.createElement("div")
-//     childDiv.setAttribute("id", "child")
-//     childDiv.setAttribute("class", "child")
-//     childDiv.setAttribute("img", "")
-//     childDiv.setAttribute("alt", "")
-//   let svg = document.createElement("svg")
-//     svg.setAttribute("fill", "#000000")
-//     svg.setAttribute("xmlns", "http://www.w3.org/2000/svg%22)
-//     svg.setAttribute("viewBox", "0 0 50 50")
-//     svg.setAttribute("width", "50px")
-//     svg.setAttribute("height", "50px")
-//     svg.setAttribute("d", "M 9.15625 6.3125 L 6.3125 9.15625 L 22.15625 25 L 6.21875 40.96875 L 9.03125 43.78125 L 25 27.84375 L 40.9375 43.78125 L 43.78125 40.9375 L 27.84375 25 L 43.6875 9.15625 L 40.84375 6.3125 L 25 22.15625 Z")
-//   cardContainer.appendChild(childDiv)
-//   cardContainer.appendChild(svg)
-// }
+// let modelSection = document.querySelector("modelSection ")
+   
+// let modalDiv = document.createElement("div")
+//   modalDiv.setAttribute("class", "flex")
+// let modelImg = document.createElement("img")
+//   modelImg.setAttribute("src" , "")
+//   modelImg.setAttribute("alt" , "")
+// let modelClearBtn = document.createElement("button")
+//   modelClearBtn.setAttribute("class", "btn-close")
 
-let modelSection = document.querySelector("modelSection ")
 
-let modalDiv1 = document.createElement("div")
-  modalDiv1.setAttribute("class", "flex")
-let modelImg = document.createElement("img")
-  modelImg.setAttribute("src" , "")
-  modelImg.setAttribute("alt" , "")
-let modelClearBtn = document.createElement("button")
-  modelClearBtn.setAttribute("class", "btn-close")
-let modalDiv2 = document.createElement("div")
-  modelDi
+ 
+
+
+
+
+
 const modal = document.querySelector(".modal");
 const overlay = document.querySelector(".overlay");
 const openModalBtn = document.querySelector("#child");
@@ -288,29 +326,130 @@ document.addEventListener("keydown", function (e) {
 
 // open modal event
 // openModalBtn.addEventListener("click", openModal);
+
+
+
 const openModal = function () {
   modal.classList.remove("hidden");
   overlay.classList.remove("hidden");
 };
+
+
 // open modal event
 openModalBtn.addEventListener("click", openModal);
 
-// var modal = document.getElementById("myModal");
+var modal = document.getElementById("myModal");
 
-// // Get the image and insert it inside the modal - use its "alt" text as a caption
-// var img = document.getElementById("myImg");
-// var modalImg = document.getElementById("img01");
-// var captionText = document.getElementById("caption");
-// img.onclick = function(){
-//   modal.style.display = "block";
-//   modalImg.src = this.src;
-//   captionText.innerHTML = this.alt;
-// }
+// Get the image and insert it inside the modal - use its "alt" text as a caption
+var img = document.getElementById("myImg");
+var modalImg = document.getElementById("img01");
+var captionText = document.getElementById("caption");
+img.onclick = function(){
+  modal.style.display = "block";
+  modalImg.src = this.src;
+  captionText.innerHTML = this.alt;
+}
 
-// // Get the <span> element that closes the modal
-// var span = document.getElementsByClassName("close")[0];
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
 
-// // When the user clicks on <span> (x), close the modal
-// span.onclick = function() { 
-//   modal.style.display = "none";
-// }
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() { 
+  modal.style.display = "none";
+}
+
+
+
+//  create animeCard then create modal that contains a close, synopsis, and related products
+// set up for the modal that we want in the top section (html)
+<div id="modal" class="modal hidden">
+  <button class="close">X</button>
+    <div class="modal _ _ _ content">
+      <p class="modal_synopsis"></p>
+    <div class="modal_amazon"><</div>
+  </div>
+</div>
+
+// javascript
+// fetch obj for synopsis
+// identify our targetted containers
+
+var synopsisModal = getElementsByClassNames("modal_synopsis")[0];
+var amazonModal = getElementsByClassNames("modal_amazon")[0];
+
+// parse info for synopsis first
+
+var synopsisData = object.synopsis;
+synopsisModal.innerText = synopsisData;
+
+// fetch amazon api stuff => (returns) amazonApiArray
+
+let relatedProductsArray = amazonApiArray
+
+if (relatedProductsArray.length == 0 || relatedProductsArray == null){
+  console.log("no related products");
+  amazonModal.innerText = "Sorry nothing to see here" 
+  } else {
+    // loop through relatedProductsArray
+    // returns an array of objs
+    // Check if the returned array from amazon api is empty or null. 
+    // If it is empty/null, then return no product, else start populating amazon_modal
+    // createElement => UL and append to amazonModal
+    // add an id or a class........
+
+    console.log("list of related products");
+    let relatedProduct;
+    for (let i = 0; i < relatedProductsArray.length; i++) {
+      relatedProduct = relatedProductsArray[i];
+      // create list item
+      createRelatedProduct(relatedProduct);
+    }
+
+    // then make it run through createRelatedProducts
+
+    function createRelatedProduct(obj){
+      console.log("create related product");
+// createElement => Li and append to UL
+// createElement => anchor ==> use obj.link ==> then append to Li
+// createElement => Image ==> use obj.image ==> append to Anchor
+// createElement => Div for title obj.title ==> append to Anchor
+// createElement => Div for price (use a span or whatever) obj.price ==> append to anchor (whole card is clickable)
+  }
+
+// createElement => unordered list (UL) and append to amazonModal
+  // then go through
+// createElement => list item (li) and append to amazonModal
+
+
+// In the end, it should look like this and should repeat 3 times due to 3 amazon products
+
+<div id="modal" class="modal hidden">
+  <button class="close">X</button>
+  <div class="modal _ _ _ content">
+    <p class="modal_synopsis">blah blah blah</p>
+    <div class="modal_amazon">
+      <ul id="modal_amazon_list">
+        <li>
+          <a href ="#">
+            <image src = "#" alt=""/>
+          <div>Title</div>
+          <div>Price</div>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+// If it doesn't have a product, then it would look like this
+
+<div id = "modal" class ="modal hidden">
+  <button class = "close">X</button>
+  <div class="modal _ _ _ content">
+    <p class="modal_synopsis">blah blah blah</p>
+    <div class="modal_amazon">
+      <p> sorry no related products</p>
+    </div>
+  </div>
+</div>  
+

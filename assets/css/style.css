@@ -11,7 +11,6 @@
 
 .child{
     display: flex;
-    justify-content: flex-end;
     flex: 1 0 20%; margin: 5px;
     font-size: 25px;
     width: 200px;
@@ -60,5 +59,4 @@
     border: 2px solid black;
     border-radius: 5px;
 }
-
 
