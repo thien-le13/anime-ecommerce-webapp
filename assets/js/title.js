@@ -35,9 +35,7 @@ function getSearchData(data) {
 }
 
 function DisplayResults(searchResults){
-  console.log("im here");
-  console.log(searchResults);
-  console.log(searchResults.length);
+
   for (var i =0; i < searchResults.length; i++)
   {
     var animeNode = searchContainer.cloneNode(true);
