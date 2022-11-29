@@ -8,15 +8,18 @@ const options = {
 
 var amazURL =
   "https://amazon24.p.rapidapi.com/api/product?categoryID=aps&keyword=ANIME&country=US&page=1";
+var amaz = "https://amazon24.p.rapidapi.com/api/product?categoryID=aps&keyword=Bleach%3A%20Sennen%20Kessen-hen&country=US&page=1"
 
-const merchLength = 5;
+const merchLength = 3;
 
-function GetAnimeMerch(animeTitle)  // This function returns a promise, use .this to accept the promised array of merch
+async function GetAnimeMerch(animeTitle)  // This function returns a promise, use .this to accept the promised array of merch
 {
     var itemLength = merchLength;
     var merchList = [];
 
-    return fetch(amazURL.replace('ANIME', animeTitle), options)
+    var encodedTitle = encodeURIComponent(animeTitle);
+
+  const merch = await fetch(amazURL.replace('ANIME', encodedTitle), options)
 	.then(response => response.json())
 	.then(function(data){
 
@@ -40,4 +43,9 @@ function GetAnimeMerch(animeTitle)  // This function returns a promise, use .thi
     })
     .catch((err) => console.error(err));
 
+    return Promise.resolve(merch);
+
 }
+// GetAnimeMerch("Bleach Movie: Memories of Nobody").then(response => response).then(function(data){
+//   console.log(data);
+// });
