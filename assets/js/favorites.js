@@ -89,15 +89,15 @@ function getLocalStorage() {
 
   // Create div for Title, create variable, inner text, classlist.add , appendChild 
 
-  var title = document.createElement('div');
+  // var title = document.createElement('div');
 
-  target.innerText = [string value]
+  // target.innerText = [string value]
 
-  title.innerText = 'blah blah blah'
+  // title.innerText = 'blah blah blah'
 
-  title.classList.add('anime-title');
+  // title.classList.add('anime-title');
 
-  animeCard.appendChild(title);
+  // animeCard.appendChild(title);
 
   //  // <div id="favorited-results">
   //   //   <div class="anime-card">
@@ -124,23 +124,23 @@ function getLocalStorage() {
 
 }
 
-// // Create an object for anime
-var favoritedAnime = {
-  animeTitle: ,
-  animeImg: ,
-};
+// // // Create an object for anime
+// var favoritedAnime = {
+//   animeTitle: ,
+//   animeImg: ,
+// };
 
-// Store the object in localStorage as a string by using JSON.stringify
-localStorage.setItem('favoritedAnime', JSON.stringify(fruits));
+// // Store the object in localStorage as a string by using JSON.stringify
+// localStorage.setItem('favoritedAnime', JSON.stringify(fruits));
 // and then when you want to retrieve them, you can do this:
 
-// Retrieve the string and turn it back into an object by using JSON.parse
-var savedFruits = JSON.parse(localStorage.getItem('fruits'));
+// // Retrieve the string and turn it back into an object by using JSON.parse
+// var savedFruits = JSON.parse(localStorage.getItem('fruits'));
 
-// Loop through the object and print the count for each fruit
-for (var key in savedFruits) {
-  alert('Fruit: ' + key + '\nCount: ' + savedFruits[key]);
-}
+// // Loop through the object and print the count for each fruit
+// for (var key in savedFruits) {
+//   alert('Fruit: ' + key + '\nCount: ' + savedFruits[key]);
+// }
 
 
 
@@ -205,23 +205,128 @@ for (var key in savedFruits) {
 //     </section>
 
 
-let cardContainer = document.querySelector("card-container")
+// let favoritedAnime = {
+//   animeTitle,
+//   animeImg,
+//   url,
+// };
+ 
+//  let favoritesArr = JSON.parse(localStorage.getItem('favoritesArr')) ||[];
+//  favoritesArr.push(favoritedAnime);
+//  localStorage.setItem('favorites', JSON.stringify(favoritesArr));
+
+//  const loadAnime = () => {
+//   if (localStorage['favouritedAnime']) 
+//       // If a saved anime exists
+//       savedAnime = JSON.parse(localStorage['favouritedAnime'])
+//   else 
+//       // No saved animes
+//       savedAnime = {}
+// }
+
+// const saveAnime = () => {
+//   localStorage['favouritedAnime'] = JSON.stringify(favouritedAnime)
+// }
 
 
-for (i = 0; i < favoriteArr.length; i++) {
-  let childDiv = document.createElement("div")
-    childDiv.setAttribute("id", "child")
-    childDiv.setAttribute("class", "child")
-    childDiv.setAttribute("img", "")
-    childDiv.setAttribute("alt", "")
-  let svg = document.createElement("svg")
-    svg.setAttribute("fill", "#000000")
-    svg.setAttribute("xmlns", "http://www.w3.org/2000/svg")
-    svg.setAttribute("viewBox", "0 0 50 50")
-    svg.setAttribute("width", "50px")
-    svg.setAttribute("height", "50px")
-    svg.setAttribute("d", "M 9.15625 6.3125 L 6.3125 9.15625 L 22.15625 25 L 6.21875 40.96875 L 9.03125 43.78125 L 25 27.84375 L 40.9375 43.78125 L 43.78125 40.9375 L 27.84375 25 L 43.6875 9.15625 L 40.84375 6.3125 L 25 22.15625 Z")
-  cardContainer.appendChild(childDiv)
-  cardContainer.appendChild(svg)
 
-}
+
+
+// let cardContainer = document.querySelector("card-container")
+
+
+// for (i = 0; i < favoritesArr.length; i++) {
+//   let childDiv = document.createElement("div")
+//     childDiv.setAttribute("id", "child")
+//     childDiv.setAttribute("class", "child")
+//     childDiv.setAttribute("img", "")
+//     childDiv.setAttribute("alt", "")
+//   let svg = document.createElement("svg")
+//     svg.setAttribute("fill", "#000000")
+//     svg.setAttribute("xmlns", "http://www.w3.org/2000/svg")
+//     svg.setAttribute("viewBox", "0 0 50 50")
+//     svg.setAttribute("width", "50px")
+//     svg.setAttribute("height", "50px")
+//     svg.setAttribute("d", "M 9.15625 6.3125 L 6.3125 9.15625 L 22.15625 25 L 6.21875 40.96875 L 9.03125 43.78125 L 25 27.84375 L 40.9375 43.78125 L 43.78125 40.9375 L 27.84375 25 L 43.6875 9.15625 L 40.84375 6.3125 L 25 22.15625 Z")
+//   cardContainer.appendChild(childDiv)
+//   cardContainer.appendChild(svg)
+// }
+
+// let modelSection = document.querySelector("modelSection ")
+   
+// let modalDiv = document.createElement("div")
+//   modalDiv.setAttribute("class", "flex")
+// let modelImg = document.createElement("img")
+//   modelImg.setAttribute("src" , "")
+//   modelImg.setAttribute("alt" , "")
+// let modelClearBtn = document.createElement("button")
+//   modelClearBtn.setAttribute("class", "btn-close")
+
+
+ 
+
+
+
+
+
+const modal = document.querySelector(".modal");
+const overlay = document.querySelector(".overlay");
+const openModalBtn = document.querySelector("#child");
+const closeModalBtn = document.querySelector(".btn-close");
+
+// close modal function
+const closeModal = function () {
+  modal.classList.add("hidden");
+  overlay.classList.add("hidden");
+};
+
+// close the modal when the close button and overlay is clicked
+closeModalBtn.addEventListener("click", closeModal);
+overlay.addEventListener("click", closeModal);
+
+// close modal when the Esc key is pressed
+document.addEventListener("keydown", function (e) {
+  if (e.key === "Escape" && !modal.classList.contains("hidden")) {
+    closeModal();
+  }
+});
+// open modal function
+// // document.getElementById( "Img" ).onclick = function() {
+// //   modal.classList.remove("hidden");
+// //   overlay.classList.remove("hidden");
+// };
+
+// function myFuction(){
+//   document.getElementById( "Img" ).onclick = function() {
+//   modal.classList.remove("hidden");
+//   overlay.classList.remove("hidden");
+// };
+
+// open modal event
+// openModalBtn.addEventListener("click", openModal);
+const openModal = function () {
+  modal.classList.remove("hidden");
+  overlay.classList.remove("hidden");
+};
+// open modal event
+openModalBtn.addEventListener("click", openModal);
+
+// var modal = document.getElementById("myModal");
+
+// // Get the image and insert it inside the modal - use its "alt" text as a caption
+// var img = document.getElementById("myImg");
+// var modalImg = document.getElementById("img01");
+// var captionText = document.getElementById("caption");
+// img.onclick = function(){
+//   modal.style.display = "block";
+//   modalImg.src = this.src;
+//   captionText.innerHTML = this.alt;
+// }
+
+// // Get the <span> element that closes the modal
+// var span = document.getElementsByClassName("close")[0];
+
+// // When the user clicks on <span> (x), close the modal
+// span.onclick = function() { 
+//   modal.style.display = "none";
+// }
