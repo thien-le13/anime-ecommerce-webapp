@@ -21,6 +21,10 @@
 
 /* MAIN PAGE CSS */
 
+.result-section {
+    margin: 1em .5em;
+}
+
 /* Fix tailwind js not working */
 .collapse {
     visibility: visible !important;
@@ -46,7 +50,7 @@
 /* ANIME PRODUCT */
 
 .product-container {
-    width:25%;
+    width:20%;
     padding: 5px;
 }
 
