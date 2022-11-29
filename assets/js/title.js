@@ -35,10 +35,9 @@ function getSearchData(data) {
   return searchResults;
 }
 
-function DisplayResults(searchResults){
-  ReceiveSearchResults(searchResults);
-  for (var i =0; i < searchResults.length; i++)
-  {
+function DisplayResults(searchResults) {
+  receiveSearchResults(searchResults);
+  for (var i = 0; i < searchResults.length; i++) {
     var animeNode = searchContainer.cloneNode(true);
     animeNode.id = animeNode.id + "-" + i;
     var animeTitle = animeNode.querySelector("#anime-title");
@@ -69,7 +68,6 @@ function DisplayResults(searchResults){
     searchSection.append(animeNode);
   }
 }
-
 
 function handleTitleSearch() {
   var searchValue = searchInputText.value;
