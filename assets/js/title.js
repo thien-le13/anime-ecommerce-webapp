@@ -51,12 +51,22 @@ function DisplayResults(searchResults) {
     collapseContent.id = "id" + i;
 
     animeTitle.innerHTML = searchResults[i].title;
+    animeTitle.dataset.id = searchResults[i].animeId;
     animeSynopsis.firstElementChild.innerHTML = searchResults[i].synopsis;
     animeImg.firstElementChild.src = searchResults[i].image;
 
     var favoriteBtn = animeNode.querySelector("#favorite-button");
     let favoriteIcon = animeNode.querySelector(".fa-solid.fa-star");
     let notFavoriteIcon = animeNode.querySelector(".fa-regular.fa-star");
+    // Check if anime is saved
+    if(IsAnimeSaved(ScrapeAnimeObject(favoriteBtn)))
+    {
+      console.log("alreadySaved");
+      favoriteIcon.classList.remove("collapse");
+      notFavoriteIcon.classList.add("collapse");
+      favoriteBtn.querySelector("p").textContent = "Favorited";
+    }
+
     favoriteBtn.addEventListener("click", function (event) {
       toggleFavoriteAnime(event.target, favoriteIcon, notFavoriteIcon);
     });
@@ -86,22 +96,66 @@ function toggleFavoriteAnime(favoriteBtn, favoriteIcon, notFavoriteIcon) {
       favoriteIcon.classList.remove("collapse");
       notFavoriteIcon.classList.add("collapse");
       favoriteBtn.querySelector("p").textContent = "Favorited";
+      // Call save function here
+      ScrapeAnimeObject(favoriteBtn);
     } else {
       favoriteIcon.classList.add("collapse");
       notFavoriteIcon.classList.remove("collapse");
       favoriteBtn.querySelector("p").textContent = "Favorite";
+      // Call remove function here
+      ScrapeAnimeObject(favoriteBtn);
     }
   } else {
     if (favoriteIcon.classList.contains("collapse")) {
       favoriteIcon.classList.remove("collapse");
       notFavoriteIcon.classList.add("collapse");
       favoriteBtn.parentElement.querySelector("p").textContent = "Favorited";
+      // Call save function here
+      ScrapeAnimeObject(favoriteBtn);
     } else {
       favoriteIcon.classList.add("collapse");
       notFavoriteIcon.classList.remove("collapse");
       favoriteBtn.parentElement.querySelector("p").textContent = "Favorite";
+      // Call remove function here
+      ScrapeAnimeObject(favoriteBtn);
     }
   }
+}
+
+// Gets Anime object from HTML elements
+function ScrapeAnimeObject(startPoint) {
+  var point = startPoint.closest('.result-content');
+
+  var anime = {
+    title: point.querySelector("#anime-title").textContent,
+    synopsis: point.querySelector("#anime-synopsis").firstElementChild.textContent,
+    image: point.querySelector(".anime-img").getAttribute("src"),
+    animeId: point.querySelector("#anime-title").dataset.id,
+    products: []
+  }
+  
+  var products = point.querySelector("#gift-ideas").querySelectorAll(".product-card");
+  for (var i = 0; i < products.length ; i++){
+    var prod = {
+      name: products[i].querySelector('h4').textContent,
+      price: products[i].querySelector('p').textContent,
+      image: products[i].querySelector('img').getAttribute("src"),
+      url: products[i].querySelector('a').getAttribute("href")
+    }
+    anime.products.push(prod);
+  }
+  return anime;
+}
+
+ // Checks if an anime is already in local storage and returns a bool
+function IsAnimeSaved(anime){
+  var favoritedAnime = JSON.parse(localStorage.getItem(favAnime));
+
+  for (var i = 0; i < favoritedAnime.length; i++){
+    if (favoritedAnime[i].animeId == anime.animeId)
+      return true;
+  }
+  return false;
 }
 
 // Transition dropdown caret

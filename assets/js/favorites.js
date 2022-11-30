@@ -5,7 +5,7 @@ var favoriteResults = [];
 // Initialize
 
 function getLocalStorage() {
-
+  favoriteResults = JSON.parse(localStorage.getItem('favoritedAnime'));
   // identify favorited-results
   // favoriteResults = document.getElementById("favorited-results");
 
