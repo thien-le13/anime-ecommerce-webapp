@@ -1,7 +1,7 @@
 const options = {
 	method: 'GET',
 	headers: {
-		// 'X-RapidAPI-Key': '165ecfd83fmsh1931521e750a42fp1d9be5jsn1dad31f729e1',  // this is my key id change it to your own
+		// 'X-RapidAPI-Key': '',  // this is my key id change it to your own
 		'X-RapidAPI-Host': 'amazon24.p.rapidapi.com'
 	}
 };
@@ -70,3 +70,12 @@ function LoadExpandedMerch(id) {
 function CloseExpandedMerch() {
   return;
 }
+
+////////////////////// Load from storage
+
+function LoadFavoritedAnime()
+{
+  var favoritedAnime = [];
+}
+
+
