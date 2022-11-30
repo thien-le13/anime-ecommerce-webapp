@@ -1,10 +1,9 @@
 var favoriteDisplayEl = document.getElementById('favoriteDisplay');
 var favoriteResults = [];
 
-
 // Initialize
 
-function getLocalStorage() {
+function renderFavorites() {
   favoriteResults = JSON.parse(localStorage.getItem(favAnime)) || [];
   // identify favorited-results
   // favoriteResults = document.getElementById("favorited-results");
@@ -129,27 +128,38 @@ function renderProductCard(productInfo) {
 }
 
 // Toggle favorite button
-var favoriteBtn = document.getElementById('favorite-button');
 
-function toggleFavoriteAnime() {
-  let favoriteIcon = document.querySelector('.fa-solid.fa-star');
-  let notFavoriteIcon = document.querySelector('.fa-regular.fa-star');
+function toggleFavoriteBtn(favoriteBtn) {
+  let favoriteIcon = favoriteBtn.querySelector('.fa-solid.fa-star');
+  let notFavoriteIcon = favoriteBtn.querySelector('.fa-regular.fa-star');
 
   if (favoriteIcon.classList.contains('collapse')) {
     // is favorited 
     favoriteIcon.classList.remove('collapse');
     notFavoriteIcon.classList.add('collapse');
     favoriteBtn.getElementsByTagName('p')[0].innerHTML = 'Favorited';
+    // add add to array function and save to local storage
   } else {
     // unfavorite
     favoriteIcon.classList.add('collapse');
     notFavoriteIcon.classList.remove('collapse');
     favoriteBtn.getElementsByTagName('p')[0].innerHTML = 'Favorite';
+    // remove from array and update local storage
   }
 }
 
-// favoriteBtn.addEventListener('click', toggleFavoriteAnime);
 
-getLocalStorage();
+
+function checkClicked(event) {
+  if (event.target.id === 'favorite-button') {
+    toggleFavoriteBtn(event.target)
+  } else if (event.target.parentNode.id === 'favorite-button') {
+    toggleFavoriteBtn(event.target.parentNode);
+  }
+}
+
+favoriteDisplayEl.addEventListener('click', checkClicked);
+
+renderFavorites();
 
 
