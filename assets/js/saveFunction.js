@@ -1,19 +1,26 @@
-// In order to be saved, the array has to be converted to a string, using stringify.
-// var favoritedAnime = { };
-// localStorage.setItem("favoritedanime", JSON.stringify(#array we have everything stored in));
-
-// function that receives data from obj, check to see if it's already in favorited array, then need to push it to amazonApiArray
-
-
-
-// add + save in local storage, when favoriting, function to remove from array
+const favAnime = "favoritedAnime";
 
 var favArray = [];
 
-function addToArray(animeObj) {
-  favArray.push(animeObj);
-} 
+//save to localStorage
 
-function savingArray() {
-  localStorage.setItem("savedAnime", JSON.stringify(favArray));
-}
+  function addToArray(animeObj) {
+    favArray.push(animeObj);
+    saveToLocalStorage();
+  }
+
+  // take in array and stringify that to store to localStorage
+
+  function saveToLocalStorage() {
+    localStorage.setItem(favAnime, JSON.stringify(favArray));
+  }
+
+  function removeFromFavoritesArray(targetId) {
+    let findAnime = favArray.find(anime => anime.animeId === targetId) 
+      console.log(findAnimeId);
+    var removeIndex = favArray.indexOf(findAnime)
+    favArray.splice(removeIndex, 1)
+
+    saveToLocalStorage();
+  }
+  
