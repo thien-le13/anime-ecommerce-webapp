@@ -1,13 +1,15 @@
 /* FAVORITE PAGE CSS */
 /* watch out for class name duplicates, consider seperate these two files */
 
-.card-container{
-    display: flex;
+/* .card-container{
+    /* display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
     padding: 50px;
-    margin:25px;
-}
+    margin:25px; */
+    /* margin-top: 0.25rem;
+    margin-bottom: 0.25rem; */
+/* } */ 
 
 .child{
     display: flex;
@@ -16,7 +18,6 @@
     width: 200px;
     height: 200px;
     border:10px black solid;
-
 }
 
 /* MAIN PAGE CSS */
@@ -50,12 +51,10 @@
 /* ANIME PRODUCT */
 
 .product-container {
-    width:20%;
     padding: 5px;
 }
 
 .product-card {
-    flex-shrink: 0;
     border: 2px solid black;
     border-radius: 5px;
 }

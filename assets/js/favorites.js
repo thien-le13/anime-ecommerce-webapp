@@ -1,228 +1,164 @@
-// Search Page
-// search => Title
-// returns => Anime obj
-// Input Anime obj in Local Storage
-
-
-// Steps for favorites page:
-
-// parent: animeCard
-
-// Initializing local storage, identify favorite results, loop through local storage, get the current looped obj, 
-
-// create card element, create card div, add image, create that image, 
-
-// Create title div,  
-
-// X icon that clears the favorite anime
-
-
-
-// Favorites Page
-// Initialize function to load Anime objs onto page.
-
-// 
-// [
-// Key:
-// value: {
-//   "title:" "Anime 1 Title,", "image": ."/img/.....png"
-// },
-// {
-//  "title:" "Anime 2 Title,", "image": ."/img/.....png" 
-// }
-// .
-// .
-// .
-// ]
-
-
-
+var favoriteDisplayEl = document.getElementById('favoriteDisplay');
+var favoriteResults = [];
 
 // Initialize
 
-function getLocalStorage() {
+function renderFavorites() {
 
   // identify favorited-results
+  // favoriteResults = document.getElementById("favorited-results");
 
-  var favoriteResults = document.getElementById("favorited-results");
+  // loop through local storage
+  // if (favoriteResults.length !== 0 ){
+    let inLocalStorage = true;
+    // for (let i = 0; favoriteResults.length; i++) {
+    for (let i = 0; i < 8; i++) {
+      // create card for each favorited anime
+      let columnEl = document.createElement('div');
+      let articleEl = document.createElement('article');
+      let cardButton = document.createElement('button');
+      let animeImage = document.createElement('img');
+      let cardHeader = document.createElement('header');
+      let cardHeaderText = document.createElement('h2');
+      let cardFooter = document.createElement('footer');
+      let favoriteBtn = renderFavoriteBtn(inLocalStorage);
+
+      columnEl.setAttribute('class', 'my-1 px-1 w-full md:w-1/3 lg:my-4 lg:px-4 lg:w-1/4');
+      articleEl.setAttribute('class', 'overflow-hidden rounded-lg shadow-lg');
+      // modal toggle
+      cardButton.setAttribute('type', 'button');
+      cardButton.setAttribute('data-bs-toggle','modal');
+      cardButton.setAttribute('data-bs-target', '#animeModal');
+
+      // cardButton.setAttribute('id', favoriteResults[i].id);
+      cardButton.setAttribute('id', 'anime-id');
+
+      // animeImage.setAttribute('alt', favoriteResults[i].animetitle.replace(' ', '-'));
+      animeImage.setAttribute('alt', 'anime-name');
+
+      animeImage.setAttribute('class', 'block aspect-[3/4] object-cover');
+
+      // animeImage.setAttribute('src', favoriteResults[i].animeimgurl);
+      animeImage.setAttribute('src', './assets/img/spyfamily-placeholder.jpg');
+
+      cardHeader.setAttribute('class', 'flex items-center justify-between leading-tight p-2 md:p-4');
+      cardHeaderText.setAttribute('class', 'text-3xl m-auto');
+      cardFooter.setAttribute('class', 'flex items-center justify-between leading-none p-2 md:p-4');
+
+      // cardHeaderText.textContent = favoriteResults[i].animetitle;
+      cardHeaderText.textContent = 'Anime Name';
+
+      cardHeader.appendChild(cardHeaderText);
+      cardFooter.appendChild(favoriteBtn);
+      cardButton.append(animeImage,cardHeader);
+      articleEl.append(cardButton, cardFooter);
+      columnEl.appendChild(articleEl);
+      favoriteDisplayEl.appendChild(columnEl);
+    }
+  }
+// }
 
 
-// loop through local storage
+function renderFavoriteBtn(inLocalStorage) {
+  let favoriteBtn = document.createElement('button');
+  let favoriteIcon = document.createElement('i');
+  let unfavoriteIcon = document.createElement('i');
+  let favoriteText = document.createElement('p');
 
-// get current looped obj
+  favoriteBtn.setAttribute('id', 'favorite-button');
+  favoriteBtn.setAttribute('type', 'button');
+  favoriteBtn.setAttribute('class', 'w-full mt-2 py-2 flex justify-center rounded-lg shadow-md');
 
-// creating card elements
+  if (inLocalStorage) {
+    unfavoriteIcon.setAttribute('class', 'fa-regular fa-star pb-2 pr-1 collapse');
+    favoriteIcon.setAttribute('class', 'fa-solid fa-star pb-2 pr-1');
+    favoriteText.textContent = 'Favorited';
+  } else {
+    unfavoriteIcon.setAttribute('class', 'fa-regular fa-star pb-2 pr-1');
+    favoriteIcon.setAttribute('class', 'fa-solid fa-star pb-2 pr-1 collapse');
+    favoriteText.textContent = 'Favorite';
+  }
 
-// create anime card div
+  favoriteBtn.append(favoriteIcon, unfavoriteIcon, favoriteText);
 
-var animeCard = document.createElement("div");
+  return favoriteBtn;
+}
 
-// add class name to anime card div
-// element.classList.add("class name");
+// Render modal content when anime card is clicked
+function renderModal(event) {
 
-animeCard.classList.add("anime-card");
+  // loop through the favorite anime object array and check if id matches 
+  for ( let i = 0; i < favoriteResults.length; i++ ){
+    if (event.target.id === favoriteResults[i].anime-id) {
+      let productDisplayEl = document.getElementById('related-products');
+      let animeTitleEl = document.getElementById('anime-title');
+      let animeSynopsisEl = document.getElementById('anime-synopsis');
+      let productCards = renderProductCard(favoriteResults[i].products);
 
-// create var for animeImage, create element, set attribute for href, append.
+      animeTitleEl.textContent = favoriteResults[i].animename;
+      animeSynopsisEl.textContent = favoriteResults[i].synopsis;
 
-favoritedResults.appendChild(animeCard);
+      productDisplayEl.appendChild(productCards);
+    }
+  }
+}
 
+function renderProductCard(productInfo) {
+  for (let i = 0; i < productInfoObj.length; i++) {
+    let productContainerEl = document.createElement('div');
+    let productCardEl = document.createElement('div');
+    let productUrlEl = document.createElement('a');
+    let productImgEl = document.createElement('img');
+    let productNameEl = document.createElement('h4');
+    let productPriceEl = document.createElement('p');
 
-
-
-//  Anime image
-  var animeImage = document.createElement('a');
-  // <img src="" alt=""/>
-  // <img src="www.anime1.com/image1" alt="X anime name title"/>
-    animeImage.href = "# www.placeholder-anime1.com";
-    animeImage.classList.add('anime-image');
-    animeCard.appendChild(anime-image);
-
-
-    // <div id="favorited-results">
-    //   <div class="anime-card">
-    //     <a class="anime-image" href="www.placeholder-anime1.com"></a>
-    //   </div>
-    // </div>
+    productContainerEl.setAttribute('class', 'product-container');
+    productCardEl.setAttribute('class', 'product-card');
+    productUrlEl.setAttribute('href', productInfo[i].url);
+    productImgEl.setAttribute('class', 'aspect-square object-cover');
+    productImgEl.setAttribute('src', productInfo[i].img);
     
+    productNameEl.textContent = productInfo[i].name;
+    productPriceEl.textContent = productInfo[i].price;
 
+    productUrlEl.append(productImgEl, productNameEl, productPriceEl);
+    productCardEl.appendChild(productUrlEl);
+    productContainerEl.appendChild(productCardEl);
 
-
-// Create div for Title, create variable, inner text, classlist.add , appendChild 
-
-var title = document.createElement('div');
-
-target.innerText = [string value]
-
-  title.innerText = 'blah blah blah'
-
-  title.classList.add('anime-title');
-  
-  animeCard.appendChild(title);
-
-  //  // <div id="favorited-results">
-  //   //   <div class="anime-card">
-  //   //     <a class="anime-image" href="www.placeholder-anime1.com"></a>
-  //           <div class="anime-title">blah blah</div>
-  //   //   </div>
-  //   // </div>
-    
-
-// // Clear button
-
-var clearBtn = document.createElement("button");
-
-var closeImage = document.createElement("img");
-
-clearBtn.classList.add("anime-remove");
-
-
-closeImage.setAttribute('src', './img/clear-favorite-icon.svg');
-closeImage.setAttribute('alt', 'Clear favorite anime X button');
-
-animeCard.appendChild(clearBtn);
-clearBtn.appendChild(closeImage);
-
+    return productContainerEl;
+  }
 }
 
 // Toggle favorite button
-var favoriteBtn = document.getElementById('favorite-button');
 
-function toggleFavoriteAnime() {
-  let favoriteIcon = document.querySelector('.fa-solid.fa-star');
-  let notFavoriteIcon = document.querySelector('.fa-regular.fa-star');
+function toggleFavoriteBtn(favoriteBtn) {
+  let favoriteIcon = favoriteBtn.querySelector('.fa-solid.fa-star');
+  let notFavoriteIcon = favoriteBtn.querySelector('.fa-regular.fa-star');
 
   if (favoriteIcon.classList.contains('collapse')) {
     // is favorited 
     favoriteIcon.classList.remove('collapse');
     notFavoriteIcon.classList.add('collapse');
     favoriteBtn.getElementsByTagName('p')[0].innerHTML = 'Favorited';
+    // add add to array function and save to local storage
   } else {
     // unfavorite
     favoriteIcon.classList.add('collapse');
     notFavoriteIcon.classList.remove('collapse');
     favoriteBtn.getElementsByTagName('p')[0].innerHTML = 'Favorite';
+    // remove from array and update local storage
   }
 }
 
-favoriteBtn.addEventListener('click', toggleFavoriteAnime);
-
-// // Create an object for anime
-var favoritedAnime = {
-  animeTitle: ,
-  animeImg: ,
-};
-
-
-// Store the object in localStorage as a string by using JSON.stringify
-localStorage.setItem('favoritedAnime', JSON.stringify(fruits));
-// and then when you want to retrieve them, you can do this:
-
-// Retrieve the string and turn it back into an object by using JSON.parse
-var savedFruits = JSON.parse(localStorage.getItem('fruits'));
-
-// Loop through the object and print the count for each fruit
-for (var key in savedFruits) {
-  alert('Fruit: ' + key + '\nCount: ' + savedFruits[key]);
+function checkClicked(event) {
+  if (event.target.id === 'favorite-button') {
+    toggleFavoriteBtn(event.target)
+  } else if (event.target.parentNode.id === 'favorite-button') {
+    toggleFavoriteBtn(event.target.parentNode);
+  }
 }
 
+favoriteDisplayEl.addEventListener('click', checkClicked);
 
+renderFavorites();
 
-// let child = document.getElementById("child")
-// child.addEventListener('click', function(){
-//   child.remove();
-// });
-
-// Javascript steps
-
-// 1. Create variable 
-
-// var image = document.createElement('img');
-
-// <img> </img>
-
-
-// 2. Does this element have any attributes we need to consider?
-
-// src, alt Text
-
-// image.setAttribute("src", [image path]);
-// image.setAttribute('alt', [alt text]);
-
-// <img src=[image path] alt= [alt text];
-
-
-// 3. Does this element, does it need a class?
-
-// image.classList.add("example-image");
-
-// <img class= "example-image" src=[image path] alt=[alt text]/>
-
-
-// 4. Does this element need text inside?
-//     Image does not require text inside
-
-//   Something that does: paragraph <p>
-
-//   var paragraph = document.createElement("p");
-
-//   paragraph.innerText = "Hello, world!";
-
-
-// 5. wHERE DO WE WANT TO APPEND THIS NEW ELEMENT TO?
-//   - find the parent container and appendChild to your newly created element
-
-
-//   var animeSection = document.getElementById('animesection');
-//   parent container = animeSection
-//   new element = image
-
-
-//   parent.appendChild(new element);
-
-//   animeSection.appendChild(image);
-
-//   6. Expected Result
-
-//   <section id="animesection">
-//     <img "example-image" src=[image path] alt=[alt text]/>
-//     </section>
