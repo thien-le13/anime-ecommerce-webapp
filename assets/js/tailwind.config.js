@@ -31,8 +31,13 @@
 //   }
 // }
 
+
 // module.exports = {
 //   darkMode: 'class',
 //   // ...
+<<<<<<< HEAD
+// }
+=======
 // }
 
+>>>>>>> 8080bebb59b2cf0f3354d98443515f3f4c0ca9ab
