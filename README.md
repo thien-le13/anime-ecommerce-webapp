@@ -5,8 +5,9 @@ That sparked an idea for us, why not create a webapp that could assist the user 
 
 Together we learned how to:
 
-- Use the power of friendship.
+- Use the power of friendship; to work seamlessly with a team on GitHub.
 - Apply two server-side API's and store it's data client-side.
+- Use stored data to create a favorites page.
 - Create a modal and use our stored data within it.
 - Use Tailwind as our CSS framework.
 
@@ -20,6 +21,16 @@ To add a screenshot, create an `assets/images` folder in your repository and upl
     ![alt text](assets/images/screenshot.png)
     ```
 
+## Features
+
+If your project has a lot of features, list them here.
+Favorites page, modal.
+
+## Credits
+
+Jikan API (https://rapidapi.com/theapiguy/api/jikan1/)
+Amazon API (https://rapidapi.com/b2g.corporation/api/amazon24/)
+
 ## Project Team
 
 Stephanie Tseng (https://github.com/wytseng)
@@ -28,3 +39,8 @@ Justin Chen (https://github.com/justincchen)
 Bryant Trinh (https://github.com/bryanttrinh)
 Jaret Ishii (https://github.com/smudge121)
 Thien Le (https://github.com/thien-le13)
+
+## Limitations
+
+Amazon API requires personal keys, each limits to 200 fetches. Solution is swap keys once limit is reached.
+If an anime is favorited before products load, the items will not be saved.
