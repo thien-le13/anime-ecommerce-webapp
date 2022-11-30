@@ -97,13 +97,13 @@ function toggleFavoriteAnime(favoriteBtn, favoriteIcon, notFavoriteIcon) {
       notFavoriteIcon.classList.add("collapse");
       favoriteBtn.querySelector("p").textContent = "Favorited";
       // Call save function here
-      ScrapeAnimeObject(favoriteBtn);
+      SaveAnime(ScrapeAnimeObject(favoriteBtn));
     } else {
       favoriteIcon.classList.add("collapse");
       notFavoriteIcon.classList.remove("collapse");
       favoriteBtn.querySelector("p").textContent = "Favorite";
       // Call remove function here
-      ScrapeAnimeObject(favoriteBtn);
+      RemoveAnime(ScrapeAnimeObject(favoriteBtn));
     }
   } else {
     if (favoriteIcon.classList.contains("collapse")) {
@@ -111,13 +111,13 @@ function toggleFavoriteAnime(favoriteBtn, favoriteIcon, notFavoriteIcon) {
       notFavoriteIcon.classList.add("collapse");
       favoriteBtn.parentElement.querySelector("p").textContent = "Favorited";
       // Call save function here
-      ScrapeAnimeObject(favoriteBtn);
+      SaveAnime(ScrapeAnimeObject(favoriteBtn));
     } else {
       favoriteIcon.classList.add("collapse");
       notFavoriteIcon.classList.remove("collapse");
       favoriteBtn.parentElement.querySelector("p").textContent = "Favorite";
       // Call remove function here
-      ScrapeAnimeObject(favoriteBtn);
+      RemoveAnime(ScrapeAnimeObject(favoriteBtn));
     }
   }
 }
@@ -149,7 +149,7 @@ function ScrapeAnimeObject(startPoint) {
 
  // Checks if an anime is already in local storage and returns a bool
 function IsAnimeSaved(anime){
-  var favoritedAnime = JSON.parse(localStorage.getItem(favAnime));
+  var favoritedAnime = JSON.parse(localStorage.getItem(favAnime)) || [];
 
   for (var i = 0; i < favoritedAnime.length; i++){
     if (favoritedAnime[i].animeId == anime.animeId)

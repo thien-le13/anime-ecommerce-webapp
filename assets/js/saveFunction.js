@@ -4,16 +4,35 @@
 
 // function that receives data from obj, check to see if it's already in favorited array, then need to push it to amazonApiArray
 
-
+const favAnime = "favoritedAnime"
 
 // add + save in local storage, when favoriting, function to remove from array
 
 var favArray = [];
 
-function addToArray(animeObj) {
+function SaveAnime(animeObj) {
   favArray.push(animeObj);
+  SavingArray();
 } 
 
-function savingArray() {
-  localStorage.setItem("savedAnime", JSON.stringify(favArray));
+function SavingArray() {
+  localStorage.setItem(favAnime, JSON.stringify(favArray));
 }
+
+function InitArray(){
+  favArray = JSON.parse(localStorage.getItem(favAnime)) || [];
+}
+
+function RemoveAnime(anime){
+  for (var i = 0; i < favArray.length; i++){
+    if (anime.animeId == favArray[i].animeId)
+    {
+      favArray.splice(i,1);
+      SavingArray();
+      return;
+    }
+  }
+}
+
+
+InitArray();
