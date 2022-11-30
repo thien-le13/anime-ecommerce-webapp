@@ -1,10 +1,13 @@
 var favoriteDisplayEl = document.getElementById('favoriteDisplay');
 var favoriteResults = [];
 
+var resultsCopy = [];
+
 // Initialize
 
 function renderFavorites() {
   favoriteResults = JSON.parse(localStorage.getItem(favAnime)) || [];
+  resultsCopy = JSON.parse(localStorage.getItem(favAnime)) || []
   // identify favorited-results
   // favoriteResults = document.getElementById("favorited-results");
 
@@ -23,24 +26,26 @@ function renderFavorites() {
       let favoriteBtn = renderFavoriteBtn(inLocalStorage);
 
       columnEl.setAttribute('class', 'my-1 px-1 w-full md:w-1/3 lg:my-4 lg:px-4 lg:w-1/4');
-      articleEl.setAttribute('class', 'overflow-hidden rounded-lg shadow-lg');
+      articleEl.setAttribute('class', 'overflow-hidden rounded-lg shadow-lg result-content');
       // modal toggle
       cardButton.setAttribute('type', 'button');
       cardButton.setAttribute('data-bs-toggle','modal');
       cardButton.setAttribute('data-bs-target', '#animeModal');
+      cardButton.setAttribute('onclick','renderModal(this)')
 
       cardButton.setAttribute('id', favoriteResults[i].animeId);
 
       animeImage.setAttribute('alt', favoriteResults[i].title);
       // animeImage.setAttribute('alt', 'anime-name');
 
-      animeImage.setAttribute('class', 'block aspect-[3/4] object-cover');
+      animeImage.setAttribute('class', 'block aspect-[3/4] object-cover anime-img');
 
       animeImage.setAttribute('src', favoriteResults[i].image);
       // animeImage.setAttribute('src', './assets/img/spyfamily-placeholder.jpg');
 
       cardHeader.setAttribute('class', 'flex items-center justify-between leading-tight p-2 md:p-4');
-      cardHeaderText.setAttribute('class', 'text-3xl m-auto');
+      cardHeaderText.setAttribute('class', 'text-3xl m-auto anime-title');
+      cardHeaderText.dataset.id = favoriteResults[i].animeId;
       cardFooter.setAttribute('class', 'flex items-center justify-between leading-none p-2 md:p-4');
 
       cardHeaderText.textContent = favoriteResults[i].title;
@@ -83,26 +88,29 @@ function renderFavoriteBtn(inLocalStorage) {
 }
 
 // Render modal content when anime card is clicked
-function renderModal(event) {
-
+function renderModal(button) {
+  
   // loop through the favorite anime object array and check if id matches 
   for ( let i = 0; i < favoriteResults.length; i++ ){
-    if (event.target.id === favoriteResults[i].anime-id) {
+    if (button.id === favoriteResults[i].animeId) {
       let productDisplayEl = document.getElementById('related-products');
       let animeTitleEl = document.getElementById('anime-title');
       let animeSynopsisEl = document.getElementById('anime-synopsis');
-      let productCards = renderProductCard(favoriteResults[i].products);
+      let productCards = renderProductCard(favoriteResults[i].products, productDisplayEl);
 
-      animeTitleEl.textContent = favoriteResults[i].animename;
+      animeTitleEl.textContent = favoriteResults[i].title;
       animeSynopsisEl.textContent = favoriteResults[i].synopsis;
 
-      productDisplayEl.appendChild(productCards);
+      // productDisplayEl.appendChild(productCards);
     }
   }
 }
 
-function renderProductCard(productInfo) {
-  for (let i = 0; i < productInfoObj.length; i++) {
+function renderProductCard(productInfo, parent) {
+  parent.innerHTML ='';
+
+
+  for (let i = 0; i < productInfo.length; i++) {
     let productContainerEl = document.createElement('div');
     let productCardEl = document.createElement('div');
     let productUrlEl = document.createElement('a');
@@ -114,7 +122,7 @@ function renderProductCard(productInfo) {
     productCardEl.setAttribute('class', 'product-card');
     productUrlEl.setAttribute('href', productInfo[i].url);
     productImgEl.setAttribute('class', 'aspect-square object-cover');
-    productImgEl.setAttribute('src', productInfo[i].img);
+    productImgEl.setAttribute('src', productInfo[i].image);
     
     productNameEl.textContent = productInfo[i].name;
     productPriceEl.textContent = productInfo[i].price;
@@ -122,8 +130,8 @@ function renderProductCard(productInfo) {
     productUrlEl.append(productImgEl, productNameEl, productPriceEl);
     productCardEl.appendChild(productUrlEl);
     productContainerEl.appendChild(productCardEl);
-
-    return productContainerEl;
+    parent.appendChild(productContainerEl);
+    
   }
 }
 
@@ -133,22 +141,32 @@ function toggleFavoriteBtn(favoriteBtn) {
   let favoriteIcon = favoriteBtn.querySelector('.fa-solid.fa-star');
   let notFavoriteIcon = favoriteBtn.querySelector('.fa-regular.fa-star');
 
+  var point = favoriteBtn.closest('.result-content');
+
   if (favoriteIcon.classList.contains('collapse')) {
     // is favorited 
     favoriteIcon.classList.remove('collapse');
     notFavoriteIcon.classList.add('collapse');
     favoriteBtn.getElementsByTagName('p')[0].innerHTML = 'Favorited';
     // add add to array function and save to local storage
+    SaveAnime(GetAnimeById(point.querySelector('.anime-title').dataset.id));
   } else {
     // unfavorite
     favoriteIcon.classList.add('collapse');
     notFavoriteIcon.classList.remove('collapse');
     favoriteBtn.getElementsByTagName('p')[0].innerHTML = 'Favorite';
     // remove from array and update local storage
+    removeFromFavoritesArray( point.querySelector('.anime-title').dataset.id);
   }
 }
 
-
+function GetAnimeById(id)
+{
+  for (var i = 0; i < resultsCopy.length; i++){
+    if (resultsCopy[i].animeId == id)
+      return resultsCopy[i];
+  }
+}
 
 function checkClicked(event) {
   if (event.target.id === 'favorite-button') {

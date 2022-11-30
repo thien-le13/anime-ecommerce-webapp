@@ -61,7 +61,6 @@ function DisplayResults(searchResults) {
     // Check if anime is saved
     if(IsAnimeSaved(ScrapeAnimeObject(favoriteBtn)))
     {
-      console.log("alreadySaved");
       favoriteIcon.classList.remove("collapse");
       notFavoriteIcon.classList.add("collapse");
       favoriteBtn.querySelector("p").textContent = "Favorited";
@@ -90,7 +89,9 @@ searchButton.addEventListener("click", function (event) {
 // var favoriteBtn = document.getElementById("favorite-button");
 
 function toggleFavoriteAnime(favoriteBtn, favoriteIcon, notFavoriteIcon) {
-  
+  if (!favoriteBtn.closest(".result-content").dataset.canFav)
+    return;
+
   if (favoriteBtn.getAttribute("id" == "favorite-button")) {
     if (favoriteIcon.classList.contains("collapse")) {
       favoriteIcon.classList.remove("collapse");

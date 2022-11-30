@@ -33,6 +33,14 @@ function RemoveAnime(anime){
     }
   }
 }
+function removeFromFavoritesArray(targetId) {
+  let findAnime = favArray.find(anime => anime.animeId === targetId) 
+    
+  var removeIndex = favArray.indexOf(findAnime)
+  favArray.splice(removeIndex, 1)
+
+  SavingArray();
+}
 
 
 InitArray();
