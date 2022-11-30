@@ -40,6 +40,7 @@ function StoreSearchData(data) {
       title: data[i].title_english ? data[i].title_english : data[i].title,
       image: data[i].images.jpg.image_url,
       synopsis: data[i].synopsis,
+      animeId: data[i].mal_id
     };
     searchResults.push(anime);
   }
@@ -66,6 +67,7 @@ async function GetRandomAnime(count = 1) {
             : data.data.title,
           image: data.data.images.jpg.image_url,
           synopsis: data.data.synopsis,
+          animeId: data.data.mal_id
         };
         return anime;
       });

@@ -26,7 +26,7 @@ function getSearchData(data) {
       title: data[i].title,
       image: data[i].images.jpg.image_url,
       synopsis: data[i].synopsis,
-      animeId: data[i].mal_id,
+      animeId: data[i].mal_id
     };
 
     searchResults.push(anime);
@@ -55,8 +55,10 @@ function DisplayResults(searchResults) {
     animeImg.firstElementChild.src = searchResults[i].image;
 
     var favoriteBtn = animeNode.querySelector("#favorite-button");
+    let favoriteIcon = animeNode.querySelector(".fa-solid.fa-star");
+    let notFavoriteIcon = animeNode.querySelector(".fa-regular.fa-star");
     favoriteBtn.addEventListener("click", function (event) {
-      toggleFavoriteAnime(event.target);
+      toggleFavoriteAnime(event.target, favoriteIcon, notFavoriteIcon);
     });
 
     searchSection.append(animeNode);
@@ -77,11 +79,8 @@ searchButton.addEventListener("click", function (event) {
 // Toggle favorite button
 // var favoriteBtn = document.getElementById("favorite-button");
 
-function toggleFavoriteAnime(favoriteBtn) {
-  let favoriteIcon = document.querySelector(".fa-solid.fa-star");
-  let notFavoriteIcon = document.querySelector(".fa-regular.fa-star");
-  console.log(favoriteBtn);
-  console.log(favoriteBtn.querySelector("p"));
+function toggleFavoriteAnime(favoriteBtn, favoriteIcon, notFavoriteIcon) {
+  
   if (favoriteBtn.getAttribute("id" == "favorite-button")) {
     if (favoriteIcon.classList.contains("collapse")) {
       favoriteIcon.classList.remove("collapse");
