@@ -43,4 +43,4 @@ Thien Le (https://github.com/thien-le13)
 ## Limitations
 
 Amazon API requires personal keys, each limits to 200 fetches. Solution is swap keys once limit is reached.
-If an anime is favorited before products load, the items will not be saved.
+The favorites button during the search will not be functional until the products from Amazon are fetched.
