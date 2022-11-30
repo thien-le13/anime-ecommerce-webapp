@@ -1,7 +1,7 @@
 const options = {
 	method: 'GET',
 	headers: {
-		// 'X-RapidAPI-Key': '165ecfd83fmsh1931521e750a42fp1d9be5jsn1dad31f729e1',  // this is my key id change it to your own
+		'X-RapidAPI-Key': '90676117d1mshaf8770ad374a2e9p1f06b4jsne803cad652c6',  
 		'X-RapidAPI-Host': 'amazon24.p.rapidapi.com'
 	}
 };
@@ -13,12 +13,13 @@ var amaz =
 
 const merchLength = 3;
 
+
 async function GetAnimeMerch(animeTitle) {
   // This function returns a promise, use .this to accept the promised array of merch
   var itemLength = merchLength;
   var merchList = [];
 
-  var encodedTitle = encodeURIComponent(animeTitle + "anime");
+  var encodedTitle = encodeURIComponent(animeTitle + " anime");
 
   const merch = await fetch(amazURL.replace('ANIME', encodedTitle), options)
 	.then(response => response.json())
@@ -65,8 +66,15 @@ function LoadExpandedMerch(id) {
         listOfCards[j].querySelector("h4").textContent = data[j].name;
         listOfCards[j].querySelector("p").textContent = "$" + data[j].price;
       }
+      productName.closest(".result-content").dataset.canFav = "true";
     });
 }
 function CloseExpandedMerch() {
   return;
 }
+
+////////////////////// Load from storage
+
+
+
+
