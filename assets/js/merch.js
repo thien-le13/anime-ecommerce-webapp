@@ -1,9 +1,9 @@
 const options = {
-  method: "GET",
-  headers: {
-    // "X-RapidAPI-Key": "7f20f0b961msh4b0b7078f749af8p1531dcjsnc37a375c0024", // this is my key id change it to your own
-    "X-RapidAPI-Host": "amazon24.p.rapidapi.com",
-  },
+	method: 'GET',
+	headers: {
+		// 'X-RapidAPI-Key': '165ecfd83fmsh1931521e750a42fp1d9be5jsn1dad31f729e1',  // this is my key id change it to your own
+		'X-RapidAPI-Host': 'amazon24.p.rapidapi.com'
+	}
 };
 
 var amazURL =
@@ -20,29 +20,28 @@ async function GetAnimeMerch(animeTitle) {
 
   var encodedTitle = encodeURIComponent(animeTitle + "anime");
 
-  const merch = await fetch(amazURL.replace("ANIME", encodedTitle), options)
-    .then((response) => response.json())
-    .then(function (data) {
-      for (var i = 0; i < itemLength; i++) {
-        if (!(data.docs[i].app_sale_price != null)) {
-          // should skip if price is null
-          itemLength++;
-          continue;
-        }
-
-        var item = {
-          name: data.docs[i].product_title,
-          image: data.docs[i].product_main_image_url,
-          price: data.docs[i].app_sale_price,
-          prodURL: data.docs[i].product_detail_url,
-        };
-        merchList.push(item);
+  const merch = await fetch(amazURL.replace('ANIME', encodedTitle), options)
+	.then(response => response.json())
+	.then(function(data){
+    for (var i = 0; i < itemLength; i++) {
+      if (!(data.docs[i].app_sale_price != null)) {
+        // should skip if price is null
+        itemLength++;
+        continue;
       }
-      return merchList;
-    })
-    .catch((err) => console.error(err));
+      var item = {
+        name: data.docs[i].product_title,
+        image: data.docs[i].product_main_image_url,
+        price: data.docs[i].app_sale_price,
+        prodURL: data.docs[i].product_detail_url
+      };
+      merchList.push(item);
+    }
+    return merchList;
+  }).catch((err) => console.error(err));
 
   return Promise.resolve(merch);
+
 }
 
 var searchResults = [];

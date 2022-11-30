@@ -26,7 +26,7 @@ function getSearchData(data) {
       title: data[i].title,
       image: data[i].images.jpg.image_url,
       synopsis: data[i].synopsis,
-      animeId: data[i].mal_id,
+      animeId: data[i].mal_id
     };
 
     searchResults.push(anime);
@@ -54,6 +54,13 @@ function DisplayResults(searchResults) {
     animeSynopsis.firstElementChild.innerHTML = searchResults[i].synopsis;
     animeImg.firstElementChild.src = searchResults[i].image;
 
+    var favoriteBtn = animeNode.querySelector("#favorite-button");
+    let favoriteIcon = animeNode.querySelector(".fa-solid.fa-star");
+    let notFavoriteIcon = animeNode.querySelector(".fa-regular.fa-star");
+    favoriteBtn.addEventListener("click", function (event) {
+      toggleFavoriteAnime(event.target, favoriteIcon, notFavoriteIcon);
+    });
+
     searchSection.append(animeNode);
   }
 }
@@ -70,26 +77,32 @@ searchButton.addEventListener("click", function (event) {
 });
 
 // Toggle favorite button
-var favoriteBtn = document.getElementById("favorite-button");
+// var favoriteBtn = document.getElementById("favorite-button");
 
-function toggleFavoriteAnime() {
-  let favoriteIcon = document.querySelector(".fa-solid.fa-star");
-  let notFavoriteIcon = document.querySelector(".fa-regular.fa-star");
-
-  if (favoriteIcon.classList.contains("collapse")) {
-    // is favorited
-    favoriteIcon.classList.remove("collapse");
-    notFavoriteIcon.classList.add("collapse");
-    favoriteBtn.getElementsByTagName("p")[0].innerHTML = "Favorited";
+function toggleFavoriteAnime(favoriteBtn, favoriteIcon, notFavoriteIcon) {
+  
+  if (favoriteBtn.getAttribute("id" == "favorite-button")) {
+    if (favoriteIcon.classList.contains("collapse")) {
+      favoriteIcon.classList.remove("collapse");
+      notFavoriteIcon.classList.add("collapse");
+      favoriteBtn.querySelector("p").textContent = "Favorited";
+    } else {
+      favoriteIcon.classList.add("collapse");
+      notFavoriteIcon.classList.remove("collapse");
+      favoriteBtn.querySelector("p").textContent = "Favorite";
+    }
   } else {
-    // unfavorite
-    favoriteIcon.classList.add("collapse");
-    notFavoriteIcon.classList.remove("collapse");
-    favoriteBtn.getElementsByTagName("p")[0].innerHTML = "Favorite";
+    if (favoriteIcon.classList.contains("collapse")) {
+      favoriteIcon.classList.remove("collapse");
+      notFavoriteIcon.classList.add("collapse");
+      favoriteBtn.parentElement.querySelector("p").textContent = "Favorited";
+    } else {
+      favoriteIcon.classList.add("collapse");
+      notFavoriteIcon.classList.remove("collapse");
+      favoriteBtn.parentElement.querySelector("p").textContent = "Favorite";
+    }
   }
 }
-
-favoriteBtn.addEventListener("click", toggleFavoriteAnime);
 
 // Transition dropdown caret
 var resultHeader = document.getElementById("result-header");
