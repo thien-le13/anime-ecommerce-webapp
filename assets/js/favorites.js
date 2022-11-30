@@ -131,9 +131,9 @@ function renderProductCard(productInfo) {
 
 // Toggle favorite button
 
-function toggleFavoriteBtn(favortieBtn) {
-  let favoriteIcon = favortieBtn.querySelector('.fa-solid.fa-star');
-  let notFavoriteIcon = favortieBtn.querySelector('.fa-regular.fa-star');
+function toggleFavoriteBtn(favoriteBtn) {
+  let favoriteIcon = favoriteBtn.querySelector('.fa-solid.fa-star');
+  let notFavoriteIcon = favoriteBtn.querySelector('.fa-regular.fa-star');
 
   if (favoriteIcon.classList.contains('collapse')) {
     // is favorited 
