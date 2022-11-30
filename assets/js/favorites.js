@@ -155,7 +155,7 @@ var favoritedAnime = {
 
 // Store the object in localStorage as a string by using JSON.stringify
 localStorage.setItem('favoritedAnime', JSON.stringify(fruits));
-and then when you want to retrieve them, you can do this:
+// and then when you want to retrieve them, you can do this:
 
 // Retrieve the string and turn it back into an object by using JSON.parse
 var savedFruits = JSON.parse(localStorage.getItem('fruits'));

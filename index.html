@@ -108,6 +108,10 @@
               class="search-genre-btn px-6 py-2 ml-2 bg-blue-600 text-white font-medium uppercase rounded-lg shadow-md active:shadow-lg">
               Get Random Animes
             </button>
+            <button id="top-anime-button" type="button" data-mdb-ripple="true" data-mdb-ripple-color="light"
+              class="search-genre-btn px-6 py-2 ml-2 bg-blue-600 text-white font-medium uppercase rounded-lg shadow-md active:shadow-lg">
+              Get Top Five Anime
+            </button>
           </div>
         </div>
       </div>
@@ -116,7 +120,7 @@
     <section id="search-results" class="search-results my-6">
       <div id="result-container" class="flex justify-center">
         <div class="block p-6 w-3/4 rounded-lg shadow-lg bg-white">
-          <a class="flex bg-white rounded" id="result-header" data-bs-toggle="collapse" href="#collapseExample"
+          <a class="flex bg-white rounded" id="result-header" data-bs-toggle="collapse" href="#collapseExample" onclick="LoadExpandedMerch(this)"
             role="button" aria-expanded="false" aria-controls="collapseExample">
             <h3 id="anime-title" class="anime-title">Anime Title</h3>
             <i class="fa-solid fa-caret-down"></i>
@@ -147,31 +151,31 @@
             </div>
             <div class="product-display result-section py-2">
               <h2 class="pt-2 text-center font-bold text-base">Related Products</h2>
-              <div class="flex justify-center">
+              <div class="flex justify-center" id="gift-ideas">
                 <div class="product-container">
                   <div class="product-card">
                     <a href="#">
-                      <img class="aspect-square object-cover" src="assets/img/spyfamily-placeholder.jpg" />
-                      <h4>product name</h4>
-                      <p>$99.99</p>
+                      <img class="aspect-square object-cover" src="assets/img/typing-anime.gif" />
+                      <h4>One moment please!</h4>
+                      <p></p>
                     </a>
                   </div>
                 </div>
                 <div class="product-container">
                   <div class="product-card">
                     <a href="#">
-                      <img class="aspect-square object-cover" src="assets/img/spyfamily-placeholder.jpg" />
-                      <h4>product name</h4>
-                      <p>$99.99</p>
+                      <img class="aspect-square object-cover" src="assets/img/typing-anime.gif" />
+                      <h4>One moment please!</h4>
+                      <p></p>
                     </a>
                   </div>
                 </div>
                 <div class="product-container">
                   <div class="product-card">
                     <a href="#">
-                      <img class="aspect-square object-cover" src="assets/img/spyfamily-placeholder.jpg" />
-                      <h4>product name</h4>
-                      <p>$99.99</p>
+                      <img class="aspect-square object-cover" src="assets/img/typing-anime.gif" />
+                      <h4>One moment please!</h4>
+                      <p></p>
                     </a>
                   </div>
                 </div>
@@ -186,7 +190,12 @@
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"></script>
+    <script src="./assets/js/tailwind.config.js"></script>
+    <script src="./assets/js/merch.js"></script>
     <script src="./assets/js/title.js"></script>
+    <script src="./assets/js/genre.js"></script>
+
+    <!-- <script src="./assets/js/script.js"></script> -->
   </body>
   
   </html>
