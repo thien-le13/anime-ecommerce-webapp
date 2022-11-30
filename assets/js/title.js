@@ -26,6 +26,7 @@ function getSearchData(data) {
       title: data[i].title,
       image: data[i].images.jpg.image_url,
       synopsis: data[i].synopsis,
+      animeId: data[i].mal_id,
     };
 
     searchResults.push(anime);
@@ -34,10 +35,9 @@ function getSearchData(data) {
   return searchResults;
 }
 
-function DisplayResults(searchResults){
-
-  for (var i =0; i < searchResults.length; i++)
-  {
+function DisplayResults(searchResults) {
+  ReceiveSearchResults(searchResults);
+  for (var i = 0; i < searchResults.length; i++) {
     var animeNode = searchContainer.cloneNode(true);
     animeNode.id = animeNode.id + "-" + i;
     var animeTitle = animeNode.querySelector("#anime-title");
@@ -45,26 +45,20 @@ function DisplayResults(searchResults){
     var animeImg = animeNode.querySelector("#anime-img");
 
     var animeCollapse = animeNode.querySelector("#result-header");
-    animeCollapse.setAttribute("aria-controls", "id"+i);
-    animeCollapse.setAttribute("href","#id" + i);
+    animeCollapse.setAttribute("aria-controls", "id" + i);
+    animeCollapse.setAttribute("href", "#id" + i);
     var collapseContent = animeCollapse.nextElementSibling;
-    collapseContent.id = "id"+i;
+    collapseContent.id = "id" + i;
 
     animeTitle.innerHTML = searchResults[i].title;
     animeSynopsis.firstElementChild.innerHTML = searchResults[i].synopsis;
     animeImg.firstElementChild.src = searchResults[i].image;
-    
-    /////////////
-    // Add changes to amazon items
 
-    ////////////
     searchSection.append(animeNode);
   }
-  
 }
 
 function handleTitleSearch() {
-  console.log(searchInputText.value);
   var searchValue = searchInputText.value;
   return searchValue;
 }
@@ -76,43 +70,42 @@ searchButton.addEventListener("click", function (event) {
 });
 
 // Toggle favorite button
-var favoriteBtn = document.getElementById('favorite-button');
+var favoriteBtn = document.getElementById("favorite-button");
 
 function toggleFavoriteAnime() {
-  let favoriteIcon = document.querySelector('.fa-solid.fa-star');
-  let notFavoriteIcon = document.querySelector('.fa-regular.fa-star');
+  let favoriteIcon = document.querySelector(".fa-solid.fa-star");
+  let notFavoriteIcon = document.querySelector(".fa-regular.fa-star");
 
-  if (favoriteIcon.classList.contains('collapse')) {
-    // is favorited 
-    favoriteIcon.classList.remove('collapse');
-    notFavoriteIcon.classList.add('collapse');
-    favoriteBtn.getElementsByTagName('p')[0].innerHTML = 'Favorited';
+  if (favoriteIcon.classList.contains("collapse")) {
+    // is favorited
+    favoriteIcon.classList.remove("collapse");
+    notFavoriteIcon.classList.add("collapse");
+    favoriteBtn.getElementsByTagName("p")[0].innerHTML = "Favorited";
   } else {
     // unfavorite
-    favoriteIcon.classList.add('collapse');
-    notFavoriteIcon.classList.remove('collapse');
-    favoriteBtn.getElementsByTagName('p')[0].innerHTML = 'Favorite';
+    favoriteIcon.classList.add("collapse");
+    notFavoriteIcon.classList.remove("collapse");
+    favoriteBtn.getElementsByTagName("p")[0].innerHTML = "Favorite";
   }
 }
 
-favoriteBtn.addEventListener('click', toggleFavoriteAnime);
+favoriteBtn.addEventListener("click", toggleFavoriteAnime);
 
-// Transition dropdown caret 
-var resultHeader = document.getElementById('result-header');
-resultHeader.addEventListener('click', function(){
-  let caret = resultHeader.querySelector('.fa-caret-down');
-  if (caret.classList.contains('rotate-180')) {
-    caret.classList.remove('rotate-180');
+// Transition dropdown caret
+var resultHeader = document.getElementById("result-header");
+resultHeader.addEventListener("click", function () {
+  let caret = resultHeader.querySelector(".fa-caret-down");
+  if (caret.classList.contains("rotate-180")) {
+    caret.classList.remove("rotate-180");
   } else {
-    caret.classList.add('rotate-180');
+    caret.classList.add("rotate-180");
   }
 });
 
-function CleanSearchResults()
-{
+function CleanSearchResults() {
   var count = searchSection.children.length;
 
-  for (var i =0 ; i < count; i++){
+  for (var i = 0; i < count; i++) {
     searchSection.removeChild(searchSection.children[0]);
   }
 }
