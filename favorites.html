@@ -1,84 +1,132 @@
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/index.min.css" />
-    <link rel="stylesheet" href="./assets/css/style.css" />
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/index.min.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://kit.fontawesome.com/1a391047f1.js" crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="assets/css/style.css" />
+  
+  <title>Your Favorites</title>
 </head>
 
 <body>
-    <header>
-        <!-- TAILWIND HEADER, DELETE NAV BAR STUFF -->
-        <div class="relative bg-white">
-            <div class="ml-4 max-w-4xl px-9 sm:px-6">
-                <div
-                    class="flex items-center justify-between border-b-2 border-gray-100 py-6 md:justify-start md:space-x-10">
-                    <div class="flex justify-start lg:w-0 lg:flex-1">
-                        <a href="#">
-                            <span class="sr-only">Weebs United</span>
-                            <img class="anime-logo" src="./assets/img/Weeb-Logo.png" alt="Company logo, Weebs United">
-                        </a>
+  <!-- TAILWIND HEADER, DELETE NAV BAR STUFF -->
+  
+  <nav class="flex flex-wrap justify-between px-20 py-10 items-center">
+    
+    <a href="index.html" class="flex justify-between space-x-6">
+      <img class="h-15" src="./assets/img/Weeb-Logo2.png" alt="Company logo, Weebs United" />
+      <h1 class="pt-14 text-2xl text-gray-800 font-bold">Weebs United</h1>
+    </a>
+    
+    
+    <div class="flex items-center">
+      <ul class="flex items-center space-x-6">
+        <li class="flex justify-between space-x-1 rounded-md hover:bg-gray-200">
+          <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
+          </svg>
+          <a href="index.html" class="font-semibold text-gray-700">Home</a>
+        </li>
+        <li class="flex justify-between space-x-1 rounded-md hover:bg-gray-200">
+          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M15.362 5.214A8.252 8.252 0 0112 21 8.25 8.25 0 016.038 7.048 8.287 8.287 0 009 9.6a8.983 8.983 0 013.361-6.867 8.21 8.21 0 003 2.48z" />
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M12 18a3.75 3.75 0 00.495-7.467 5.99 5.99 0 00-1.925 3.546 5.974 5.974 0 01-2.133-1A3.75 3.75 0 0012 18z" />
+          </svg>
+          <a href="favorites.html" class="font-semibold text-gray-700">Favorites</a>
+        </li>
+        <li class="flex justify-between space-x-1 rounded-md hover:bg-gray-200">
+          <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
+          </svg>
+          <a href="recents.html" class="font-semibold text-gray-700 ">Recent</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <h1 class="text-3xl text-center font-bold"> Favorites</h1>
+      <div class="container my-12 mx-auto px-4 md:px-1 ">
+        <div class="favorite-display flex flex-wrap -mx-1 lg:-mx-4" id="favoriteDisplay">
+          <!-- If there are favorites js input columns and articles  -->
+          <!-- MODAL -->
+          <div class="modal fade fixed top-0 left-0 hidden w-full h-full outline-none overflow-x-hidden overflow-y-auto" id="animeModal" tabindex="-1" aria-labelledby="animeModalTitle" aria-modal="true" role="dialog">
+            <div class="modal-dialog modal-dialog-centered relative w-auto pointer-events-none">
+              <div class="modal-content border-none shadow-lg relative flex flex-col w-full pointer-events-auto bg-white bg-clip-padding rounded-md outline-none text-current">
+                <div class="modal-header flex flex-shrink-0 items-center justify-between p-4 border-b border-gray-200 rounded-t-md">
+                  <!-- js insert anime name, and clear current input -->
+                  <h5 class="anime-title" id="anime-title">Anime Name</h5>
+                  <button type="button"
+                  class="btn-close box-content w-4 h-4 p-1 text-black border-none rounded-none opacity-50 focus:shadow-none focus:outline-none focus:opacity-100 hover:text-black hover:opacity-75 hover:no-underline"
+                  data-bs-dismiss="modal" aria-label="Close"></i></button>
+                </div>
+                <div class="modal-body relative p-4">
+                  <!-- js insert anime synopsis, and clear current input  -->
+                  <p id="anime-synopsis">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas lacinia quam felis, vel efficitur massa pretium quis. Proin libero est, interdum vel molestie vel, varius volutpat ipsum. Donec vitae commodo dolor. Suspendisse suscipit, ex sed consectetur faucibus, tortor mi aliquam arcu, consectetur gravida tellus lorem id lorem. Aliquam ut ligula eu enim blandit ornare. Aliquam ut interdum ligula, at luctus libero. Nam fringilla urna vel vehicula placerat. Cras eu massa augue. Pellentesque dapibus sagittis nisl vitae condimentum. Nulla facilisi. Sed congue risus id mi semper pretium. Sed ultrices orci nec faucibus laoreet.
+                    Mauris volutpat rhoncus sem, sit amet pulvinar mi malesuada nec. Vestibulum sit amet semper nulla. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nullam id finibus nibh. Nullam fringilla condimentum tempus. Morbi malesuada scelerisque orci gravida mollis. In lacinia, nisl sed lobortis tempus, sem arcu consequat erat, nec volutpat nisi elit id mauris.
+                  </p>
+                </div>
+                <div id="related-products"
+                  class="modal-footer flex flex-nowrap items-center justify-center p-4 border-t border-gray-200 rounded-b-md">
+                  <div class="product-container">
+                    <div class="product-card">
+                      <a href="#">
+                        <img class="aspect-square object-cover" src="assets/img/spyfamily-placeholder.jpg" />
+                        <h4>product name</h4>
+                        <p>$99.99</p>
+                      </a>
                     </div>
-
-
-
-
-
-
-                    <!-- keep for now, watch demo button -->
-                    <div class="space-y-6 bg-gray-50 px-5 py-5 sm:flex sm:space-y-0 sm:space-x-10 sm:px-8">
-                        <div class="back-to-home">
-                            <!-- Heroicon name: outline/play -->
-                            <a href="./index.html"><i class="fa fa-home" aria-hidden="true"></i> Back To Home</a>
-                        </div>
-
-    </header>
-
-    <main>
-        <div class="main-title">
-            <h1>favorited animes</h1>
-        </div>
-
-        <div class="card-container">
-            <div id="child" class="child" placeholder="1" img src="" , alt="">1
-                <!-- <img id="Img" src="img.jpg" onclick="myFunction()" /> -->
-                <svg fill="#000000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" width="50px" height="50px">
-                    <path
-                        d="M 9.15625 6.3125 L 6.3125 9.15625 L 22.15625 25 L 6.21875 40.96875 L 9.03125 43.78125 L 25 27.84375 L 40.9375 43.78125 L 43.78125 40.9375 L 27.84375 25 L 43.6875 9.15625 L 40.84375 6.3125 L 25 22.15625 Z" />
-                </svg>
+                  </div>
+                  <div class="product-container">
+                    <div class="product-card">
+                      <a href="#">
+                        <img class="aspect-square object-cover" src="assets/img/spyfamily-placeholder.jpg" />
+                        <h4>product name</h4>
+                        <p>$99.99</p>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="product-container">
+                    <div class="product-card">
+                      <a href="#">
+                        <img class="aspect-square object-cover" src="assets/img/spyfamily-placeholder.jpg" />
+                        <h4>product name</h4>
+                        <p>$99.99</p>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="child" placeholder="1" img src="" alt="">1</div>
+          </div>
 
+          <!-- END Column -->
         </div>
-        </div>
-        </div>
-        <section class="modelSection modal hidden">
-            <div class="flex">
-              <img src="https://avatars.githubusercontent.com/u/62628408?s=96&v=4" width="50px" height="50px" alt="user" />
-              <button class="btn-close">⨉</button>
-            </div>
-            <div>
-              <h3>Stay in touch</h3>
-              <p>
-                This is a dummy newsletter form so don't bother trying to test it. Not
-                that I expect you to, anyways. :)
-              </p>
-            </div>
-          </section>
-          
-          <div class="overlay hidden"></div>
-          
-          
+        <!-- END Column -->
 
+        <!--  -->
 
-    </main>
+      </div>
+    </div>
 
+      </div>
+
+  </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"></script>
+    <script src="./assets/js/saveFunction.js"></script>
     <script src="./assets/js/favorites.js"></script>
 
 </body>
-
 </html>
