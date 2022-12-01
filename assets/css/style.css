@@ -15,7 +15,9 @@ body {
 	color: #848484;
 	background-attachment: fixed;
 	overflow-y: scroll;
+  background-color: #eaeef4;
 }
+
 p {
 	line-height: 19px;
 }
@@ -23,25 +25,22 @@ p {
 html, body {
 	height: 100%;
 }
-#body-wrapper {
-	min-height: 100%;
-	height: auto !important;
-	height: 100%;
-	margin: 0 0 -130px 0; /* the bottom margin is the negative value of the footer's height */
-}
-#wrapper {
-	width: 960px;
-	margin: 0 auto;
-}
-#header {
-	padding: 40px 0 35px;
-	width: 960px;
-	margin: 0 auto;
-    display: inline;}
 
-#footer {
-	padding-top: 50px;
-	
+body {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+#header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+footer {
+	padding-bottom: 50px;
+  margin-top: auto;
 }
 .footer {
 	text-align: center;
@@ -57,9 +56,8 @@ h2.title a:hover {
 
 .cheese{
     border-radius: 25px;;
-    height: 150px;
     width: 95%;
-    margin: 30px;
+    margin: 30px auto;
 } 
 
 
@@ -94,34 +92,9 @@ h2.title a:hover {
 	color: #ad6069;
 }
 
-
-/* PRIOR */
-
-
-
-
-
-/* .card-container{
-    /* display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    padding: 50px;
-    margin:25px; */
-    /* margin-top: 0.25rem;
-    margin-bottom: 0.25rem; */
-/* } */ 
-
-.child{
-    display: flex;
-    flex: 1 0 20%; margin: 5px;
-    font-size: 25px;
-    width: 200px;
-    height: 200px;
-    border:10px black solid;
-}
-
-/* MAIN PAGE CSS */
-
+/*-----------------------------------------------------------------------------------*/
+/*	SIDE QUOTES 
+/*-----------------------------------------------------------------------------------*/
 
 .title {
     -webkit-text-size-adjust: 100%;
@@ -164,21 +137,40 @@ h2.title a:hover {
     opacity: 1;
 }
 
-.result-section {
-    margin: 1em .5em;
+/*-----------------------------------------------------------------------------------*/
+/*	SEARCH ELEMENTS
+/*-----------------------------------------------------------------------------------*/
+
+.search-title-btn,
+.randomize-btn {
+  background-image: linear-gradient(140deg, #2b5083 30%, #13315c 80%);
 }
+
+a.active {
+  color: #ad6069 !important;
+  border-color: #ad6069 !important;
+}
+
+/*-----------------------------------------------------------------------------------*/
+/*	DISPLAY SEARCH RESULTS
+/*-----------------------------------------------------------------------------------*/
 
 /* Fix tailwind js not working */
 .collapse {
     visibility: visible !important;
 }
 
-/* ANIME INFORMATION */
+.result-section {
+  margin: 1em .5em;
+}
 
+/* Animates and styles dropdown arrow */
 .fa-caret-down {
     transition: all 0.5s ease;
     margin-left: auto;
 }
+
+/* Anime Info */
 
 .anime-title {
     font-size: 1.2em;
@@ -188,15 +180,81 @@ h2.title a:hover {
 .anime-img {
     border: 2px solid black;
     border-radius: 5px;
+    margin: auto;
 }
 
-/* ANIME PRODUCT */
+#favorite-button {
+  border: 2px solid #eaeef4;
+}
+
+/* Products Section */
 
 .product-container {
     padding: 5px;
+    flex: 0 1 250px;
+    border: 3px solid #eaeef4;
 }
 
-.product-card {
-    border: 2px solid black;
-    border-radius: 5px;
+.product-card h4 {
+  padding-top: 0.4em;
+  padding-bottom: 0.4em;
 }
+
+.product-card p {
+  font-weight: bold;
+}
+
+/*-----------------------------------------------------------------------------------*/
+/*	RESPONSIVE DESIGN
+/*-----------------------------------------------------------------------------------*/
+
+@media screen and (max-width: 680px) {
+  .result-content {
+    width: 92% !important;
+  }
+}
+
+@media screen and (max-width: 460px) {
+  .anime-info {
+    flex-direction: column;
+  }
+  #related-products,
+  #gift-ideas {
+    flex-direction: column;
+  }
+
+  #anime-icon {
+    width: 100%
+  }
+
+  .product-container {
+    flex: 1 1 auto;
+  }
+
+  .product-card a{
+    display: flex;
+  }
+  .product-card a img {
+    width: 30%;
+    padding-right: 0.2em;
+  }
+  .product-card a p {
+    align-self: end;
+    padding-right: 0.8em;
+    padding-bottom: 0.4em;
+  }
+
+  .search-title-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .search-title {
+    width: 90% !important;
+    margin-bottom: 0.5em;
+  }
+  .search-title-btn {
+    width: 60%;
+  }
+}
+
+

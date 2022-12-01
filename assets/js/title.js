@@ -35,6 +35,7 @@ function getSearchData(data) {
   return searchResults;
 }
 
+// Displays all 5 anime results 
 function DisplayResults(searchResults) {
   ReceiveSearchResults(searchResults);
   for (var i = 0; i < searchResults.length; i++) {
@@ -42,7 +43,7 @@ function DisplayResults(searchResults) {
     animeNode.id = animeNode.id + "-" + i;
     var animeTitle = animeNode.querySelector("#anime-title");
     var animeSynopsis = animeNode.querySelector("#anime-synopsis");
-    var animeImg = animeNode.querySelector("#anime-img");
+    var animeImg = animeNode.querySelector("#anime-icon");
 
     var animeCollapse = animeNode.querySelector("#result-header");
     animeCollapse.setAttribute("aria-controls", "id" + i);
@@ -58,14 +59,16 @@ function DisplayResults(searchResults) {
     var favoriteBtn = animeNode.querySelector("#favorite-button");
     let favoriteIcon = animeNode.querySelector(".fa-solid.fa-star");
     let notFavoriteIcon = animeNode.querySelector(".fa-regular.fa-star");
-    // Check if anime is saved
-    if(IsAnimeSaved(ScrapeAnimeObject(favoriteBtn)))
+
+    // Check if anime is saved and displayed favorite status accordingly 
+    if (IsAnimeSaved(ScrapeAnimeObject(favoriteBtn)))
     {
       favoriteIcon.classList.remove("collapse");
       notFavoriteIcon.classList.add("collapse");
       favoriteBtn.querySelector("p").textContent = "Favorited";
     }
 
+    // Toggles favorite button and updates local storage when clicked
     favoriteBtn.addEventListener("click", function (event) {
       toggleFavoriteAnime(event.target, favoriteIcon, notFavoriteIcon);
     });
@@ -74,20 +77,24 @@ function DisplayResults(searchResults) {
   }
 }
 
-function handleTitleSearch() {
-  var searchValue = searchInputText.value;
-  return searchValue;
+// Checks user input and calls fetch function
+function searchAnime() {
+  var anime = searchInputText.value || '';
+  console.log(anime);
+  if (anime !== '') {
+    getAnime(anime);
+  }
 }
 
-// Searches for anime after title is entered and search button is clicked.
-searchButton.addEventListener("click", function (event) {
-  var anime = handleTitleSearch();
-  getAnime(anime);
+// Searches for anime after title is entered or search button is clicked.
+searchButton.addEventListener("click", searchAnime);
+searchInputText.addEventListener("keyup", function(event){
+  if (event.key === "Enter") {
+    searchAnime();
+  }
 });
 
-// Toggle favorite button
-// var favoriteBtn = document.getElementById("favorite-button");
-
+// Toggles the favorite button and adds to or removes from local storage
 function toggleFavoriteAnime(favoriteBtn, favoriteIcon, notFavoriteIcon) {
   if (!favoriteBtn.closest(".result-content").dataset.canFav)
     return;
@@ -127,6 +134,7 @@ function toggleFavoriteAnime(favoriteBtn, favoriteIcon, notFavoriteIcon) {
 function ScrapeAnimeObject(startPoint) {
   var point = startPoint.closest('.result-content');
 
+  // Create anime object structure
   var anime = {
     title: point.querySelector("#anime-title").textContent,
     synopsis: point.querySelector("#anime-synopsis").firstElementChild.textContent,
@@ -135,6 +143,7 @@ function ScrapeAnimeObject(startPoint) {
     products: []
   }
   
+  // Create product object
   var products = point.querySelector("#gift-ideas").querySelectorAll(".product-card");
   for (var i = 0; i < products.length ; i++){
     var prod = {
@@ -148,7 +157,7 @@ function ScrapeAnimeObject(startPoint) {
   return anime;
 }
 
- // Checks if an anime is already in local storage and returns a bool
+ // Checks if an anime is already in local storage and returns a boolean value
 function IsAnimeSaved(anime){
   var favoritedAnime = JSON.parse(localStorage.getItem(favAnime)) || [];
 
@@ -159,17 +168,19 @@ function IsAnimeSaved(anime){
   return false;
 }
 
-// Transition dropdown caret
-var resultHeader = document.getElementById("result-header");
-resultHeader.addEventListener("click", function () {
-  let caret = resultHeader.querySelector(".fa-caret-down");
-  if (caret.classList.contains("rotate-180")) {
-    caret.classList.remove("rotate-180");
-  } else {
-    caret.classList.add("rotate-180");
+// Transition dropdown caret when card expands
+searchSection.addEventListener("click", function(event) {
+  if (event.target.id === 'result-header' || event.target.parentNode.id === 'result-header') {
+    let caret = event.target.parentNode.querySelector(".fa-caret-down");
+    if (caret.classList.contains("rotate-180")) {
+      caret.classList.remove("rotate-180");
+    } else {
+      caret.classList.add("rotate-180");
+    }
   }
 });
 
+// Clears display result content
 function CleanSearchResults() {
   var count = searchSection.children.length;
 
@@ -178,4 +189,13 @@ function CleanSearchResults() {
   }
 }
 
+// Clear placeholder html upon page load
 CleanSearchResults();
+
+// Clear search results upon search tab toggle
+document.getElementById('tabs-tab').addEventListener('click', function(event){
+  if (event.target.href) {
+    CleanSearchResults();
+  }
+})
+

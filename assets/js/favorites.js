@@ -1,67 +1,59 @@
 var favoriteDisplayEl = document.getElementById('favoriteDisplay');
 var favoriteResults = [];
-
+// Keep copy of favorited aniime to easily add back
 var resultsCopy = [];
 
-// Initialize
-
+// Initialize and update page content from local storage
 function renderFavorites() {
+  // Get local storage
   favoriteResults = JSON.parse(localStorage.getItem(favAnime)) || [];
   resultsCopy = JSON.parse(localStorage.getItem(favAnime)) || []
-  // identify favorited-results
-  // favoriteResults = document.getElementById("favorited-results");
 
   // loop through local storage
-  // if (favoriteResults.length !== 0 ){
-    let inLocalStorage = true;
-    for (let i = 0; i < favoriteResults.length; i++) {
-      // create card for each favorited anime
-      let columnEl = document.createElement('div');
-      let articleEl = document.createElement('article');
-      let cardButton = document.createElement('button');
-      let animeImage = document.createElement('img');
-      let cardHeader = document.createElement('header');
-      let cardHeaderText = document.createElement('h2');
-      let cardFooter = document.createElement('footer');
-      let favoriteBtn = renderFavoriteBtn(inLocalStorage);
+  let inLocalStorage = true;
+  for (let i = 0; i < favoriteResults.length; i++) {
+    // create card for each favorited anime
+    let columnEl = document.createElement('div');
+    let articleEl = document.createElement('article');
+    let cardButton = document.createElement('button');
+    let animeImage = document.createElement('img');
+    let cardHeader = document.createElement('header');
+    let cardHeaderText = document.createElement('h2');
+    let cardFooter = document.createElement('footer');
+    let favoriteBtn = renderFavoriteBtn(inLocalStorage);
 
-      columnEl.setAttribute('class', 'my-1 px-1 w-full md:w-1/3 lg:my-4 lg:px-4 lg:w-1/4');
-      articleEl.setAttribute('class', 'overflow-hidden rounded-lg shadow-lg result-content');
-      // modal toggle
-      cardButton.setAttribute('type', 'button');
-      cardButton.setAttribute('data-bs-toggle','modal');
-      cardButton.setAttribute('data-bs-target', '#animeModal');
-      cardButton.setAttribute('onclick','renderModal(this)')
+    columnEl.setAttribute('class', 'flex my-1 px-1 w-1/2 max-[380px]:w-full md:w-1/3 lg:my-4 lg:px-4 lg:w-1/4');
+    articleEl.setAttribute('class', 'flex flex-col w-full justify-between overflow-hidden rounded-lg shadow-lg result-content');
+    // modal toggle
+    cardButton.setAttribute('type', 'button');
+    cardButton.setAttribute('data-bs-toggle','modal');
+    cardButton.setAttribute('data-bs-target', '#animeModal');
+    cardButton.setAttribute('onclick','renderModal(this)')
+    cardButton.setAttribute('class','w-full')
 
-      cardButton.setAttribute('id', favoriteResults[i].animeId);
+    cardButton.setAttribute('id', favoriteResults[i].animeId);
+    animeImage.setAttribute('alt', favoriteResults[i].title);
+    animeImage.setAttribute('class', 'block w-full aspect-[3/4] object-cover anime-img');
+    animeImage.setAttribute('src', favoriteResults[i].image);
 
-      animeImage.setAttribute('alt', favoriteResults[i].title);
-      // animeImage.setAttribute('alt', 'anime-name');
+    cardHeader.setAttribute('class', 'flex items-center justify-between leading-tight p-2 md:p-4');
+    cardHeaderText.setAttribute('class', 'text-md md:text-xl m-auto anime-title');
+    cardHeaderText.dataset.id = favoriteResults[i].animeId;
+    cardFooter.setAttribute('class', 'flex items-center justify-between leading-none p-2 md:p-4');
 
-      animeImage.setAttribute('class', 'block aspect-[3/4] object-cover anime-img');
+    cardHeaderText.textContent = favoriteResults[i].title;
 
-      animeImage.setAttribute('src', favoriteResults[i].image);
-      // animeImage.setAttribute('src', './assets/img/spyfamily-placeholder.jpg');
-
-      cardHeader.setAttribute('class', 'flex items-center justify-between leading-tight p-2 md:p-4');
-      cardHeaderText.setAttribute('class', 'text-3xl m-auto anime-title');
-      cardHeaderText.dataset.id = favoriteResults[i].animeId;
-      cardFooter.setAttribute('class', 'flex items-center justify-between leading-none p-2 md:p-4');
-
-      cardHeaderText.textContent = favoriteResults[i].title;
-      // cardHeaderText.textContent = 'Anime Name';
-
-      cardHeader.appendChild(cardHeaderText);
-      cardFooter.appendChild(favoriteBtn);
-      cardButton.append(animeImage,cardHeader);
-      articleEl.append(cardButton, cardFooter);
-      columnEl.appendChild(articleEl);
-      favoriteDisplayEl.appendChild(columnEl);
-    }
+    cardHeader.appendChild(cardHeaderText);
+    cardFooter.appendChild(favoriteBtn);
+    cardButton.append(animeImage,cardHeader);
+    articleEl.append(cardButton, cardFooter);
+    columnEl.appendChild(articleEl);
+    favoriteDisplayEl.appendChild(columnEl);
   }
+}
 // }
 
-
+// Display the correct favorite button by checking if anime is in local storage
 function renderFavoriteBtn(inLocalStorage) {
   let favoriteBtn = document.createElement('button');
   let favoriteIcon = document.createElement('i');
@@ -83,13 +75,11 @@ function renderFavoriteBtn(inLocalStorage) {
   }
 
   favoriteBtn.append(favoriteIcon, unfavoriteIcon, favoriteText);
-
   return favoriteBtn;
 }
 
 // Render modal content when anime card is clicked
 function renderModal(button) {
-  
   // loop through the favorite anime object array and check if id matches 
   for ( let i = 0; i < favoriteResults.length; i++ ){
     if (button.id === favoriteResults[i].animeId) {
@@ -100,15 +90,13 @@ function renderModal(button) {
 
       animeTitleEl.textContent = favoriteResults[i].title;
       animeSynopsisEl.textContent = favoriteResults[i].synopsis;
-
-      // productDisplayEl.appendChild(productCards);
     }
   }
 }
 
+// Create product cards on the modal by passing in a product obj and a dom node
 function renderProductCard(productInfo, parent) {
   parent.innerHTML ='';
-
 
   for (let i = 0; i < productInfo.length; i++) {
     let productContainerEl = document.createElement('div');
@@ -118,10 +106,10 @@ function renderProductCard(productInfo, parent) {
     let productNameEl = document.createElement('h4');
     let productPriceEl = document.createElement('p');
 
-    productContainerEl.setAttribute('class', 'product-container');
+    productContainerEl.setAttribute('class', 'product-container rounded-lg shadow-md');
     productCardEl.setAttribute('class', 'product-card');
     productUrlEl.setAttribute('href', productInfo[i].url);
-    productImgEl.setAttribute('class', 'aspect-square object-cover');
+    productImgEl.setAttribute('class', 'aspect-square object-contain');
     productImgEl.setAttribute('src', productInfo[i].image);
     
     productNameEl.textContent = productInfo[i].name;
@@ -135,8 +123,7 @@ function renderProductCard(productInfo, parent) {
   }
 }
 
-// Toggle favorite button
-
+// Toggle favorite button and save/remove anime to/from storage
 function toggleFavoriteBtn(favoriteBtn) {
   let favoriteIcon = favoriteBtn.querySelector('.fa-solid.fa-star');
   let notFavoriteIcon = favoriteBtn.querySelector('.fa-regular.fa-star');
@@ -160,6 +147,7 @@ function toggleFavoriteBtn(favoriteBtn) {
   }
 }
 
+// Get anime object from favorite animes with anime id
 function GetAnimeById(id)
 {
   for (var i = 0; i < resultsCopy.length; i++){
@@ -168,6 +156,7 @@ function GetAnimeById(id)
   }
 }
 
+// Call search funtion if enter is pressed in search input
 function checkClicked(event) {
   if (event.target.id === 'favorite-button') {
     toggleFavoriteBtn(event.target)
@@ -177,7 +166,4 @@ function checkClicked(event) {
 }
 
 favoriteDisplayEl.addEventListener('click', checkClicked);
-
 renderFavorites();
-
-

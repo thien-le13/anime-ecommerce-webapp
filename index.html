@@ -12,7 +12,6 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="assets/css/style.css" />
 
-
   <title>Weeb lovers Galore</title>
 
 </head>
@@ -30,40 +29,40 @@
   </div>
 
   <!-- HEADER -->
-
-  <div id="body-wrapper">
-    <div id="header">
-      <div class="cheese" class="cheese" class="flex justify-between px-20 py-10 items-center" style="background-image: linear-gradient(140deg, #EADEDB 0%, #2b5083 60%, #13315c 80%);"> <a href="index.html"><img src="assets/img/Weeb-Logo2.png" alt="" style="padding-left: 45%;padding-bottom: 20px;"></a></div>
-      <div class="menu">
-        <ul class="sf-menu">
-          <li><img src="assets/img/line2.png" alt="testing"></li>
-          <li><a href="index.html">HOME</a></li>
-          <li><a href="favorites.html">FAVORITES</a></li>
-          <li><img src="assets/img/line2.png" alt="testing"></li>
-        </ul>
-      </di">
+  <div id="header">
+    <div class="cheese" class="cheese" class="flex justify-between px-20 py-10 items-center" 
+    style="background-image: linear-gradient(140deg, #EADEDB 0%, #2b5083 60%, #13315c 80%);"> 
+      <a href="index.html"><img src="assets/img/Weeb-Logo2.png" alt="site logo" class="mx-auto"></a>
     </div>
+  </div>
+    <!-- <div class="menu"> -->
+    <ul class="sf-menu flex flex-col items-center sm:flex-row sm:justify-center flex-nowrap">
+      <li><img src="assets/img/line2.png" alt="testing"></li>
+      <div class="flex flex-row">
+        <li><a href="index.html" style="color:#ad6069; font-weight: bold; text-decoration:underline;">HOME</a></li>
+        <li><a href="favorites.html">FAVORITES</a></li>
+      </div>
+      <li><img src="assets/img/line2.png" alt="testing"></li>
+    </ul>
+    <!-- </div> -->
+  </div>
 
   
   <!-- SEACH BAR -->
-  <main class="container mx-auto">
-  
-    <!-- <div class="title text" style="opacity: 1; transform: matrix(0, -1, 1, 0, 0, 0);">MY EXPERIENCE AT JAM3
-      </div> -->
-  
+  <main class="container mx-auto">  
     <section class="searches my-6">
       <!-- TAB HEADERS -->
       <ul id="tabs-tab" role="tablist"
-        class="nav nav-tabs flex justify-center flex-col md:flex-row flex-wrap list-none border-b-0 pl-0 mb-4">
+        class="nav nav-tabs flex justify-center flex-row flex-wrap list-none border-b-0 pl-0 mb-4">
         <li class="nav-item text-center" role="presentation">
           <a href="#tabs-searchTitle"
-            class="nav-link w-full block font-medium text-xs leading-tight uppercase border-x-0 border-t-0 border-b-2 border-transparent px-6 py-3 my-2 hover:border-transparent hover:bg-gray-100 focus:border-transparent active"
+            class="nav-link w-full block font-medium text-xs leading-tight uppercase border-x-0 border-t-0 border-b-2 border-transparent px-6 py-3 my-2 hover:bg-gray-100 active"
             id="tabs-searchTitleTab" data-bs-toggle="pill" data-bs-target="#tabs-searchTitle" role="tab"
             aria-controls="tabs-searchTitle" aria-selected="true">Search by Title</a>
         </li>
         <li class="nav-item text-center" role="presentation">
           <a href="#tabs-randomizer"
-            class="nav-link w-full block font-medium text-xs leading-tight uppercase border-x-0 border-t-0 border-b-2 border-transparent px-6 py-3 my-2 hover:border-transparent hover:bg-gray-100 focus:border-transparent"
+            class="nav-link w-full block font-medium text-xs leading-tight uppercase border-x-0 border-t-0 border-b-2 border-transparent px-6 py-3 my-2 hover:bg-gray-100"
             id="tabs-randomizerTab" data-bs-toggle="pill" data-bs-target="#tabs-randomizer" role="tab"
             aria-controls="tabs-randomizer" aria-selected="false">Search Random</a>
         </li>
@@ -72,11 +71,10 @@
       <div class="tab-content" id="search-tabs tabs-tabContentJustify">
         <div class="tab-pane fade show active" id="tabs-searchTitle" role="tabpanel"
           aria-labelledby="tabs-searchTitleTab">
-          <div class="flex justify-center">
+          <div class="search-title-container flex justify-center">
             <input type="text" id="search-title" placeholder="Search by title"
-              class="search-title form-control block w-1/3 px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded-lg m-0 focus:text-gray-700 focus:bg-white focus:border-indigo-500 focus:outline-none focus:ring-indigo-500" />
-
-            <button id="search-title-btn" type="button" data-mdb-ripple="true" data-mdb-ripple-color="light"
+              class="search-title form-control block w-1/2 md:w-1/3 px-3 py-1.5 mb-2 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded-lg m-0 focus:text-gray-700 focus:bg-white focus:border-indigo-500 focus:outline-none focus:ring-indigo-500" />
+            <button id="search-title-btn" data-mdb-ripple="true" data-mdb-ripple-color="light"
               class="search-title-btn inline-block px-6 py-2 ml-2 bg-blue-600 text-white font-medium uppercase rounded-lg shadow-md active:shadow-lg">
               Search
             </button>
@@ -84,8 +82,8 @@
         </div>
         <div class="tab-pane fade" id="tabs-randomizer" role="tabpanel" aria-labelledby="tabs-randomizerTab">
           <div class="flex justify-center">
-            <button id="radomize-button" type="button" data-mdb-ripple="true" data-mdb-ripple-color="light"
-              class="search-genre-btn px-6 py-2 ml-2 bg-blue-600 text-white font-medium uppercase rounded-lg shadow-md active:shadow-lg">
+            <button id="radomize-button" data-mdb-ripple="true" data-mdb-ripple-color="light"
+              class="randomize-btn px-6 py-2 ml-2 bg-blue-600 text-white font-medium uppercase rounded-lg shadow-md active:shadow-lg">
               Get Random Anime
             </button>
           </div>
@@ -94,63 +92,53 @@
     </section>
 
     <section id="search-results" class="search-results my-6">
-      <div id="result-container" class="flex justify-center" data-canFav="false">
-        <div class="block p-6 lg:w-3/4 w-5/6 rounded-lg shadow-lg bg-white result-content">
+      <div id="result-container" class="flex justify-center mb-3" data-canFav="false">
+        <div class="block p-6 w-10/12 lg:w-3/4 rounded-lg shadow-lg bg-white result-content">
           <a class="flex bg-white rounded" id="result-header" data-bs-toggle="collapse" href="#collapseExample" onclick="LoadExpandedMerch(this)"
             role="button" aria-expanded="false" aria-controls="collapseExample">
             <h3 id="anime-title" class="anime-title">Anime Title</h3>
-            <i class="fa-solid fa-caret-down"></i>
-
+            <i class="fa-solid fa-caret-down self-center"></i>
           </a>
           <div class="collapse collapse-content" id="collapseExample">
             <div class="flex anime-info result-section">
-              <div class="w-1/5 flex-shrink-0" id="anime-img">
+              <div class="w-1/5 flex-shrink-0 anime-icon" id="anime-icon">
                 <img class="anime-img" src="assets/img/spyfamily-placeholder.jpg" alt="" />
                 <button id="favorite-button" type="button"
-                  class="w-full mt-2 py-2 flex justify-center rounded-lg shadow-md">
+                  class="w-full my-2 py-2 flex justify-center rounded-lg shadow-md">
                   <i class="fa-regular fa-star p-1"></i>
                   <i class="fa-solid fa-star p-1 collapse"></i>
                   <p>Favorite</p>
                 </button>
               </div>
               <div class="anime-synopsis px-3" id="anime-synopsis">
-                <p>Some placeholder content for the collapse component. This panel is hidden by default but revealed
-                  when
-                  the user activates the relevant trigger.
-                  Some placeholder content for the collapse component. This panel is hidden by default but revealed when
-                  the user activates the relevant trigger.
-                  Some placeholder content for the collapse component. This panel is hidden by default but revealed when
-                  the user activates the relevant trigger.
-                  Some placeholder content for the collapse component. This panel is hidden by default but revealed when
-                  the user activates the relevant trigger.
-                </p>
+                <p>Plug in Synopsis</p>
               </div>
             </div>
             <div class="product-display result-section py-2">
               <h2 class="pt-2 text-center font-bold text-base">Related Products</h2>
-              <div class="flex justify-center xl:px-44 md:px-16" id="gift-ideas">
-                <div class="product-container">
+              <div class="flex justify-center gap-2 border-gray-200 rounded-b-md" id="gift-ideas">
+                <div class="product-container rounded-lg shadow-md" id="productContainer">
                   <div class="product-card">
                     <a href="#">
-                      <img class="aspect-square object-cover" src="assets/img/typing-anime.gif" />
+                      <img class="w-full aspect-[3/4] object-cover" src="assets/img/typing-anime.gif" />
                       <h4>One moment please!</h4>
                       <p></p>
                     </a>
                   </div>
                 </div>
-                <div class="product-container">
+                <div class="product-container rounded-lg shadow-md">
                   <div class="product-card">
                     <a href="#">
-                      <img class="aspect-square object-cover" src="assets/img/typing-anime.gif" />
+                      <img class="w-full aspect-[3/4] object-cover" src="assets/img/typing-anime.gif" />
                       <h4>One moment please!</h4>
                       <p></p>
                     </a>
                   </div>
                 </div>
-                <div class="product-container">
+                <div class="product-container rounded-lg shadow-md">
                   <div class="product-card">
                     <a href="#">
-                      <img class="aspect-square object-cover" src="assets/img/typing-anime.gif" />
+                      <img class="w-full aspect-[3/4] object-cover" src="assets/img/typing-anime.gif" />
                       <h4>One moment please!</h4>
                       <p></p>
                     </a>
@@ -163,21 +151,19 @@
       </div>
       </div>
     </section>
-  
   </main>
 
   <!-- FOOTER -->
   
   <footer id="footer">
     <div class="footer">
-      <img src="assets/img/line.png" alt="testing" style="padding-left: 14%; padding-bottom: 20px;">
+      <img src="assets/img/line.png" alt="testing" class="mx-auto">
       <p>Copyright Socialike 2045. All rights reserved // Design by <a href="http://elemisfreebies.com">elemis</a>.</p>
     </div>
   </footer>
 
 
     <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"></script>
-    <script src="./assets/js/tailwind.config.js"></script>
     <script src="./assets/js/saveFunction.js"></script>
     <script src="./assets/js/merch.js"></script>
     <script src="./assets/js/title.js"></script>
