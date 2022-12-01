@@ -11,8 +11,8 @@
   <script src="https://kit.fontawesome.com/1a391047f1.js" crossorigin="anonymous"></script>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="assets/css/style.css" />
-  
-  
+
+
   <title>Weeb lovers Galore</title>
 
 </head>
@@ -83,7 +83,7 @@
           <div class="flex justify-center">
             <input type="text" id="search-title" placeholder="Search by title"
               class="search-title form-control block w-1/3 px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded-lg m-0 focus:text-gray-700 focus:bg-white focus:border-indigo-500 focus:outline-none focus:ring-indigo-500" />
-  
+
             <button id="search-title-btn" type="button" data-mdb-ripple="true" data-mdb-ripple-color="light"
               class="search-title-btn inline-block px-6 py-2 ml-2 bg-blue-600 text-white font-medium uppercase rounded-lg shadow-md active:shadow-lg">
               Search
@@ -92,36 +92,23 @@
         </div>
         <div class="tab-pane fade" id="tabs-randomizer" role="tabpanel" aria-labelledby="tabs-randomizerTab">
           <div class="flex justify-center">
-            <!-- Search Genre not working -->
-            <!-- <select
-                    id="search-genre"
-                    name="search-genre"
-                    placeholder="Choose a genre"
-                    class="search-genre form-select appearance-none w-1/3 rounded-lg border border-gray-300 bg-white py-2 px-3 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm bg-no-repeat"
-                  >
-                    <!-- PLACEHOLDERS, NEED JS CODE TO PLUG IN OPTIONS -->
-            <!-- <option selected>Choose a genre</option>
-                    <option value="genre1">genre 1</option>
-                    <option value="genre2">genre 2</option>
-                    <option value="genre3">genre 3</option>
-                  </select> -->
             <button id="radomize-button" type="button" data-mdb-ripple="true" data-mdb-ripple-color="light"
               class="search-genre-btn px-6 py-2 ml-2 bg-blue-600 text-white font-medium uppercase rounded-lg shadow-md active:shadow-lg">
-              Get Random Animes
+              Get Random Anime
             </button>
           </div>
         </div>
       </div>
     </section>
-  
+
     <section id="search-results" class="search-results my-6">
-      <div id="result-container" class="flex justify-center">
-        <div class="block p-6 w-3/4 rounded-lg shadow-lg bg-white">
-          <a class="flex bg-white rounded" id="result-header" data-bs-toggle="collapse" href="#collapseExample"
+      <div id="result-container" class="flex justify-center" data-canFav="false">
+        <div class="block p-6 lg:w-3/4 w-5/6 rounded-lg shadow-lg bg-white result-content">
+          <a class="flex bg-white rounded" id="result-header" data-bs-toggle="collapse" href="#collapseExample" onclick="LoadExpandedMerch(this)"
             role="button" aria-expanded="false" aria-controls="collapseExample">
             <h3 id="anime-title" class="anime-title">Anime Title</h3>
             <i class="fa-solid fa-caret-down"></i>
-  
+
           </a>
           <div class="collapse collapse-content" id="collapseExample">
             <div class="flex anime-info result-section">
@@ -135,7 +122,8 @@
                 </button>
               </div>
               <div class="anime-synopsis px-3" id="anime-synopsis">
-                <p>Some placeholder content for the collapse component. This panel is hidden by default but revealed when
+                <p>Some placeholder content for the collapse component. This panel is hidden by default but revealed
+                  when
                   the user activates the relevant trigger.
                   Some placeholder content for the collapse component. This panel is hidden by default but revealed when
                   the user activates the relevant trigger.
@@ -148,31 +136,31 @@
             </div>
             <div class="product-display result-section py-2">
               <h2 class="pt-2 text-center font-bold text-base">Related Products</h2>
-              <div class="flex justify-center">
+              <div class="flex justify-center xl:px-44 md:px-16" id="gift-ideas">
                 <div class="product-container">
                   <div class="product-card">
                     <a href="#">
-                      <img class="aspect-square object-cover" src="assets/img/spyfamily-placeholder.jpg" />
-                      <h4>product name</h4>
-                      <p>$99.99</p>
+                      <img class="aspect-square object-cover" src="assets/img/typing-anime.gif" />
+                      <h4>One moment please!</h4>
+                      <p></p>
                     </a>
                   </div>
                 </div>
                 <div class="product-container">
                   <div class="product-card">
                     <a href="#">
-                      <img class="aspect-square object-cover" src="assets/img/spyfamily-placeholder.jpg" />
-                      <h4>product name</h4>
-                      <p>$99.99</p>
+                      <img class="aspect-square object-cover" src="assets/img/typing-anime.gif" />
+                      <h4>One moment please!</h4>
+                      <p></p>
                     </a>
                   </div>
                 </div>
                 <div class="product-container">
                   <div class="product-card">
                     <a href="#">
-                      <img class="aspect-square object-cover" src="assets/img/spyfamily-placeholder.jpg" />
-                      <h4>product name</h4>
-                      <p>$99.99</p>
+                      <img class="aspect-square object-cover" src="assets/img/typing-anime.gif" />
+                      <h4>One moment please!</h4>
+                      <p></p>
                     </a>
                   </div>
                 </div>
@@ -188,15 +176,22 @@
 
   <!-- FOOTER -->
   
-<div id="footer">
-  <div class="footer">
-    <img src="assets/img/line.png" alt="testing" style="padding-left: 14%; padding-bottom: 20px;">
-    <p>Copyright Socialike 2045. All rights reserved // Design by <a href="http://elemisfreebies.com">elemis</a>.</p>
+  <div id="footer">
+    <div class="footer">
+      <img src="assets/img/line.png" alt="testing" style="padding-left: 14%; padding-bottom: 20px;">
+      <p>Copyright Socialike 2045. All rights reserved // Design by <a href="http://elemisfreebies.com">elemis</a>.</p>
+    </div>
   </div>
-</div>
 
-<script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"></script>
-<script src="./assets/js/title.js"></script>
 
+    <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"></script>
+    <script src="./assets/js/tailwind.config.js"></script>
+    <script src="./assets/js/saveFunction.js"></script>
+    <script src="./assets/js/merch.js"></script>
+    <script src="./assets/js/title.js"></script>
+    <script src="./assets/js/random.js"></script>
+
+  <!-- <script src="./assets/js/script.js"></script> -->
 </body>
+
 </html>
