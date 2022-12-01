@@ -1,5 +1,4 @@
-
-
+// Return results count
 const animeReturnCount = 5;
 
 
@@ -7,6 +6,7 @@ var searchResults = document.querySelector("#search-results");
 var randomButton = document.querySelector("#radomize-button"); // this has a spelling error, if things break check it
 // var topAnimeButton = document.querySelector("#top-anime-button");
 
+// Fetch anime on button click
 randomButton.addEventListener("click", function (event) {
   event.target.blur();
 
@@ -19,10 +19,7 @@ randomButton.addEventListener("click", function (event) {
       DisplayResults(data);
     });
 });
-// topAnimeButton.addEventListener("click", function (event) {
-//   event.target.blur();
-//   DisplayTopAnime();
-// });
+
 
 // store search results in an array to be accessed later,
 function StoreSearchData(data) {
@@ -70,6 +67,11 @@ async function GetRandomAnime(count = 1) {
 
   return Promise.resolve(searchResults);
 }
+
+// topAnimeButton.addEventListener("click", function (event) {
+//   event.target.blur();
+//   DisplayTopAnime();
+// });
 
 // Top Rated Anime
 // var topAnime = [];

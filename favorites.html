@@ -1,6 +1,5 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html lang="en">
-
 
 <head>
   <meta charset="UTF-8" />
@@ -12,116 +11,113 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="assets/css/style.css" />
 
-
   <title>Weeb lovers Galore</title>
 
 </head>
 
-<body class="bg-no-repeat bg-cover h-auto" style="background-color: #edf1f4;">
-
-  <div class="title" style="opacity: 1; transform: matrix(0, -1, 1, 0, 0, 0); padding-top: 70px;">LIVE LAUGH 2D LOVE
-
-    <img src="assets/img/blueline.png" atl="lol" style="padding-top: 10px; padding-right: 20%;">
-  </div>
-
-</body>
-
 <body>
 
-  <!-- HEADER -->
-
-
-  <div id="body-wrapper">
-    <div id="header">
-      <div class="cheese" class="cheese" class="flex justify-between px-20 py-10 items-center"
-        style="background-image: linear-gradient(140deg, #EADEDB 0%, #2b5083 60%, #13315c 80%);"> 
-        <a
-          href="index.html"><img src="assets/img/Weeb-Logo2.png" alt=""
-          style="padding-left: 45%;padding-bottom: 20px;"></a>
-      </div>
-      <div class="menu">
-        <ul class="sf-menu">
-          <li><img src="assets/img/line2.png" alt="testing"></li>
-          <li><a href="index.html">HOME</a></li>
-          <li><a href="favorites.html">FAVORITES</a></li>
-          <li><img src="assets/img/line2.png" alt="testing"></li>
-        </ul>
-      </div>
+  <div class="bg-no-repeat bg-cover h-auto" style="background-color: #edf1f4;">
+    <div class="title" style="opacity: 1; transform: matrix(0, -1, 1, 0, 0, 0); padding-top: 70px;">
+      LIVE LAUGH 2D LOVE
+      <img src="assets/img/blueline.png" atl="lol" style="padding-top: 10px; padding-right: 20%;">
     </div>
+  </div>
 
-    <main>
-      <h1 class="text-3xl text-center font-bold"> Favorites</h1>
-      <div class="container my-12 mx-auto px-4 md:px-1 ">
-        <div class="favorite-display flex flex-wrap -mx-1 lg:-mx-4" id="favoriteDisplay">
-          <!-- If there are favorites js input columns and articles  -->
+  <!-- HEADER -->
+  <div id="header">
+    <div class="cheese" class="cheese" class="flex justify-between px-20 py-10 items-center"
+      style="background-image: linear-gradient(140deg, #EADEDB 0%, #2b5083 60%, #13315c 80%);"> 
+      <a href="index.html">
+        <img src="assets/img/Weeb-Logo2.png" alt="site logo"
+        class="mx-auto">
+      </a>
+    </div>
+    <ul class="sf-menu flex flex-col items-center md:flex-row md:justify-center flex-nowrap">
+      <li><img src="assets/img/line2.png" alt="testing"></li>
+      <div class="flex flex-nowrap">
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="favorites.html" style="color:#ad6069; font-weight: bold; text-decoration:underline;">FAVORITES</a></li>
+      </div>
+        <li><img src="assets/img/line2.png" alt="testing"></li>
+    </ul>
+  </div>
 
-          <!-- MODAL -->
-          <div class="modal fade fixed top-0 left-0 hidden w-full h-full outline-none overflow-x-hidden overflow-y-auto" id="animeModal" tabindex="-1" aria-labelledby="animeModalTitle" aria-modal="true" role="dialog">
-            <div class="modal-dialog modal-dialog-centered relative w-auto pointer-events-none">
-              <div class="modal-content border-none shadow-lg relative flex flex-col w-full pointer-events-auto bg-white bg-clip-padding rounded-md outline-none text-current">
-                <div class="modal-header flex flex-shrink-0 items-center justify-between p-4 border-b border-gray-200 rounded-t-md">
-                  <!-- js insert anime name, and clear current input -->
-                  <h5 class="anime-title" id="anime-title">Anime Name</h5>
-                  <button type="button"
-                  class="btn-close box-content w-4 h-4 p-1 text-black border-none rounded-none opacity-50 focus:shadow-none focus:outline-none focus:opacity-100 hover:text-black hover:opacity-75 hover:no-underline"
-                  data-bs-dismiss="modal" aria-label="Close"></i></button>
-                </div>
-                <div class="modal-body relative p-4">
-                  <!-- js insert anime synopsis, and clear current input  -->
-                  <p id="anime-synopsis">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas lacinia quam felis, vel efficitur massa pretium quis. Proin libero est, interdum vel molestie vel, varius volutpat ipsum. Donec vitae commodo dolor. Suspendisse suscipit, ex sed consectetur faucibus, tortor mi aliquam arcu, consectetur gravida tellus lorem id lorem. Aliquam ut ligula eu enim blandit ornare. Aliquam ut interdum ligula, at luctus libero. Nam fringilla urna vel vehicula placerat. Cras eu massa augue. Pellentesque dapibus sagittis nisl vitae condimentum. Nulla facilisi. Sed congue risus id mi semper pretium. Sed ultrices orci nec faucibus laoreet.
-                    Mauris volutpat rhoncus sem, sit amet pulvinar mi malesuada nec. Vestibulum sit amet semper nulla. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nullam id finibus nibh. Nullam fringilla condimentum tempus. Morbi malesuada scelerisque orci gravida mollis. In lacinia, nisl sed lobortis tempus, sem arcu consequat erat, nec volutpat nisi elit id mauris.
-                  </p>
-                </div>
-                <div id="related-products"
-                  class="modal-footer flex flex-nowrap items-center justify-center p-4 border-t border-gray-200 rounded-b-md">
-                  <div class="product-container">
-                    <div class="product-card">
-                      <a href="#">
-                        <img class="aspect-square object-cover" src="assets/img/spyfamily-placeholder.jpg" />
-                        <h4>product name</h4>
-                        <p>$99.99</p>
-                      </a>
-                    </div>
+  <main class="mx-6 sm:mx-12">
+    <!-- <h1 class="text-3xl text-center font-bold"> Favorites</h1> -->
+    <div class="container my-12 mx-auto px-4 md:px-1 ">
+      <div class="favorite-display flex flex-wrap mx-1 lg:mx-4" id="favoriteDisplay">
+        <!-- MODAL -->
+        <div class="modal fade fixed top-0 left-0 hidden w-full h-full outline-none overflow-x-hidden overflow-y-auto" id="animeModal" tabindex="-1" aria-labelledby="animeModalTitle" aria-modal="true" role="dialog">
+          <div class="modal-dialog modal-dialog-centered relative w-auto pointer-events-none">
+            <div class="modal-content border-none shadow-lg relative flex flex-col w-full pointer-events-auto bg-white bg-clip-padding rounded-md outline-none text-current">
+              <div class="modal-header flex flex-shrink-0 items-center justify-between p-4 border-b border-gray-200 rounded-t-md">
+                <!-- js insert anime name, and clear current input -->
+                <h5 class="anime-title" id="anime-title">Anime Name</h5>
+                <button type="button"
+                class="btn-close box-content w-4 h-4 p-1 text-black border-none rounded-none opacity-50 focus:shadow-none focus:outline-none focus:opacity-100 hover:text-black hover:opacity-75 hover:no-underline"
+                data-bs-dismiss="modal" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+              </div>
+              <div class="modal-body relative p-4">
+                <!-- js insert anime synopsis, and clear current input  -->
+                <p id="anime-synopsis">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas lacinia quam felis, vel efficitur massa pretium quis. Proin libero est, interdum vel molestie vel, varius volutpat ipsum. Donec vitae commodo dolor. Suspendisse suscipit, ex sed consectetur faucibus, tortor mi aliquam arcu, consectetur gravida tellus lorem id lorem. Aliquam ut ligula eu enim blandit ornare. Aliquam ut interdum ligula, at luctus libero. Nam fringilla urna vel vehicula placerat. Cras eu massa augue. Pellentesque dapibus sagittis nisl vitae condimentum. Nulla facilisi. Sed congue risus id mi semper pretium. Sed ultrices orci nec faucibus laoreet.
+                  Mauris volutpat rhoncus sem, sit amet pulvinar mi malesuada nec. Vestibulum sit amet semper nulla. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nullam id finibus nibh. Nullam fringilla condimentum tempus. Morbi malesuada scelerisque orci gravida mollis. In lacinia, nisl sed lobortis tempus, sem arcu consequat erat, nec volutpat nisi elit id mauris.
+                </p>
+              </div>
+              <div id="related-products"
+                class="modal-footer flex flex-nowrap items-start justify-center p-4 gap-2 border-t border-gray-200 rounded-b-md">
+                <div class="product-container">
+                  <!-- JS replace product card content -->
+                  <div class="product-card">
+                    <a href="#">
+                      <img class="aspect-square object-cover" src="assets/img/spyfamily-placeholder.jpg" />
+                      <h4>product name</h4>
+                      <p>$99.99</p>
+                    </a>
                   </div>
-                  <div class="product-container">
-                    <div class="product-card">
-                      <a href="#">
-                        <img class="aspect-square object-cover" src="assets/img/spyfamily-placeholder.jpg" />
-                        <h4>product name</h4>
-                        <p>$99.99</p>
-                      </a>
-                    </div>
+                </div>
+                <div class="product-container">
+                  <div class="product-card">
+                    <a href="#">
+                      <img class="aspect-square object-cover" src="assets/img/spyfamily-placeholder.jpg" />
+                      <h4>product name</h4>
+                      <p>$99.99</p>
+                    </a>
                   </div>
-                  <div class="product-container">
-                    <div class="product-card">
-                      <a href="#">
-                        <img class="aspect-square object-cover" src="assets/img/spyfamily-placeholder.jpg" />
-                        <h4>product name</h4>
-                        <p>$99.99</p>
-                      </a>
-                    </div>
+                </div>
+                <div class="product-container">
+                  <div class="product-card">
+                    <a href="#">
+                      <img class="aspect-square object-cover" src="assets/img/spyfamily-placeholder.jpg" />
+                      <h4>product name</h4>
+                      <p>$99.99</p>
+                    </a>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </main>
 
-    <!-- FOOTER -->
-    <footer id="footer">
-      <div class="footer">
-        <img src="assets/img/line.png" alt="testing" style="padding-left: 14%; padding-bottom: 20px;">
-        <p>Copyright Socialike 2045. All rights reserved // Design by <a href="http://elemisfreebies.com">elemis</a>.
-        </p>
-      </div>
-    </footer>
+        <!-- JS render favorited animes here  -->
 
-    <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"></script>
-    <script src="./assets/js/saveFunction.js"></script>
-    <script src="./assets/js/favorites.js"></script>
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer id="footer">
+    <div class="footer">
+      <img src="assets/img/line.png" alt="testing" class="mx-auto">
+      <p>Copyright Socialike 2045. All rights reserved // Design by <a href="http://elemisfreebies.com">elemis</a>.
+      </p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"></script>
+  <script src="./assets/js/saveFunction.js"></script>
+  <script src="./assets/js/favorites.js"></script>
 
 </body>
 </html>
