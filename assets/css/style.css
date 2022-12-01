@@ -1,5 +1,105 @@
-/* FAVORITE PAGE CSS */
-/* watch out for class name duplicates, consider seperate these two files */
+/*
+Theme Name: Socialike HTML
+Author: elemis
+Author URI: http://iki-bir.com
+Version: 1.0
+*/
+
+
+/*-----------------------------------------------------------------------------------*/
+/*	GENERAL
+/*-----------------------------------------------------------------------------------*/
+
+body {
+	font-size: 12px;
+	color: #848484;
+	background-attachment: fixed;
+	overflow-y: scroll;
+}
+p {
+	line-height: 19px;
+}
+
+html, body {
+	height: 100%;
+}
+#body-wrapper {
+	min-height: 100%;
+	height: auto !important;
+	height: 100%;
+	margin: 0 0 -130px 0; /* the bottom margin is the negative value of the footer's height */
+}
+#wrapper {
+	width: 960px;
+	margin: 0 auto;
+}
+#header {
+	padding: 40px 0 35px;
+	width: 960px;
+	margin: 0 auto;
+    display: inline;}
+
+#footer {
+	padding-top: 50px;
+	
+}
+.footer {
+	text-align: center;
+}
+
+h2.title a {
+	color: #606060;
+}
+
+h2.title a:hover {
+	color: #ad6069;
+}
+
+.cheese{
+    border-radius: 25px;;
+    height: 150px;
+    width: 95%;
+    margin: 30px;
+} 
+
+
+/*-----------------------------------------------------------------------------------*/
+/*	MENU
+/*-----------------------------------------------------------------------------------*/
+
+
+/*** ESSENTIAL STYLES ***/
+.sf-menu, .sf-menu * {
+	margin:	0;
+	padding: 0;
+	list-style:	none;
+	text-align: center;
+}
+
+.sf-menu li {
+	display: inline-block;
+	position: relative;
+	padding: 0 8px 0 16px;
+	font-size: 18px;
+}
+
+.sf-menu a {
+	display: block;
+	position: relative;
+	color: #606060;
+	padding: 0;
+}
+
+.sf-menu a:hover {
+	color: #ad6069;
+}
+
+
+/* PRIOR */
+
+
+
+
 
 .card-container{
     display: flex;
@@ -20,6 +120,48 @@
 }
 
 /* MAIN PAGE CSS */
+
+
+.title {
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-font-smoothing: antialiased;
+    font-family: SimplonBold;
+    backface-visibility: hidden;
+    right: 75%;
+    width: 45%;
+    position: absolute;
+    z-index: 1;
+    color: #134074;
+    font-size: 2.5vw;
+    height: 3vw;
+    line-height: 4vw;
+    text-align: left;
+    top: 12.8vw;
+    letter-spacing: .1vw;
+    opacity: 1;
+    transform: matrix(0, -1, 1, 0, 0, 0);
+}
+
+.comment {
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-font-smoothing: antialiased;
+    font-family: SimplonBold;
+    backface-visibility: hidden;
+    left: 70%;
+    width: 45%;
+    position: absolute;
+    z-index: 1;
+    color: #134074;
+    font-size: 2.5vw;
+    height: 3vw;
+    line-height: 4vw;
+    text-align: right;
+    bottom: 22.8vw;
+    letter-spacing: .1vw;
+    opacity: 1;
+}
 
 .result-section {
     margin: 1em .5em;
@@ -59,3 +201,4 @@
     border: 2px solid black;
     border-radius: 5px;
 }
+
