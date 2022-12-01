@@ -22,8 +22,8 @@ function renderFavorites() {
     let cardFooter = document.createElement('footer');
     let favoriteBtn = renderFavoriteBtn(inLocalStorage);
 
-    columnEl.setAttribute('class', 'flex my-1 px-1 w-1/2 max-[380px]:w-full md:w-1/3 lg:my-4 lg:px-4 lg:w-1/4');
-    articleEl.setAttribute('class', 'flex flex-col w-full justify-between overflow-hidden rounded-lg shadow-lg result-content');
+    columnEl.setAttribute('class', 'flex my-1 px-1 w-1/2 max-[380px]:w-full max-[380px]:justify-center md:w-1/3 lg:my-4 lg:px-4 lg:w-1/4');
+    articleEl.setAttribute('class', 'flex flex-col w-full justify-between overflow-hidden bg-white rounded-lg shadow-lg result-content');
     // modal toggle
     cardButton.setAttribute('type', 'button');
     cardButton.setAttribute('data-bs-toggle','modal');
@@ -62,15 +62,15 @@ function renderFavoriteBtn(inLocalStorage) {
 
   favoriteBtn.setAttribute('id', 'favorite-button');
   favoriteBtn.setAttribute('type', 'button');
-  favoriteBtn.setAttribute('class', 'w-full mt-2 py-2 flex justify-center rounded-lg shadow-md');
+  favoriteBtn.setAttribute('class', 'w-full mt-2 py-2 flex justify-center items-end rounded-lg shadow-md');
 
   if (inLocalStorage) {
-    unfavoriteIcon.setAttribute('class', 'fa-regular fa-star pb-2 pr-1 collapse');
-    favoriteIcon.setAttribute('class', 'fa-solid fa-star pb-2 pr-1');
+    unfavoriteIcon.setAttribute('class', 'fa-regular fa-star p-1 collapse');
+    favoriteIcon.setAttribute('class', 'fa-solid fa-star p-1');
     favoriteText.textContent = 'Favorited';
   } else {
-    unfavoriteIcon.setAttribute('class', 'fa-regular fa-star pb-2 pr-1');
-    favoriteIcon.setAttribute('class', 'fa-solid fa-star pb-2 pr-1 collapse');
+    unfavoriteIcon.setAttribute('class', 'fa-regular fa-star p-1');
+    favoriteIcon.setAttribute('class', 'fa-solid fa-star p-1 collapse');
     favoriteText.textContent = 'Favorite';
   }
 
