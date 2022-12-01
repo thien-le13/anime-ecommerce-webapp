@@ -21,10 +21,10 @@ When products are clicked on, it will take user directly to their amazon page.
 
 The user will be able to favorite their search after products have loaded by clicking on the favorite button. The anime will then be stored in the favorites page that is accessible by the favorites tabs at the top of the site.
 
-    ![Search by title](./assets/img/search-by-title.gif)
-    ![Search by random](./assets/img/search-by-random.gif)
-    ![Amazon Product](./assets/img/amazon-product.gif)
-    ![Favorite and unfavorite](./assets/img/fav-unfav.gif)
+![Search by title](./assets/img/search-by-title.gif)
+![Search by random](./assets/img/search-by-random.gif)
+![Amazon Product](./assets/img/amazon-product.gif)
+![Favorite and unfavorite](./assets/img/fav-unfav.gif)
 
 ## Credits
 
