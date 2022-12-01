@@ -13,18 +13,20 @@ Together we learned how to:
 
 ## Usage
 
-Provide instructions and examples for use. Include screenshots as needed.
+You are able to search for any anime in the search bar, the synopsis as well as products will display when an anime is selected.
 
-To add a screenshot, create an `assets/images` folder in your repository and upload your screenshot to it. Then, using the relative filepath, add it to your README using the following syntax:
+The random anime button will work similarly as the original search button, but instead returning random anime.
+
+When products are clicked on, it will take user directly to their amazon page.
+
+The user will be able to favorite their search after products have loaded by clicking on the favorite button. The anime will then be stored in the favorites page that is accessible by the favorites tabs at the top of the site.
 
     ```md
-    ![alt text](assets/images/screenshot.png)
+    ![Search by title](assets/img/search-by-title.gif)
+    ![Search by random](assets/img/search-by-random.gif)
+    ![Amazon Product](assets/img/amazon-product.gif)
+    ![Favorite and unfavorite](assets/img/fav-unfav.gif)
     ```
-
-## Features
-
-If your project has a lot of features, list them here.
-Favorites page, modal.
 
 ## Credits
 
