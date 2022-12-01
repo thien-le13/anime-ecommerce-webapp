@@ -13,6 +13,8 @@ Together we learned how to:
 
 ## Usage
 
+Visit our page: https://thien-le13.github.io/anime-ecommerce-webapp/
+
 You are able to search for any anime in the search bar, the synopsis as well as products will display when an anime is selected. (Refer to GIF 1.)
 
 The random anime button will work similarly as the original search button, but instead returning random anime. (Refer to GIF 2.)
