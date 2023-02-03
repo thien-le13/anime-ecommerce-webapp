@@ -51,5 +51,5 @@ The user will be able to favorite their search after products have loaded by cli
 
 ## Limitations
 
-- Amazon API requires personal keys, each limits to 200 fetches. Solution is swap keys once limit is reached.
+- Amazon API requires personal keys, each limits to 200 fetches. Solution is swap keys once limit is reached. (Currently, Amazon API is disabled to avoid over usage) 
 - The favorites button during the search will not be functional until the products from Amazon are fetched.
