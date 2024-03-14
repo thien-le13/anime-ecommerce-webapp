@@ -16,7 +16,7 @@
 </head>
 
 <body>
-  
+
   <!-- SIDE QUOTE -->
   <div class="bg-no-repeat bg-cover h-auto" style="background-color: #edf1f4;">
     <div class="title" style="opacity: 1; transform: matrix(0, -1, 1, 0, 0, 0); padding-top: 70px;">
@@ -38,9 +38,10 @@
     <li><img src="assets/img/line2.png" alt="testing"></li>
     <div class="flex flex-nowrap">
       <li><a href="index.html">HOME</a></li>
-      <li><a href="favorites.html" style="color:#ad6069; font-weight: bold; text-decoration:underline;">FAVORITES</a></li>
+      <li><a href="favorites.html" style="color:#ad6069; font-weight: bold; text-decoration:underline;">FAVORITES</a>
+      </li>
     </div>
-      <li><img src="assets/img/line2.png" alt="testing"></li>
+    <li><img src="assets/img/line2.png" alt="testing"></li>
   </ul>
 
   <!-- FAVORITE ANIMES -->
@@ -48,21 +49,33 @@
     <div class="container my-12 mx-auto px-4 md:px-1 ">
       <div class="favorite-display flex flex-wrap mx-1 lg:mx-4" id="favoriteDisplay">
         <!-- MODAL -->
-        <div class="modal fade fixed top-0 left-0 hidden w-full h-full outline-none overflow-x-hidden overflow-y-auto" id="animeModal" tabindex="-1" aria-labelledby="animeModalTitle" aria-modal="true" role="dialog">
+        <div class="modal fade fixed top-0 left-0 hidden w-full h-full outline-none overflow-x-hidden overflow-y-auto"
+          id="animeModal" tabindex="-1" aria-labelledby="animeModalTitle" aria-modal="true" role="dialog">
           <div class="modal-dialog modal-dialog-centered relative w-auto pointer-events-none">
-            <div class="modal-content border-none shadow-lg relative flex flex-col w-full pointer-events-auto bg-white bg-clip-padding rounded-md outline-none text-current">
-              <div class="modal-header flex flex-shrink-0 items-center justify-between p-4 border-b border-gray-200 rounded-t-md">
+            <div
+              class="modal-content border-none shadow-lg relative flex flex-col w-full pointer-events-auto bg-white bg-clip-padding rounded-md outline-none text-current">
+              <div
+                class="modal-header flex flex-shrink-0 items-center justify-between p-4 border-b border-gray-200 rounded-t-md">
                 <!-- js insert anime name, and clear current input -->
                 <h5 class="anime-title" id="anime-title">Anime Name</h5>
                 <button type="button"
-                class="btn-close box-content w-4 h-4 p-1 text-black border-none rounded-none opacity-50 focus:shadow-none focus:outline-none focus:opacity-100 hover:text-black hover:opacity-75 hover:no-underline"
-                data-bs-dismiss="modal" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+                  class="btn-close box-content w-4 h-4 p-1 text-black border-none rounded-none opacity-50 focus:shadow-none focus:outline-none focus:opacity-100 hover:text-black hover:opacity-75 hover:no-underline"
+                  data-bs-dismiss="modal" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
               </div>
               <div class="modal-body relative p-4">
                 <!-- js insert anime synopsis, and clear current input  -->
                 <p id="anime-synopsis">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas lacinia quam felis, vel efficitur massa pretium quis. Proin libero est, interdum vel molestie vel, varius volutpat ipsum. Donec vitae commodo dolor. Suspendisse suscipit, ex sed consectetur faucibus, tortor mi aliquam arcu, consectetur gravida tellus lorem id lorem. Aliquam ut ligula eu enim blandit ornare. Aliquam ut interdum ligula, at luctus libero. Nam fringilla urna vel vehicula placerat. Cras eu massa augue. Pellentesque dapibus sagittis nisl vitae condimentum. Nulla facilisi. Sed congue risus id mi semper pretium. Sed ultrices orci nec faucibus laoreet.
-                  Mauris volutpat rhoncus sem, sit amet pulvinar mi malesuada nec. Vestibulum sit amet semper nulla. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nullam id finibus nibh. Nullam fringilla condimentum tempus. Morbi malesuada scelerisque orci gravida mollis. In lacinia, nisl sed lobortis tempus, sem arcu consequat erat, nec volutpat nisi elit id mauris.
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas lacinia quam felis, vel efficitur
+                  massa pretium quis. Proin libero est, interdum vel molestie vel, varius volutpat ipsum. Donec vitae
+                  commodo dolor. Suspendisse suscipit, ex sed consectetur faucibus, tortor mi aliquam arcu, consectetur
+                  gravida tellus lorem id lorem. Aliquam ut ligula eu enim blandit ornare. Aliquam ut interdum ligula,
+                  at luctus libero. Nam fringilla urna vel vehicula placerat. Cras eu massa augue. Pellentesque dapibus
+                  sagittis nisl vitae condimentum. Nulla facilisi. Sed congue risus id mi semper pretium. Sed ultrices
+                  orci nec faucibus laoreet.
+                  Mauris volutpat rhoncus sem, sit amet pulvinar mi malesuada nec. Vestibulum sit amet semper nulla.
+                  Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nullam
+                  id finibus nibh. Nullam fringilla condimentum tempus. Morbi malesuada scelerisque orci gravida mollis.
+                  In lacinia, nisl sed lobortis tempus, sem arcu consequat erat, nec volutpat nisi elit id mauris.
                 </p>
               </div>
               <div id="related-products"
@@ -119,4 +132,5 @@
   <script src="./assets/js/favorites.js"></script>
 
 </body>
+
 </html>

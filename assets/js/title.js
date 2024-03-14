@@ -198,4 +198,3 @@ document.getElementById('tabs-tab').addEventListener('click', function(event){
     CleanSearchResults();
   }
 })
-
